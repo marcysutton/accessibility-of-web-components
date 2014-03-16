@@ -42,7 +42,7 @@
 				<section id="slide1">
   				<div class="accessibilityWrapper">
   					<h1>Accessiblity and the Shadow DOM</h1>
-  					<p>Created by <a href="http://marcysutton.com" target="_blank" title="Link opens in a new window">Marcy Sutton</a> / <a href="http://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@marcysutton</a></p>
+  					<p class="offscreen">Created by <a href="http://marcysutton.com" target="_blank" title="Link opens in a new window">Marcy Sutton</a> / <a href="http://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@marcysutton</a></p>
             <p><a class="substantial-logo" href="http://substantial.com" target="_blank" title="Link opens in a new window">SUBSTANTIAL</a>
   					</p>
   				</div>
@@ -52,9 +52,6 @@
   				  <img src="img/workstation.jpg" alt="Workstation inspiration" />
   				  <aside class="notes">
   				    <ul>
-  				      <li>If you were in a wheelchair, how would this make you feel? It's like somebody thought of you ahead of time (they did).</li>
-  				      <li>Have you ever had to use a computer without a mouse? Maybe your mouse ran out of batteries or your carpal tunnel flared up?</li>
-  				      <li>If one of your parents of family members lost their eyesight, would theys be able to use the projects you've built?</li>
   				    </ul>
   				  </aside>
 				  </div>
@@ -62,34 +59,28 @@
 
 				<section id="slide3">
 				  <div class="accessibilityWrapper">
-  					<h2>Remember the old days?</h2>
-            <ul>
-              <li class="fragment">Flash and keyboard navigation</li>
-              <li class="fragment">Flash and screen readers</li>
-              <li class="fragment">Flash and SEO</li>
-            </ul>
-            <p style="margin-top: 5%" class="fragment">Now we write JavaScript. Hooray! <br />How do we not repeat the same mistakes?</p>
-            <aside class="notes">
-              <ul>
-                <li>Browser inconsistencies w/ keyboard nav were a bitch</li>
-                <li>Flash accessibility required more effort. Poor access due to the nature of the "experience" (time-based, rapidly changing)</li>
-                <li>No downlevel content = bad SEO. No live text in Flash even bad for Google (embedded in images or vectors)</li>
-              </ul>
-            </aside>
+            <img src="img/meeting-room.jpg" alt="Meeting room" />
+            <p><small>Source: <a href="https://www.flickr.com/photos/neutronboy/5004992633/" target="_blank" title="Link opens in a new window">neutronboy / Flickr</a></small></p>
 				  </div>
 				</section>
 
 				<section id="slide4">
   				<div class="accessibilityWrapper">
-  					<h2>What is accessibility?</h2>
-  					<h3><a href="http://www.w3.org/WAI/intro/accessibility.php" target="_blank" title="Link opens in a new window">W3.org</a></h3>
-            <p>The Web is fundamentally designed to work for all people, whatever their hardware, software, language, culture, location, or physical or mental ability.</p>
+            <h2>Agenda</h2>
+            <ul>
+              <li>Accessibility Background</li>
+              <li>"The Shadow DOM Problem"</li>
+              <li>Browser Rendering Trees</li>
+              <li>Shadow DOM and Tab Index</li>
+              <li>Conclusion</li>
+            </ul>
   				</div>
 				</section>
 
         <section id="slide5">
           <div class="accessibilityWrapper">
-            <h2>Who are we talking about?</h2>
+            <h2>We build stuff for people.</h2>
+            <h3>Who are we talking about?</h3>
             <ul>
               <li>Blind & Vision Impaired</li>
               <li>Deaf & Hard of Hearing</li>
@@ -98,402 +89,209 @@
               <li>Learning Disabled</li>
               <li class="fragment" style="margin-top: 8%;">AND EVERYONE ELSE</li>
             </ul>
-            <aside class="notes">
-              <p>Note about aging population</p>
-            </aside>
           </div>
         </section>
 
         <section id="slide6">
           <div class="accessibilityWrapper">
-            <h2>Problematic Items</h2>
-            <div id="webaim-survey-problematic-items" style="background: url(img/webaim-survey-problematic-items.png) no-repeat center top; background-size: 75% auto; padding-top: 50%; width: 100%;">
-              <ul class="offscreen">
-                <li>The presence of inaccessible Flash content</li>
-                <li>CAPTCHA - images presenting text used to verify that you are a human user</li>
-                <li>Links or buttons that do not make sense</li>
-                <li>Images with missing or improper descriptions (alt text)</li>
-                <li>Screens or parts of screens that change unexpectedly</li>
-                <li>Complex or difficult forms</li>
-                <li>Lack of keyboard accessibility</li>
-                <li>Missing or improper headings</li>
-                <li>Too many links or navigation items</li>
-                <li>Complex data tables</li>
-                <li>Inaccessible or missing search functionality</li>
-                <li>Lack of "skip to main content" or "skip navigation" links</li>
-              </ul>
-            </div>
-            <small>Source: <a href="http://webaim.org/projects/screenreadersurvey4/" target="_blank" title="Link opens in a new window">WebAIM Screen Reader Survey, May 2012<span class="offscreen"> opens in a new window</span></a></small>
+            <h2>The Typical Experience</h2>
+            <iframe width="640" height="480" src="//www.youtube.com/embed/4FADDrQ47-M" frameborder="0" allowfullscreen></iframe>
+            <aside class="notes">
+              <p>Don't forget: there are TWO VIDEOS!</p>
+            </aside>
           </div>
         </section>
 
 				<section id="slide7">
   				<div class="accessibilityWrapper">
-  				  <h2>Content is more than just visible</h2>
-  				  <div class="fragment">
-    				  <ul>
-    				    <li>Semantic HTML markup</li>
-    				    <li>Headings</li>
-    				    <li>Form labels</li>
-    				    <li>Image alt text</li>
-    				    <li>Offscreen text</li>
-              </ul>
-            </div>
+            <h2>Keyboard Access</h2>
+            <h3 class="muted">The Typical Experience</h3>
+            <ul>
+              <li>Lack of visual feedback</li>
+              <li>Inability to interact with features</li>
+              <li>Often forgotten as a way to navigate</li>
+            </ul>
           </div>
         </section>
 
         <section id="slide8">
           <div class="accessibilityWrapper">
-            <h2>”Click here” means nothing</h2>
-            <div>
-              <ul class="fragment">
-                <li>Unique link text: good</li>
-              </ul>
-              <div class="fragment">
-                <img src="img/wallace-gromit.jpg" alt="Wallace & Gromit" style="float: right; margin: 15px 0;" />
-                <pre style="float: left; width: 75%;"><code data-trim>
-<a href="cheese-enthusiasts.html">Wallace & Gromit</a>
-<a href="the-wrong-trousers.html">Techno-Trousers</a>
-                </code></pre>
-              </div>
-            </div>
-            <div class="fragment" style="clear:both;">
-              <ul>
-                <li>Empty anchor links: bad</li>
-              </ul>
-              <pre style="float: left; width: 85%;"><code data-trim>
-  <a ng-click="eatCheese()" style="background-image: cheese.gif;"></a>
-              </code></pre>
-  				  </div>
+            <h2>Screen Reader Access</h2>
+            <h3 class="muted">The Typical Experience</h3>
+            <ul>
+              <li>No readable text content</li>
+              <li>No image alt attributes</li>
+              <li>Anchors without text</li>
+              <li>Misuse of headings</li>
+              <li>Poor semantics, especially in forms</li>
+            </ul>
   				</div>
 				</section>
 
 				<section id="slide9">
 				  <div class="accessibilityWrapper">
-				    <h2>Hidden vs. Offscreen</h2>
-				    <h3>Styles</h3>
-  				  <div class="twoThirdsCol skinnyCol">
-    				  <pre><code data-trim>
-  .reallyHidden
-    display: none
-    visibility: hidden
-    				  </code></pre>
-  				  </div>
-  				  <div class="twoThirdsCol wideCol">
-    				  <pre><code data-trim>
-  .offscreen
-    display: block
-    left: -50000px
-    position: absolute
-    				  </code></pre>
-  				  </div>
-  				  <div class="clear"></div>
+            <h2>General Accessibility</h2>
+            <h3 class="muted">The Typical Experience</h3>
+            <ul>
+              <li>Poor visual contrast</li>
+              <li>No imagination for accessible UX</li>
+              <li>Not for humans</li>
+              <li>No mobile accessibility (That's a thing!)</li>
+            </ul>
 				  </div>
 				</section>
 
 				<section id="slide10">
   				<div class="accessibilityWrapper">
-  				  <h2>Keyboard navigation</h2>
-  				  <h3 class="fragment">It doesn’t have to suck.</h3>
+            <h2>In an Ideal World</h2>
+            <h3 class="muted">Keyboard Access</h3>
+            <ul>
+              <li>Logical tab order</li>
+              <li>Navigating with only the keyboard</li>
+              <li>Good visual feedback</li>
+            </ul>
   				</div>
+          <aside class="notes">
+            <p>Find a good mega-menu example</p>
+          </aside>
 				</section>
 
 			  <section id="slide11">
 				  <div class="accessibilityWrapper">
-            <h2>Keyboard navigation</h2>
-            <small><em>Any element can receive focus with a little help.</em></small>
-  				  <div class="">
-    					<pre><code data-trim>
-&lt;div class="navigate-right" tabIndex="0"&gt;Next Slide&lt;/div&gt;
-    					</code></pre>
-    					<small><em>HTML</em></small>
-  				  </div>
-  				  <div class="">
-  				  <pre><code data-trim>
-$('.navigate-right').on 'click keypress', (event) ->
-  if event.type == 'click' || event.keyCode == 13
-    navRightClicked()
-  				  </code></pre>
-  					<small><em>jQuery & Coffeescript</em></small>
-  				  </div>
+            <h2>In an Ideal World</h2>
+            <h3 class="muted">Screen Reader Access</h3>
+            <ul>
+              <li>Relevant non-visual content</li>
+              <li>Attention to semantics</li>
+              <li>Meaningful page structure</li>
+              <li>Usable without seeing</li>
+            </ul>
 				  </div>
 			  </section>
 
-				<section>
-				  <section id="slide12">
-  				  <div class="accessibilityWrapper">
-    				  <h2>Skip Links</h2>
-    				  <!-- insert gif/video here -->
-    				  <video controls src="video/skip-links.mp4"></video>
-  				  </div>
-				  </section>
-
-				  <section id="slide13">
-  				  <div class="accessibilityWrapper">
-              <h2>Skip Links</h2>
-    				  <p>They’re useful for everyone.</p>
-    					<pre><code data-trim>
-  $('.skip-links').find('a').on 'focus blur click', ($event) ->
-
-    $(this).css({'left':'0'}) if $event.type == 'focus'
-    $(this).css({'left':'-999999px'}) if $event.type == 'blur'
-
-    if $event.type == 'click'
-      $event.preventDefault()
-      $(this).attr('href').focus()
-
-    					</code></pre>
-    					<small><em>jQuery & Coffeescript</em></small>
-  				  </div>
-				  </section>
-				</section>
-
-				<section>
-				  <section id="slide14">
-  				  <div class="accessibilityWrapper">
-    				  <h2>Mega-menus</h2>
-    				  <!-- insert video here -->
-    				  <video controls src="video/mega-menu.mp4"></video>
-              <aside class="notes">
-                <p>Don't forget: there are TWO VIDEOS!</p>
-              </aside>
-  				  </div>
-				  </section>
-
-				  <section id="slide15">
-  				  <div class="accessibilityWrapper">
-    				  <h2>Mega-menus</h2>
-    				  <small><em>Really hide invisible panels</em></small>
-    				  <div>
-      				  <div class="twoThirdsCol skinnyCol" style="width: 40%;">
-        					<pre><code data-trim>
-  a.nav-item-primary
-    color: red
-    display: block
-
-  nav.nav-secondary
-    display: none
-    visibility: hidden
-
-    &.open
-      display: block
-      visibility: visible
-        					</code></pre>
-        					<small><em>SASS</em></small>
-      				  </div>
-      				  <div class="twoThirdsCol wideCol" style="width: 58%;">
-        					<pre><code data-trim>
-  <a href="/about/" class="nav-item-primary">
-    <span>About</span>
-    <span class="offscreen"> expand</span>
-  </a>
-  <nav class="nav-secondary">
-    <ul>
-      <li><a href="...">About</a></li>
-      <li><a href="...">Location</a></li>
-      <li><a href="...">Mission</a></li>
-    </ul>
-  </nav>
-      					</code></pre>
-      					<small><em>HTML</em></small>
-    				  </div>
-    				  </div>
-  				  <aside class="notes">
-  				  <pre><code>
-    span.offscreen
-      display: block
-      left: -99999px
-      position: absolute
-      </code></pre>
-  				  </aside>
-  				  </div>
-				  </section>
-
-				  <section id="slide16">
-  				  <div class="accessibilityWrapper">
-  				    <h2>Mega Menus</h2>
-  				    <small><a href="http://codepen.io/marcysutton/pen/lsEko" target="_blank" title="Link opens in a new window">live example on codepen.io</a></small>
-  				    <pre><code data-trim>
-  $('a.nav-item-primary').on 'click', ($event) ->
-    $event.preventDefault()
-
-    $navSecondary = $(this).next('.nav-secondary')
-    $accessLabel = $(this).children('.offscreen')
-
-    if $navSecondary.hasClass('open')
-      $navSecondary.removeClass('open')
-      $accessLabel.text(' expand')
-
-    else
-      $navSecondary.addClass('open')
-      $accessLabel.text(' collapse')
-
-  				    </code></pre>
-  				    <small><em>jQuery & Coffeescript</em></small>
-  				  </div>
-				  </section>
-				</section>
-
-				<section>
-  				<section id="slide17">
-    				<div class="accessibilityWrapper">
-    				  <h2>Interactive Tiles</h2>
-    				  <!-- screencast here -->
-              <video controls src="video/interactive-tiles.mp4"></video>
-    				</div>
-  				</section>
-  				<section id="slide18">
-  				  <div class="accessibilityWrapper">
-  				    <h2>Interactive Tiles</h2>
-              <h3>VERSION 1</h3>
-              <small><em>Both sides are "visible"</em></small>
-              <div id="tiles-version1">
-                <figure class="tile">
-                  <a href="#">
-                    <div class="tile-front"><h3>Tile 1 front</h3></div>
-                    <div class="tile-back"><h3>continues onto back</h3></div>
-                  </a>
-                </figure>
-                <figure class="tile">
-                  <a href="#">
-                    <div class="tile-front"><h3>Tile 2 front</h3></div>
-                    <div class="tile-back"><h3>continues onto back</h3></div>
-                  </a>
-                </figure>
-                <figure class="tile">
-                  <a href="#">
-                    <div class="tile-front"><h3>Tile 3 front</h3></div>
-                    <div class="tile-back"><h3>continues onto back</h3></div>
-                  </a>
-                </figure>
-              </div>
-  				  </div>
-  				</section>
-          <section id="slide19">
-            <div class="accessibilityWrapper">
-              <h2>Interactive Tiles</h2>
-              <h3>VERSION 2</h3>
-              <small><em>One side is "visible" at a time</em></small>
-              <div id="tiles-version2">
-                <figure class="tile">
-                  <div class="mask">
-                    <div class="tile-inner">
-                      <div class="tile-front">
-                        <div>
-                          <h3 tabIndex="0">Tile 1</h3>
-                          <a href="#">Go to Tile 1 back</a>
-                        </div>
-                      </div>
-                      <div class="tile-back">
-                        <div>
-                          <h3 tabIndex="-1">Tile 1 Back</h3>
-                          <a href="#">Go to Tile 1 front</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-                <figure class="tile">
-                  <div class="mask">
-                    <div class="tile-inner">
-                      <div class="tile-front">
-                        <div>
-                          <h3 tabIndex="0">Tile 2</h3>
-                          <a href="#">Go to Tile 2 back</a>
-                        </div>
-                      </div>
-                      <div class="tile-back">
-                        <div>
-                          <h3 tabIndex="-1">Tile 2 Back</h3>
-                          <a href="#">Go to Tile 2 front</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-                <figure class="tile">
-                  <div class="mask">
-                    <div class="tile-inner">
-                      <div class="tile-front">
-                        <div>
-                          <h3 tabIndex="0">Tile 3</h3>
-                          <a href="#">Go to Tile 3 back</a>
-                        </div>
-                      </div>
-                      <div class="tile-back">
-                        <div>
-                          <h3 tabIndex="-1">Tile 3 Back</h3>
-                          <a href="#">Go to Tile 3 front</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </figure>
-              </div>
-            </div>
-          </section>
-				</section>
-
-        <section id="slide20">
-          <div class="accessibilityWrapper">
-            <h2>Accessible Reveal.js</h2>
-            <ul class="fragment">
-              <li>"Really hidden" slides</li>
-              <li>Tab-enabled arrows</li>
-              <li>Skip links plugin</li>
+			  <section id="slide12">
+				  <div class="accessibilityWrapper">
+            <h2>In an Ideal World</h2>
+            <h3 class="muted">General Accessibility</h3>
+            <!--
+           * Visual contrast using appropriate ratios: size, color, other factors like text treatments
+           * Make experiences interactive too
+           * Mobile and accessibility can be BFFs (software testing too)
+        -->
+            <ul>
+              <li>Good visual contrast ratios</li>
+              <li>Interactive accessiblility</li>
+              <li>Mobile & accessibility as BFFs</li>
+              <li>Software testing, too</li>
             </ul>
-            <h3 style="margin-top: 8%;" class="fragment">So. Meta.</h3>
+				  </div>
+			  </section>
+
+			  <section id="slide13">
+				  <div class="accessibilityWrapper">
+            <!-- Visual break -->
+            <img src="img/imgur-NqjNI3o.jpg" alt="Accessible auditorium" />
+            <small>Source: <a href="http://imgur.com/gallery/NqjNI3o" target="_blank" title="Link opens in a new window">imgur.com<span class="offscreen"> opens in a new window</span></a></small>
+				  </div>
+			  </section>
+
+			  <section id="slide14">
+				  <div class="accessibilityWrapper">
+            <h2>What are Web Components?</h2>
+            <p><a href="http://www.w3.org/TR/components-intro/" target="_blank" title="Link opens in a new window">New standards</a> moving through the W3C</p>
+            <ul>
+              <li>HTML Imports</li>
+              <li>Templates</li>
+              <li>Decorators</li>
+              <li>Custom Elements</li>
+              <li>Shadow DOM</li>
+            </ul>
+				  </div>
+			  </section>
+
+			  <section id="slide15">
+				  <div class="accessibilityWrapper">
+            <h2>Why are we excited about Web Components?</h2>
+            <ul>
+              <li>ENCAPSULATION</li>
+              <li>Mimization of style conflicts</li>
+              <li>A cool future for the Web</li>
+            </ul>
+				  </div>
+			  </section>
+
+			  <section id="slide16">
+				  <div class="accessibilityWrapper">
+            <h2>What is the Shadow DOM?</h2>
+            <!--
+   * Encapsulates a DOM subtree for more reliable composition of user interface elements.
+
+   * You've probably seen it in action already: HTML5 video, text, range & other inputs
+
+      * <Show graphic>
+
+   * Implementation details abstracted away from the actual interface
+
+   * Possible to use & view in latest Chrome, Firefox and Opera
+   * <SHOW SOME CODE>
+          -->
+            <ul class="checkboxes">
+              <li class="checked">Encapsulates a DOM subtree</li>
+              <li class="checked">Implementation vs. interface</li>
+              <li>Shadowy underworld organization<br >hell-bent on domination</li>
+            </ul>
+				  </div>
+			  </section>
+
+				<section id="slide17">
+  				<div class="accessibilityWrapper">
+            <h2>What is the Shadow DOM?</h2>
+            <p>You've seen it already:<br>
+            HTML5 video, input text, range, textarea</p>
+            <img src="img/video-shadow-dom.png" alt="HTML5 Video Element" style="max-height:400px" />
+            <small>Visible in latest Chrome, Firefox & Opera</small>
+  				</div>
+				</section>
+
+				<section id="slide18">
+				  <div class="accessibilityWrapper">
+            <h2>Shadow DOM in Action</h2>
+            <p><a href="http://marcysutton.github.io/web-components-accessibility/" target="_blank" title="Link opens in a new window">Let's look at a demo</a></p>
+				  </div>
+				</section>
+        <section id="slide19">
+          <div class="accessibilityWrapper">
           </div>
         </section>
 
-        <section>
-          <section id="slide21">
-            <div class="accessibilityWrapper">
-              <h2>Mobile</h2>
-              <blockquote class="twitter-tweet" align="center" data-conversation="none" data-theme="dark"><p><a href="https://twitter.com/marcysutton">@marcysutton</a> iPhone was the 1ST piece of tech I could use out of the box. Normally need sighted help to get screen reader installed etc.</p>&mdash; Steve Sawczyn (@steveofmaine) <a href="https://twitter.com/steveofmaine/statuses/388539435643441152">October 11, 2013</a></blockquote>
-              <blockquote class="twitter-tweet" align="center" data-conversation="none" data-theme="dark"><p><a href="https://twitter.com/marcysutton">@marcysutton</a> If you think about it, I can&#39;t even buy and use a microwave until someone helps me label touchpad.</p>&mdash; Steve Sawczyn (@steveofmaine) <a href="https://twitter.com/steveofmaine/statuses/388539569076850688">October 11, 2013</a></blockquote>
-              <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-          </section>
+        <section id="slide20">
+          <div class="accessibilityWrapper">
+          </div>
+        </section>
 
-          <section id="slide22">
-            <h2>Should your mobile site <br>be accessible?</h2>
-            <div class="fragment">
-              <h3>YES.</h3>
-              <p style="margin-top: 5%;"><em>(That could be an entire talk.)</em></p>
-          </section>
+        <section id="slide21">
+          <div class="accessibilityWrapper">
+          </div>
+        </section>
+
+        <section id="slide22">
+          <div class="accessibilityWrapper">
+          </div>
         </section>
 
         <section id="slide23">
   				<div class="accessibilityWrapper">
-  				  <h2>What else?</h2>
-  				  <ul>
-  				    <li class="fragment">ARIA</li>
-  				    <li class="fragment">Captchas</li>
-  				    <li class="fragment">Video</li>
-  				  </ul>
   				</div>
         </section>
 
 				<section id="slide24">
   				<div class="accessibilityWrapper">
-  				  <h2>It’s About User Experience.</h2>
-  				  <p><em>Let's make it better.</em></p>
-  				</div>
-    				<aside class="notes">
-    				  <h2>What else?</h2>
-    			    <ul>
-    			      <li>Feedback: hover/focus, updating widget instructions, external links, etc.</li>
-    			      <li>Tab order</li>
-    			      <li>Not trapping people in widgets they can’t get out of</li>
-    				    <li>Touch: make sure your events work</li>
-    			    </ul>
-  			      <ul>
-    				    <li>A whole other talk: How accessibility and automated testing are BFFs</li>
-    			    </ul>
-  			    </aside>
 				</section>
 			</div>
+      <footer>
+        <div class="copyright">Accessibility and the Shadow DOM<br />
+          <a href="http://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@MarcySutton</a> / <a href="http://substantial.com" target="_blank" title="Link opens in a new window">Substantial</a></div>
+      </footer>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
