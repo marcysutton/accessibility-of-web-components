@@ -85,11 +85,19 @@ body {
 .reveal h2.h1-style {
   font-size: 3.77em;
 }
-.reveal h1.h2-style {
+.reveal h1.h2-style,
+.reveal h3.h2-style {
   font-size: 2.11em;
 }
+.reveal h2.h3-style {
+  font-size: 1.55em;
+}
+.reveal p.bigItalic {
+  font-size: 1.5em;
+  font-style: italic;
+}
 .reveal small {
-  font-size: 0.7em; }
+  font-size: 0.5em; }
 
 .reveal .muted {
   color: #666;
