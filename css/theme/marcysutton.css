@@ -246,6 +246,23 @@ body {
       text-decoration: none;
       -webkit-transition: color 0.25s ease-out; }
 
+.reveal .image-headline {
+  background-size: 100% auto;
+  border: 4px solid #eeeeee;
+  margin-bottom: 10px;
+  min-height: 635px; 
+  width: 100%;
+}
+.reveal .image-headline#the-project {
+  background: transparent url(/img/workstation.jpg) no-repeat center center;
+}
+.reveal .image-headline#the-presentation {
+  background: transparent url(/img/meeting-room.jpg) no-repeat center center;
+}
+.reveal .image-headline h2 {
+  font-size: 2.75em;
+  padding-top: 0.5em;
+}
 /**
 * Code examples for AccesibleJS
 *
