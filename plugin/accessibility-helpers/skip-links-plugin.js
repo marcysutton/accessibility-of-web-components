@@ -68,6 +68,13 @@ var SkipLinks = (function(){
       dom.slideSkipLinks[i].addEventListener('focus', skipLinkFocus);
       dom.slideSkipLinks[i].addEventListener('blur', skipLinkBlur);
     }
+	  document.addEventListener('keydown', blurSkipLink);
+	}
+	function blurSkipLink(event) {
+		if(event.which === 27){
+			event.preventDefault();
+			event.target.blur();
+		}
 	}
   function skipToNavLinkClick(event) {
     event.preventDefault();
