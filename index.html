@@ -70,10 +70,11 @@
             <h2>Agenda</h2>
             <ul>
               <li>Accessibility Background</li>
+              <li>What are Web Components?</li>
               <li>"The Shadow DOM Problem"</li>
               <li>Browser Rendering Trees</li>
-              <li>Shadow DOM and Tab Index</li>
-              <li>Conclusion</li>
+              <li>Other areas of consideration</li>
+              <li>Wrap-up</li>
             </ul>
   				</div>
 				</section>
@@ -89,11 +90,11 @@
             <h2 class="h3-style muted">Traditional Accessibility</h2>
             <h3 class="h2-style">Who are we talking about?</h3>
             <ul>
-              <li>Blind & Vision Impaired</li>
-              <li>Deaf & Hard of Hearing</li>
-              <li>Impaired Mobility</li>
+              <li>Blind & Low-Vision</li>
+              <li>Deaf, Hard of Hearing</li>
+              <li>Physical disabilities</li>
               <li>Color-Blind</li>
-              <li>Learning Disabled</li>
+              <li>Cognitive impairments</li>
             </ul>
             <p class="fragment bigItalic" style="margin-top: 8%;">Everyone.</p>
           </div>
@@ -154,7 +155,7 @@
             <h3 class="muted">Keyboard Access</h3>
             <ul>
               <li>Logical tab order</li>
-              <li>Navigating with only the keyboard</li>
+              <li>Keyboard navigation possible</li>
               <li>Good visual feedback</li>
             </ul>
   				</div>
@@ -189,13 +190,14 @@
               <li>Good visual contrast ratios</li>
               <li>Interactive accessiblility</li>
               <li>Mobile & accessibility as BFFs</li>
-              <li>Software testing, too</li>
+              <li>Software testing, as BFFs</li>
             </ul>
 				  </div>
 			  </section>
 
 			  <section id="slide14">
 				  <div class="accessibilityWrapper">
+            <h2 class="offscreen">Pictured: Accessible auditorium with criss-crossing ramps. Isn't it comforting when someone has thought of you?</h2>
             <!-- Visual break -->
             <img src="img/imgur-NqjNI3o.jpg" alt="Accessible auditorium" />
             <small>Source: <a href="http://imgur.com/gallery/NqjNI3o" target="_blank" title="Link opens in a new window">imgur.com<span class="offscreen"> opens in a new window</span></a></small>
@@ -274,6 +276,8 @@
           <div class="accessibilityWrapper">
             <h2>Cool.</h2>
             <p class="bigItalic">But what does this have to do with accessibility?</p>
+            <!-- GIF/Image IDEAS -->
+            <!-- Seeing eye dog -->
           </div>
         </section>
 
@@ -281,7 +285,7 @@
           <div class="accessibilityWrapper">
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
-            <p><small>Source: <a href="#" target="_blank" title="Link opens in a new window">W3C Shadow DOM Specification</a></small></p>
+            <p><small>Source: <a href="http://www.w3.org/TR/shadow-dom/" target="_blank" title="Link opens in a new window">W3C Shadow DOM Specification</a></small></p>
           </div>
         </section>
 
@@ -292,17 +296,29 @@
           </div>
         </section>
 
+        <!-- RESEARCH: DOM tree in a browser with native support try Firefox in NVDA -->
+        
         <section id="slide23">
           <div class="accessibilityWrapper">
             <h2>It worked!</h2>
-            <h3>(why?)</h3>
+            <img src="/img/carlton-dancing.gif" alt="Carlton from Fresh Prince dancing">
+            <h3 class="fragment">why?</h3>
+            <!-- It worked because of the polyfill? -->
+            <!-- GIF NEEDED -->
+            <!-- Computer taco neck lady, slam dunk, truffle shuffle, Carlton dance -->
           </div>
         </section>
 
         <section id="slide24">
   				<div class="accessibilityWrapper">
             <h2>Trees &ldquo;as rendered&rdquo;</h2>
-            <img src="img/happy-little-tree.jpg" alt="Bob Ross Happy Little Tree meme" />
+            <ul class="spaced-list" style="float: left; width: 60%">
+              <li>Web browser does the heavy lifting in creating objects from markup</li>
+              <li>HTML altered by CSS, JS and ARIA</li>
+              <li>Web Components create a container and the elements in a subtree</li>
+              <li>Single "Acccessibility Tree" presented to Assistive Tech user</li>
+            </ul>
+            <img src="img/happy-little-tree.jpg" alt="Bob Ross Happy Little Tree meme" style="float: right; margin-top: 0.75em; width: 35%" />
   				</div>
         </section>
 
@@ -310,6 +326,8 @@
   				<div class="accessibilityWrapper">
             <h2>So, how do I make accessible Web Components?</h2>
             <p class="fragment bigItalic">Write accessible code.</p>
+            <!-- GIF IDEAS -->
+            <!-- D'oh! or Aaron wheelz backflip -->
           </div>
 				</section>
 

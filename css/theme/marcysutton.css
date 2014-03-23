@@ -116,6 +116,10 @@ body {
   .reveal ul.checkboxes li.checked:before {
     content: '\2611';
   }
+.reveal ul.spaced-list li {
+  margin-bottom: 0.5em;
+  margin-top: 0.75em;
+}
 /*********************************************
  * LINKS
  *********************************************/
