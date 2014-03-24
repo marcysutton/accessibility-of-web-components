@@ -97,7 +97,9 @@ body {
   font-style: italic;
 }
 .reveal small {
-  font-size: 0.5em; }
+  font-size: 0.5em; 
+  letter-spacing: 0;
+}
 
 .reveal .muted {
   color: #666;
@@ -119,6 +121,11 @@ body {
 .reveal ul.spaced-list li {
   margin-bottom: 0.5em;
   margin-top: 0.75em;
+}
+.reveal ul.smaller li {
+  font-size: 0.8em;
+  letter-spacing: 0;
+  margin-bottom: 0.5em;
 }
 /*********************************************
  * LINKS
