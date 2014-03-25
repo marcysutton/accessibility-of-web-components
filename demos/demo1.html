@@ -11,11 +11,14 @@
 	<main>
 		<h2>Taco Stuff</h2>
 		<template>
-	  	<p>I am a taco</p>
+			<p>
+				I am a
+		  	<content></content>
+	  	</p>
 	  	<img src="taco.gif" alt="taco" style="max-width: 400px">
 	  	<p><a href="http://www.pennlive.com/food/index.ssf/2014/03/taco_bell_waffle_taco_waffle_t.html">Taco Bell's new Waffle Taco and A.M. Crunchwrap: The review is in</a></p>
 	  </template>
-		<taco-stuff></taco-stuff>
+		<taco-stuff>taco</taco-stuff>
 	</main>
 	<script>
     var template = document.querySelector('template');
