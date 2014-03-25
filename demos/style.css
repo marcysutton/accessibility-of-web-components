@@ -184,16 +184,14 @@ a:hover, a:focus, button:hover, button:focus, .button:hover, .button:focus {
 	}
 		.dropdown ul li {
 			line-height: 1.5em;
+		  display: block;
+		  padding: 5px;
 		}
-			.dropdown ul a {
-			  display: block;
-			  padding: 5px;
-			}
 
-			.dropdown ul a:hover, .dropdown ul a:focus {
-			  background-color: #2ec133;
-			  color: black;
-			}
+		.dropdown ul li:hover, .dropdown ul li:focus {
+		  background-color: #2ec133;
+		  color: black;
+		}
 
 	.dropdown button[aria-expanded=true]:after {
 	  content: "\25B2";

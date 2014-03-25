@@ -11,32 +11,91 @@
 	<main>
 		<h2>Dropdown web component</h2>
 		<template>
-	  	<div class="dropdown" id="dropdown1">
-  			<button id="#button1" role="tab" aria-controls="linklist1" aria-expanded="false">select option</button>
-  			<ul id="linklist1" role="tabpanel" aria-hidden="true" tabIndex="-1">
-		      <li>
-		        <a href="#" aria-role="option">Link 1</a>
-		      </li>
-		      <li>
-		        <a href="#" aria-role="option">Link 2</a>
-		      </li>
-		      <li>
-		        <a href="#" aria-role="option">Link 3</a>
-		      </li>
-	      </ul>
-		  </div>
+	  	<div class="dropdown" id="dropdown1" role="application">
+				<div role="combobox"> 
+					<form autocomplete="off"> 
+					<div id="cb1" class="cb"> 
+						<div class="cb_label">
+						<button id="cb1-button" class="cb_button" aria-controls="cb1-list"> 
+							select state
+						</button> 
+
+						<ul id="cb1-list" class="cb_list" tabindex="-1" aria-expanded="true" role="listbox">
+							<li id="cb1-opt1" role="option" tabindex="0">Alabama</li> 
+							<li id="cb1-opt2" role="option" tabindex="0">Alaska</li> 
+							<li id="cb1-opt3" role="option" tabindex="0">American Samoa</li> 
+							<li id="cb1-opt4" role="option" tabindex="0">Arizona</li> 
+							<li id="cb1-opt5" role="option" tabindex="0">Arkansas</li> 
+							<li id="cb1-opt6" role="option" tabindex="0">California</li> 
+							<li id="cb1-opt7" role="option" tabindex="0">Colorado</li> 
+							<li id="cb1-opt8" role="option" tabindex="0">Connecticut</li> 
+							<li id="cb1-opt9" role="option" tabindex="0">Delaware</li> 
+							<li id="cb1-opt10" role="option" tabindex="0">District of Columbia</li> 
+							<li id="cb1-opt11" role="option" tabindex="0">Florida</li> 
+							<li id="cb1-opt12" role="option" tabindex="0">Georgia</li> 
+							<li id="cb1-opt13" role="option" tabindex="0">Guam</li> 
+							<li id="cb1-opt14" role="option" tabindex="0">Hawaii</li> 
+							<li id="cb1-opt15" role="option" tabindex="0">Idaho</li> 
+							<li id="cb1-opt16" role="option" tabindex="0">Illinois</li> 
+							<li id="cb1-opt17" role="option" tabindex="0">Indiana</li> 
+							<li id="cb1-opt18" role="option" tabindex="0">Iowa</li> 
+							<li id="cb1-opt19" role="option" tabindex="0">Kansas</li> 
+							<li id="cb1-opt20" role="option" tabindex="0">Kentucky</li> 
+							<li id="cb1-opt21" role="option" tabindex="0">Louisiana</li> 
+							<li id="cb1-opt22" role="option" tabindex="0">Maine</li> 
+							<li id="cb1-opt23" role="option" tabindex="0">Maryland</li> 
+							<li id="cb1-opt24" role="option" tabindex="0">Massachusetts</li> 
+							<li id="cb1-opt25" role="option" tabindex="0">Michigan</li> 
+							<li id="cb1-opt26" role="option" tabindex="0">Minnesota</li> 
+							<li id="cb1-opt27" role="option" tabindex="0">Mississippi</li> 
+							<li id="cb1-opt28" role="option" tabindex="0">Missouri</li> 
+							<li id="cb1-opt29" role="option" tabindex="0">Montana</li> 
+							<li id="cb1-opt30" role="option" tabindex="0">Nebraska</li> 
+							<li id="cb1-opt31" role="option" tabindex="0">Nevada</li> 
+							<li id="cb1-opt32" role="option" tabindex="0">New Hampshire</li> 
+							<li id="cb1-opt33" role="option" tabindex="0">New Jersey</li> 
+							<li id="cb1-opt34" role="option" tabindex="0">New Mexico</li> 
+							<li id="cb1-opt35" role="option" tabindex="0">New York</li> 
+							<li id="cb1-opt36" role="option" tabindex="0">North Carolina</li> 
+							<li id="cb1-opt37" role="option" tabindex="0">North Dakota</li> 
+							<li id="cb1-opt38" role="option" tabindex="0">Northern Marianas Islands</li> 
+							<li id="cb1-opt39" role="option" tabindex="0">Ohio</li> 
+							<li id="cb1-opt40" role="option" tabindex="0">Oklahoma</li> 
+							<li id="cb1-opt41" role="option" tabindex="0">Oregon</li> 
+							<li id="cb1-opt42" role="option" tabindex="0">Pennsylvania</li> 
+							<li id="cb1-opt43" role="option" tabindex="0">Puerto Rico</li> 
+							<li id="cb1-opt44" role="option" tabindex="0">Rhode Island</li> 
+							<li id="cb1-opt45" role="option" tabindex="0">South Carolina</li> 
+							<li id="cb1-opt47" role="option" tabindex="0">South Dakota</li> 
+							<li id="cb1-opt48" role="option" tabindex="0">Tennessee</li> 
+							<li id="cb1-opt49" role="option" tabindex="0">Texas</li> 
+							<li id="cb1-opt50" role="option" tabindex="0">Utah</li> 
+							<li id="cb1-opt51" role="option" tabindex="0">Vermont</li> 
+							<li id="cb1-opt52" role="option" tabindex="0">Virginia</li> 
+							<li id="cb1-opt53" role="option" tabindex="0">Virgin Islands</li> 
+							<li id="cb1-opt54" role="option" tabindex="0">Washington</li> 
+							<li id="cb1-opt55" role="option" tabindex="0">West Virginia</li> 
+							<li id="cb1-opt56" role="option" tabindex="0">Wisconsin</li> 
+							<li id="cb1-opt57" role="option" tabindex="0">Wyoming</li> 
+						</ul> 
+					</div> 
+					</form> 
+				</div>
 	  </template>
 		<dropdown-widget></dropdown-widget>
 	</main>
+	<script src="jquery-1.11.0.min.js"></script>
 	<script src="CustomDropdown.js"></script>
 	<script>
     var template = document.querySelector('template');
-    
     var dropdownPrototype = Object.create(HTMLElement.prototype);
     dropdownPrototype.createdCallback = function() {
       var root = this.createShadowRoot();
 	    root.applyAuthorStyles = true;
       var clone = template.content.cloneNode(true);
+
+		  // var customDropdown = new combobox(clone.querySelector('.dropdown'), false); 
+
 			var customDropdown = new CustomDropdown(clone.querySelector('.dropdown'));
 			root.appendChild(clone);
     };

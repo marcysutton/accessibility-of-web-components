@@ -3,15 +3,13 @@ var CustomDropdown = function($el, options){
   this.elCustomDropdown = null;
   this.elCustomDropdownUl = null;
 
-  this.accessLabelExpanded = 'expanded';
-  this.accessLabelCollapsed = 'collapsed';
-
   this.elCustomDropdown = $el;
   
   if($el){
     this.elDropdownTrigger = this.elCustomDropdown.querySelector('button');
     this.elCustomDropdownUl = this.elCustomDropdown.querySelector('ul');
-    this.elFirstSelectItem = this.elCustomDropdownUl.querySelector('a');
+    this.elListItems = this.elCustomDropdownUl.querySelectorAll('li');
+    this.elFirstSelectItem = this.elCustomDropdownUl.querySelector('li');
 
     // # Event bindings
     this.elCustomDropdown.addEventListener('click', this.customDropdownToggle.bind(this));
@@ -25,7 +23,6 @@ CustomDropdown.prototype = {
       this.elDropdownTrigger.focus();
     }
   },
-
   customDropdownToggle: function (event) {
     ddClasslist = this.elCustomDropdown.classList;
 
