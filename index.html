@@ -232,18 +232,6 @@
 			  <section id="slide17">
 				  <div class="accessibilityWrapper">
             <h2>What is the Shadow DOM?</h2>
-            <!--
-   * Encapsulates a DOM subtree for more reliable composition of user interface elements.
-
-   * You've probably seen it in action already: HTML5 video, text, range & other inputs
-
-      * <Show graphic>
-
-   * Implementation details abstracted away from the actual interface
-
-   * Possible to use & view in latest Chrome, Firefox and Opera
-   * <SHOW SOME CODE>
-          -->
             <ul class="checkboxes">
               <li class="checked">Encapsulates a DOM subtree</li>
               <li class="checked">Implementation vs. interface</li>
@@ -274,10 +262,17 @@
 
         <section id="slide20">
           <div class="accessibilityWrapper">
-            <h2>Cool.</h2>
-            <p class="bigItalic">But what does this have to do with accessibility?</p>
-            <!-- GIF/Image IDEAS -->
-            <!-- Seeing eye dog -->
+            <h2>Shadow Host & Shadow Root</h2>
+            <p class="bigItalic"><a href="http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees"  target="_blank" title="Link opens in a new window">The details</a></p>
+            <ul class="">
+              <li class="fragment"><em>Document tree</em> - a node tree [DOM] whose root node is the document</li>
+
+              <li class="fragment"><em>Shadow host</em> - an element that hosts one or more node trees</li>
+
+              <li class="fragment"><em>Shadow tree</em> - a node tree hosted by a shadow host</li>
+
+              <li class="fragment"><em>Shadow root</em> - the root node of a shadow tree</li>
+            </ul>
           </div>
         </section>
 
@@ -291,17 +286,16 @@
 
         <section id="slide22">
           <div class="accessibilityWrapper">
-            <h2>Shadow Host & Shadow Root</h2>
-            <p class="bigItalic"><a href="http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees"  target="_blank" title="Link opens in a new window">The details</a></p>
-            <ul class="smaller">
-              <li class="fragment"><em>Document tree</em> - a node tree [DOM] whose root node is the document</li>
-
-              <li class="fragment"><em>Shadow host</em> - an element that hosts one or more node trees</li>
-
-              <li class="fragment"><em>Shadow tree</em> - a node tree hosted by a shadow host</li>
-
-              <li class="fragment"><em>Shadow root</em> - the root node of a shadow tree</li>
-            </ul>
+            <h2>Cool goat.</h2>
+            <p><em>But what does this have to do with accessibility?</em></p>
+            <img src="img/stevie-wonder.svg" alt="" style="background-color: white; max-height:500px;">
+            <ol class="offscreen">
+              <li>Stevie Wonder the Blind Goat</li>
+              <li>Web browser</li>
+              <li>Accessibility API</li>
+              <li>Screen reader commands</li>
+              <li>Voice output</li>
+            </ol>
           </div>
         </section>
 
@@ -309,19 +303,17 @@
         
         <section id="slide23">
           <div class="accessibilityWrapper">
-            <h2>What about keyboards and <br>screen readers*?</h2>
+            <h2>Shadow DOM, keyboards and <br>screen readers<br>
+            <small style="font-size: 0.3em; margin-top: 0.5em;">(and other Assistive Technology)</small></h2>
             <p><a href="demos/demo1.html" target="_blank" title="Link opens in a new window">Let's revisit our Shadow DOM demo</a></p>
-            <small style="margin-top: 6em;" id="assist">*and other Assistive Technology</small>
           </div>
         </section>
 
         <section id="slide24">
   				<div class="accessibilityWrapper">
             <h2>It worked!</h2>
-            <img src="/img/carlton-dancing.gif" alt="Carlton from Fresh Prince dancing">
+            <img src="/img/carlton-dancing.gif" alt="Carlton from Fresh Prince dancing" style="min-width: 320px;">
             <h3 class="fragment">why?</h3>
-            <!-- It worked because of the polyfill? -->
-            <!-- GIF NEEDED -->
             <!-- Computer taco neck lady, slam dunk, truffle shuffle, Carlton dance -->
   				</div>
         </section>
@@ -331,10 +323,10 @@
             <h2>Trees &ldquo;as rendered&rdquo;</h2>
             <ul class="spaced-list" style="float: left; width: 60%">
               <li>Web browser parses HTML and creates objects from markup</li>
-              <li>DOM altered by CSS, JS and ARIA</li>
-              <li>Web Components create a container and child elements as a subtree</li>
-              <li>Assistive Technology makes use of objects in rendered DOM</li>
-              <li>"Acccessibility Tree" presented to user</li>
+              <li class="fragment">DOM altered by CSS, JS and ARIA</li>
+              <li class="fragment">Web Components create a container and child elements as a subtree</li>
+              <li class="fragment">Assistive Technology makes use of objects in rendered DOM</li>
+              <li class="fragment">"Acccessibility Tree" presented to user</li>
             </ul>
             <img src="img/happy-little-tree.jpg" alt="Bob Ross Happy Little Tree meme" style="float: right; margin-top: 0.75em; width: 35%" />
           </div>
@@ -342,34 +334,41 @@
 
         <section id="slide26">
           <div class="accessibilityWrapper">
+            <h2>So, how do I make accessible Web Components?</h2>
+            <p class="bigItalic">Write accessible code.</p>
+            <!-- GIF IDEAS -->
+            <!-- D'oh! or Aaron wheelz backflip -->
+            <img src="http://a.gifb.in/052010/1274879002_wheelchair-back-flip-jump.gif" alt="Aaron Wheelz Fotheringham wheelchair backflip" style="width: 400px">
           </div>
         </section>
 
         <section id="slide27">
           <div class="accessibilityWrapper">
-            <h2>So, how do I make accessible Web Components?</h2>
-            <p class="bigItalic">Write accessible code.</p>
-            <!-- GIF IDEAS -->
-            <!-- D'oh! or Aaron wheelz backflip -->
-            <img src="http://a.gifb.in/052010/1274879002_wheelchair-back-flip-jump.gif" alt="Aaron Wheelz Fotheringham wheelchair backflip">
+            <h2>Recap</h2>
+            <ul>
+              <li>Develop for the ideal</li>
+              <li>Web Components are for encapsulation</li>
+              <li>Shadow DOM is accessible</li>
+              <li>Assistive Tech uses DOM as rendered</li>
+              <li>Stevie Wonder is a cool goat</li>
+            </ul>
           </div>
         </section>
 
         <section id="slide28">
           <div class="accessibilityWrapper">
-            <h2>Recap</h2>
-            <ul>
-              <li>Web Components are cool</li>
-              <li>Shadow DOM is accessible</li>
-              <li>Don&rsquo;t be an asshole</li>
-            </ul>
+            <div class="image-headline" id="the-presentation">
+              <h2>Nailed it.</h2>
+            </div>
+            <p><small>Source: <a href="https://www.flickr.com/photos/neutronboy/5004992633/" target="_blank" title="Link opens in a new window">neutronboy / Flickr</a></small></p>
           </div>
         </section>
 
         <section id="slide29">
           <div class="accessibilityWrapper">
-            <!-- Come full circle -->
-            <h2></h2>
+            <h2>Questions?</h2>
+            <img src="img/dog_helps-blind.jpg" alt="Seeing-eye dogs">
+            <p><small>Source: <a href="http://www.thesun.co.uk/sol/homepage/news/3459149/Blind-guide-dog-gets-helping-paw.html" target="_blank" title="Link opens in a new window">The Sun</a></small></p>
           </div>
         </section>
 			</div>
