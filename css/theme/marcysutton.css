@@ -129,6 +129,10 @@ body {
   letter-spacing: 0;
   margin-bottom: 0.5em;
 }
+.reveal ul.smallest li {
+  font-size: 0.75em;
+  letter-spacing: 0;
+}
 /*********************************************
  * LINKS
  *********************************************/
