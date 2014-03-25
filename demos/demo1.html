@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shadow DOM Accessibility: Demo 1</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Shadow DOM Demo</h1>
+	</header>
+	<main>
+		<h2>Dropdown web component</h2>
+		<template>
+	  	<div class="dropdown" id="dropdown1">
+  			<button id="#button1" role="tab" aria-controls="linklist1" aria-expanded="false">select option</button>
+  			<ul id="linklist1" role="tabpanel" aria-hidden="true" tabIndex="-1">
+		      <li>
+		        <a href="#" aria-role="option">Link 1</a>
+		      </li>
+		      <li>
+		        <a href="#" aria-role="option">Link 2</a>
+		      </li>
+		      <li>
+		        <a href="#" aria-role="option">Link 3</a>
+		      </li>
+	      </ul>
+		  </div>
+	  </template>
+		<dropdown-widget></dropdown-widget>
+	</main>
+	<script src="CustomDropdown.js"></script>
+	<script>
+    var template = document.querySelector('template');
+    
+    var dropdownPrototype = Object.create(HTMLElement.prototype);
+    dropdownPrototype.createdCallback = function() {
+      var root = this.createShadowRoot();
+	    root.applyAuthorStyles = true;
+      var clone = template.content.cloneNode(true);
+			var customDropdown = new CustomDropdown(clone.querySelector('.dropdown'));
+			root.appendChild(clone);
+    };
+    document.registerElement("dropdown-widget", {
+      prototype: dropdownPrototype
+    });
+	</script>
+</body>
+</html>

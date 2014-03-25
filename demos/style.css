@@ -1,0 +1,205 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* html5doctor.com Reset Stylesheet */
+/* v1.6.1 */
+/* Last Updated: 2010-09-17 */
+/* Author: Richard Clark - http://richclarkdesign.com */
+/* Twitter: @rich_clark */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ffff99;
+  color: black;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ffff99;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+template {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.offscreen, .accessLabel {
+  display: block;
+  left: -50000px;
+  position: absolute;
+}
+a, button, .button {
+  color: black;
+  cursor: pointer;
+}
+
+a:hover, a:focus, button:hover, button:focus, .button:hover, .button:focus {
+  color: #2ec133;
+}
+
+.custom-dropdown a, button, .button {
+  display: inline-block;
+  padding: 8px;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, p {
+  line-height: 1.25em;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3, h4 {
+  font-size: 1em;
+  margin-bottom: 8px;
+}
+html, body {
+	margin: 10px;
+}
+body, button {
+  font-family: Menlo, Courier, monospace;
+}
+button, .button {
+  background-color: #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  display: block;
+  font-size: 1em;
+  padding: 10px 20px;
+  text-align: left;
+  -webkit-appearance: none;
+}
+a, button, .button {
+  color: black;
+  cursor: pointer;
+}
+a:hover, a:focus, button:hover, button:focus, .button:hover, .button:focus {
+  color: #2ec133;
+}
+
+.dropdown {
+  min-width: 280px;
+  position: relative;
+  width: 30%;
+}
+	.dropdown button {
+	  width: 100%;
+	}
+		.dropdown button:after {
+		  content: "\25BC";
+		  display: inline-block;
+		  float: right;
+		  vertical-align: middle;
+		}
+	.dropdown ul {
+	  box-shadow: 0 0.5em 1em #999999;
+	  background-color: white;
+	  display: none;
+	  list-style: none;
+	  position: absolute;
+	  visibility: hidden;
+	  z-index: 1;
+	  width: 100%;
+	}
+		.dropdown ul li {
+			line-height: 1.5em;
+		}
+			.dropdown ul a {
+			  display: block;
+			  padding: 5px;
+			}
+
+			.dropdown ul a:hover, .dropdown ul a:focus {
+			  background-color: #2ec133;
+			  color: black;
+			}
+
+	.dropdown button[aria-expanded=true]:after {
+	  content: "\25B2";
+	}
+
+	.dropdown.active ul {
+	  display: block;
+	  visibility: visible;
+	}
