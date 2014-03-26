@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Accessiblility and the Shadow DOM</title>
+
+		<meta name="description" content="A presentation on Accessibility and the Shadow DOM">
+		<meta name="author" content="Marcy Sutton">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/marcysutton.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+    <script src="lib/js/jquery-1.10.2.min.js"></script>
+    <script src="js/AccessibleTiles.js"></script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+      <ul class="skip-links" id="global-skip">
+        <li><a id="skip-to-toc" href="#table-of-contents">Skip to navigation</a></li>
+      </ul>
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="slide1">
+  				<div class="accessibilityWrapper">
+  					<h1>Accessiblity and the Shadow DOM</h1>
+  					<p class="offscreen">Created by <a href="http://marcysutton.com" target="_blank" title="Link opens in a new window">Marcy Sutton</a> / <a href="http://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@marcysutton</a></p>
+            <p><a class="substantial-logo" href="http://substantial.com" target="_blank" title="Link opens in a new window">SUBSTANTIAL</a>
+  					</p>
+  				</div>
+				</section>
+
+				<section id="slide2">
+				  <div class="accessibilityWrapper">
+            <div class="image-headline" id="the-project">
+              <h2>The best project ever?</h2>
+              <p class="offscreen">Pictured: your ideal workstation.</p>
+            </div>
+				  </div>
+				</section>
+
+				<section id="slide3">
+				  <div class="accessibilityWrapper">
+            <div class="image-headline" id="the-presentation">
+              <h2>You're presenting.</h2>
+              <p class="offscreen">Pictured: the meeting room.</p>
+            </div>
+            <p><small>Source: <a href="https://www.flickr.com/photos/neutronboy/5004992633/" target="_blank" title="Link opens in a new window">neutronboy / Flickr</a></small></p>
+				  </div>
+				</section>
+
+				<section id="slide4">
+  				<div class="accessibilityWrapper">
+            <h2>Agenda</h2>
+            <ul>
+              <li>Accessibility Background</li>
+              <li>What are Web Components?</li>
+              <li>Welcome to the Shadow DOM</li>
+              <li>The Accessibility Tree</li>
+              <li>Recap</li>
+            </ul>
+  				</div>
+				</section>
+
+        <section id="slide5">
+          <div class="accessibilityWrapper">
+            <h2>We build stuff for people.</h2>
+          </div>
+        </section>
+
+        <section id="slide6">
+          <div class="accessibilityWrapper">
+            <h2 class="h3-style muted">Traditional Accessibility</h2>
+            <h3 class="h2-style">Who are we talking about?</h3>
+            <ul>
+              <li>Blind & Low-Vision</li>
+              <li>Deaf, Hard of Hearing</li>
+              <li>Physical Disabilities</li>
+              <li>Color-Blind</li>
+              <li>Cognitive Impairments</li>
+            </ul>
+            <p class="fragment bigItalic" style="margin-top: 8%;">Everyone.</p>
+          </div>
+        </section>
+
+        <section id="slide7">
+          <div class="accessibilityWrapper">
+            <h2>Using Assistive Technology</h2>
+            <img src="img/stevie-wonder.svg" alt="" style="background-color: white; max-height:500px;">
+            <ol class="offscreen">
+              <li>Stevie Wonder the Blind Goat</li>
+              <li>Web browser</li>
+              <li>Accessibility API</li>
+              <li>Screen reader commands</li>
+              <li>Voice output</li>
+            </ol>
+          </div>
+        </section>
+
+				<section id="slide8">
+  				<div class="accessibilityWrapper">
+            <h2 class="h3-style muted">The Typical Experience</h2>
+            <h3 class="h2-style">Keyboard Access</h3>
+            <ul>
+              <li>Lack of visual feedback</li>
+              <li>Inability to interact with features</li>
+              <li>Often forgotten as a way to navigate</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="slide9">
+          <div class="accessibilityWrapper">
+            <h2 class="h3-style muted">The Typical Experience</h2>
+            <h3 class="h2-style">Screen Reader Access</h2>
+            <ul>
+              <li>Poor semantics, especially in forms</li>
+              <li>Misuse of headings</li>
+              <li>No readable text content</li>
+              <li>Anchors without text</li>
+              <li>No image alt attributes</li>
+            </ul>
+  				</div>
+				</section>
+
+				<section id="slide10">
+				  <div class="accessibilityWrapper">
+            <h2 class="h3-style muted">The Typical Experience</h2>
+            <h3 class="h2-style">General Accessibility</h3>
+            <ul>
+              <li>No imagination for accessible UX</li>
+              <li>Poor visual contrast</li>
+              <li>No mobile accessibility (That's a thing!)</li>
+              <li>Not for humans</li>
+            </ul>
+				  </div>
+				</section>
+
+        <section id="slide11">
+          <div class="accessibilityWrapper">
+            <h2>The Typical Experience</h2>
+            <iframe width="640" height="480" src="//www.youtube.com/embed/4FADDrQ47-M" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </section>
+
+				<section id="slide12">
+  				<div class="accessibilityWrapper">
+            <h2 class="h3-style muted">In an Ideal World</h2>
+            <h3 class="h2-style">Keyboard Access</h3>
+            <ul>
+              <li>Good visual feedback</li>
+              <li>Logical tab order</li>
+              <li>Keyboard navigation everywhere</li>
+            </ul>
+  				</div>
+				</section>
+
+			  <section id="slide13">
+				  <div class="accessibilityWrapper">
+            <h2 class="h3-style muted">In an Ideal World</h2>
+            <h3 class="h2-style">Screen Reader Access</h3>
+            <ul>
+              <li>Meaningful page structure</li>
+              <li>Attention to semantics</li>
+              <li>Relevant non-visual content</li>
+              <li>Usable without seeing</li>
+            </ul>
+				  </div>
+			  </section>
+
+			  <section id="slide14">
+				  <div class="accessibilityWrapper">
+            <h2 class="h3-style muted">In an Ideal World</h2>
+            <h3 class="h2-style">General Accessibility</h3>
+            <ul>
+              <li>Good visual contrast ratios</li>
+              <li>Make experiences interactive</li>
+              <li>SEO &amp; accessibility as BFFs</li>
+              <li>Content-rich on mobile</li>
+              <li>Integrated with software testing</li>
+            </ul>
+				  </div>
+			  </section>
+
+			  <section id="slide15">
+				  <div class="accessibilityWrapper">
+            <h2>How's it going?</h2>
+            <img src="img/presentation-meeting.jpg" alt="Your project presentation" style="max-width: 700px;" />
+				  </div>
+			  </section>
+
+			  <section id="slide16">
+				  <div class="accessibilityWrapper">
+            <h2>What are Web Components?</h2>
+            <p><a href="http://www.w3.org/TR/components-intro/" target="_blank" title="Link opens in a new window">New standards</a> moving through the W3C</p>
+            <ul>
+              <li>HTML Imports</li>
+              <li>Templates</li>
+              <li>Decorators</li>
+              <li>Custom Elements</li>
+              <li>Shadow DOM</li>
+            </ul>
+				  </div>
+			  </section>
+
+			  <section id="slide17">
+				  <div class="accessibilityWrapper">
+            <h2>Why are we excited about <br>Web Components?</h2>
+            <ul>
+              <li>ENCAPSULATION</li>
+              <li>Minimization of style conflicts</li>
+              <li>A new way to build for the Web</li>
+            </ul>
+				  </div>
+			  </section>
+
+			  <section id="slide18">
+				  <div class="accessibilityWrapper">
+            <h2>What is the Shadow DOM?</h2>
+            <ul class="checkboxes">
+              <li class="checked">Encapsulates a DOM subtree</li>
+              <li class="checked">Implementation vs. interface</li>
+              <li>Shadowy organization<br >hell-bent on world domination</li>
+            </ul>
+				  </div>
+			  </section>
+
+				<section id="slide19">
+  				<div class="accessibilityWrapper">
+            <h2>What is the Shadow DOM?</h2>
+            <p>You've seen it already:<br>
+            HTML5 video, input text, range, textarea</p>
+            <img src="img/video-shadow-dom.png" alt="HTML5 Video Element" style="max-height:400px" />
+            <p><small>Visible in latest Chrome, Firefox & Opera</small></p>
+  				</div>
+				</section>
+
+
+        <section id="slide20">
+          <div class="accessibilityWrapper">
+            <h2>Shadow DOM in Action</h2>
+            <p><a href="demos/demo1.html" target="_blank" title="Link opens in a new window">Let's look at a demo</a></p>
+          </div>
+        </section>
+
+				<section id="slide21">
+				  <div class="accessibilityWrapper">
+            <h2>Shadow Host & Shadow Root</h2>
+            <p class="bigItalic"><a href="http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees"  target="_blank" title="Link opens in a new window">The details</a></p>
+            <ul class="smaller">
+              <li><em>Node</em> - Every HTML element. Nested node groups are called "node trees"</li>
+
+              <li class="fragment"><em>Document tree</em> - a node tree whose root node is the document (DOM, or Document Object Model)</li>
+
+              <li class="fragment"><em>Shadow host</em> - an element that hosts one or more node trees</li>
+
+              <li class="fragment"><em>Shadow tree</em> - a node tree hosted by a shadow host</li>
+
+              <li class="fragment"><em>Shadow root</em> - the root node of a shadow tree</li>
+            </ul>
+				  </div>
+				</section>
+
+        <section id="slide22">
+          <div class="accessibilityWrapper">
+            <h2>Current Support</h2>
+            <ul class="smallest">
+              <li>Native implementation: Chrome, Firefox, Safari 6+, Mobile Safari</li>
+              <li>Polyfill: Chrome, Firefox, IE10+, Safari 6+, Mobile Safari</li>
+            </ul>
+            <img src="img/polymer-screenshot.png" alt="Polymer support matrix" style="max-width: 600px">
+            <p><small>Read more: <a href="http://www.polymer-project.org/resources/compatibility.html" target="_blank" title="Link opens in a new window">polymer-project.com</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide23">
+          <div class="accessibilityWrapper">
+            <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
+            <img src="img/shadow-dom.png" alt="Browser rendering tree" />
+            <p><small>Source: <a href="http://www.w3.org/TR/shadow-dom/" target="_blank" title="Link opens in a new window">W3C Shadow DOM Specification</a></small></p>
+          </div>
+        </section>
+
+        <!-- RESEARCH: DOM tree in a browser with native support try Firefox in NVDA -->
+        
+        <section id="slide24">
+          <div class="accessibilityWrapper">
+            <h2>Shadow DOM, keyboards and <br>screen readers<br>
+            <small style="font-size: 0.3em; margin-top: 0.5em;">(and other Assistive Technology)</small></h2>
+            <p><a href="demos/demo1.html" target="_blank" title="Link opens in a new window">Let's revisit our Shadow DOM demo</a></p>
+          </div>
+        </section>
+
+        <section id="slide25">
+  				<div class="accessibilityWrapper">
+            <h2>It worked!</h2>
+            <img src="/img/carlton-dancing.gif" alt="Carlton from Fresh Prince dancing" style="width: 450px;">
+            <h3>why?</h3>
+            <!-- Computer taco neck lady, slam dunk, truffle shuffle, Carlton dance -->
+  				</div>
+        </section>
+
+				<section id="slide26">
+  				<div class="accessibilityWrapper">
+            <h2>Trees &ldquo;as rendered&rdquo;</h2>
+            <ul class="spaced-list" style="float: left; width: 60%">
+              <li>Web browser parses HTML and creates objects from markup</li>
+              <li class="fragment">DOM altered by CSS, JS and ARIA (Accessibility API)</li>
+              <li class="fragment">Web Components create a container and child elements as a subtree</li>
+              <li class="fragment">Assistive Technology makes use of objects in rendered DOM</li>
+              <li class="fragment">"Acccessibility Tree" presented to user</li>
+            </ul>
+            <img src="img/happy-little-tree.jpg" alt="Bob Ross Happy Little Tree meme" style="float: right; margin-top: 0.75em; width: 35%" />
+          </div>
+				</section>
+
+        <section id="slide27">
+          <div class="accessibilityWrapper">
+            <h2>So, how do I make accessible Web Components?</h2>
+            <p class="bigItalic">Write accessible code.</p>
+            <!-- GIF IDEAS -->
+            <!-- D'oh! or Aaron wheelz backflip -->
+            <img src="http://a.gifb.in/052010/1274879002_wheelchair-back-flip-jump.gif" alt="Aaron Wheelz Fotheringham wheelchair backflip" style="width: 400px">
+          </div>
+        </section>
+
+        <section id="slide28">
+          <div class="accessibilityWrapper">
+            <h2>Recap</h2>
+            <ul>
+              <li>Develop for the ideal</li>
+              <li>Web Components are for encapsulation</li>
+              <li>Shadow DOM is accessible</li>
+              <li>Assistive Tech uses DOM as rendered</li>
+              <li>Stevie Wonder is also a cool goat</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="slide28">
+          <div class="accessibilityWrapper">
+            <div class="image-headline" id="the-presentation">
+              <h2>Nailed it.</h2>
+            </div>
+            <p><small>Source: <a href="https://www.flickr.com/photos/neutronboy/5004992633/" target="_blank" title="Link opens in a new window">neutronboy / Flickr</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide29">
+          <div class="accessibilityWrapper">
+            <h2>Resources</h2>
+            <p><a href="http://marcysutton.github.io/accessibility-shadow-dom-presentation/" target="_blank" title="Link opens in a new window">http://marcysutton.github.io/accessibility-shadow-dom-presentation/</a></p>
+          </div>
+        </section>
+
+        <section id="slide30">
+          <div class="accessibilityWrapper">
+            <h2>Questions?</h2>
+            <img src="img/dog_helps-blind.jpg" alt="Seeing-eye dogs">
+            <p><small>Source: <a href="http://www.thesun.co.uk/sol/homepage/news/3459149/Blind-guide-dog-gets-helping-paw.html" target="_blank" title="Link opens in a new window">The Sun</a></small></p>
+          </div>
+        </section>
+			</div>
+
+      <footer>
+        <div class="copyright">Accessibility and the Shadow DOM<br />
+          <a href="http://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@MarcySutton</a> / <a href="http://substantial.com" target="_blank" title="Link opens in a new window">Substantial</a></div>
+      </footer>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+					{ src: 'plugin/accessibility-helpers/skip-links-plugin.js', async: true }
+				]
+			});
+
+		</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12190082-1");
+pageTracker._setDomainName(".marcysutton.com");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+	</body>
+</html>
