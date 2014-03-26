@@ -9,16 +9,16 @@
 		<h1>Shadow DOM Demo</h1>
 	</header>
 	<main>
-		<h2>Taco Stuff</h2>
+		<h2>Goat Stuff</h2>
 		<template>
 			<p>
 				I am a
-		  	<content></content>
+		  	<content>meat popsicle</content>
 	  	</p>
-	  	<img src="taco.gif" alt="taco" style="max-width: 400px">
-	  	<p><a href="http://www.pennlive.com/food/index.ssf/2014/03/taco_bell_waffle_taco_waffle_t.html">Taco Bell's new Waffle Taco and A.M. Crunchwrap: The review is in</a></p>
+	  	<img src="goatlife.gif" alt="Fancy goat" style="max-width: 400px; margin-bottom: 20px;">
+	  	<p><a href="http://www.slashgear.com/goat-simulator-gameplay-hands-on-no-joke-all-goat-19321345/">Goat Simulator gameplay hands-on: no joke, all goat</a></p>
 	  </template>
-		<taco-stuff>taco</taco-stuff>
+		<goat-stuff>goat</goat-stuff>
 	</main>
 	<script>
     var template = document.querySelector('template');
@@ -29,7 +29,7 @@
       var clone = template.content.cloneNode(true);
 			root.appendChild(clone);
     };
-    document.registerElement("taco-stuff", {
+    document.registerElement("goat-stuff", {
       prototype: dropdownPrototype
     });
 	</script>

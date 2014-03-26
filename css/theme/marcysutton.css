@@ -29,7 +29,7 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: black url("post-alley.png") repeat-y center top; }
+  background: black url("post-alley.png") repeat center top; }
 
 .reveal {
   font-family: "Lato", sans-serif;
