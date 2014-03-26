@@ -271,10 +271,10 @@ body {
   width: 100%;
 }
 .reveal .image-headline#the-project {
-  background: transparent url(/img/workstation.jpg) no-repeat center center;
+  background: transparent url(../../img/workstation.jpg) no-repeat center center;
 }
 .reveal .image-headline#the-presentation {
-  background: transparent url(/img/meeting-room.jpg) no-repeat center center;
+  background: transparent url(../../img/meeting-room.jpg) no-repeat center center;
 }
 .reveal .image-headline h2 {
   font-size: 2.75em;
