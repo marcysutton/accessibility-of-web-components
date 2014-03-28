@@ -126,7 +126,7 @@ body {
 .reveal ul.smaller li {
   font-size: 0.95em;
   letter-spacing: 0;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
 }
 .reveal ul.smallest li {
   font-size: 0.75em;
