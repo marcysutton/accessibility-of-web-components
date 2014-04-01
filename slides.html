@@ -73,8 +73,8 @@
             <h2>Agenda</h2>
             <ul>
               <li>Accessibility Background</li>
-              <li>What are Web Components?</li>
-              <li>Welcome to the Shadow DOM</li>
+              <li>What's the big deal with Web Components?</li>
+              <li>Digging In to the Shadow DOM</li>
               <li>The Accessibility Situation</li>
               <li>Recap</li>
             </ul>
@@ -104,6 +104,13 @@
 
         <section id="slide7">
           <div class="accessibilityWrapper">
+            <h2>Hello, Stevie Wonder</h2>
+            <img src="img/stevie-wonder.jpg" alt="Stevie Wonder the Blind Goat" style="max-height: 500px;">
+          </div>
+        </section>
+
+        <section id="slide8">
+          <div class="accessibilityWrapper">
             <h2>Using Assistive Technology</h2>
             <img src="img/assistive-tech-diagram.png" alt="" style="background-color: white; max-height:500px;">
             <ol class="offscreen">
@@ -116,53 +123,7 @@
           </div>
         </section>
 
-				<section id="slide8">
-  				<div class="accessibilityWrapper">
-            <h2 class="h3-style muted">The Typical Experience</h2>
-            <h3 class="h2-style">Keyboard Access</h3>
-            <ul>
-              <li>Lack of visual feedback</li>
-              <li>Inability to interact with features</li>
-              <li>Often forgotten as a way to navigate</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="slide9">
-          <div class="accessibilityWrapper">
-            <h2 class="h3-style muted">The Typical Experience</h2>
-            <h3 class="h2-style">Screen Reader Access</h2>
-            <ul>
-              <li>Poor semantics, especially in forms</li>
-              <li>Misuse of headings</li>
-              <li>No readable text content</li>
-              <li>Anchors without text</li>
-              <li>No image alt attributes</li>
-            </ul>
-  				</div>
-				</section>
-
-				<section id="slide10">
-				  <div class="accessibilityWrapper">
-            <h2 class="h3-style muted">The Typical Experience</h2>
-            <h3 class="h2-style">General Accessibility</h3>
-            <ul>
-              <li>No imagination for accessible UX</li>
-              <li>Poor visual contrast</li>
-              <li>No mobile accessibility (That's a thing!)</li>
-              <li>Not for humans</li>
-            </ul>
-				  </div>
-				</section>
-
-        <section id="slide11">
-          <div class="accessibilityWrapper">
-            <h2>The Typical Experience</h2>
-            <iframe width="640" height="480" src="//www.youtube.com/embed/4FADDrQ47-M" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </section>
-
-				<section id="slide12">
+				<section id="slide9">
   				<div class="accessibilityWrapper">
             <h2 class="h3-style muted">In an Ideal World</h2>
             <h3 class="h2-style">Keyboard Access</h3>
@@ -174,7 +135,7 @@
   				</div>
 				</section>
 
-			  <section id="slide13">
+			  <section id="slide10">
 				  <div class="accessibilityWrapper">
             <h2 class="h3-style muted">In an Ideal World</h2>
             <h3 class="h2-style">Screen Reader Access</h3>
@@ -187,7 +148,7 @@
 				  </div>
 			  </section>
 
-			  <section id="slide14">
+			  <section id="slide11">
 				  <div class="accessibilityWrapper">
             <h2 class="h3-style muted">In an Ideal World</h2>
             <h3 class="h2-style">General Accessibility</h3>
@@ -201,14 +162,14 @@
 				  </div>
 			  </section>
 
-			  <section id="slide15">
+			  <section id="slide12">
 				  <div class="accessibilityWrapper">
             <h2>How's it going?</h2>
             <img src="img/presentation-meeting.jpg" alt="Your project presentation" style="max-width: 700px;" />
 				  </div>
 			  </section>
 
-			  <section id="slide16">
+			  <section id="slide13">
 				  <div class="accessibilityWrapper">
             <h2>What are Web Components?</h2>
             <p><a href="http://www.w3.org/TR/components-intro/" target="_blank" title="Link opens in a new window">New standards</a> moving through the W3C</p>
@@ -222,7 +183,7 @@
 				  </div>
 			  </section>
 
-			  <section id="slide17">
+			  <section id="slide14">
 				  <div class="accessibilityWrapper">
             <h2>Why are we excited about <br>Web Components?</h2>
             <ul>
@@ -233,7 +194,7 @@
 				  </div>
 			  </section>
 
-			  <section id="slide18">
+			  <section id="slide15">
 				  <div class="accessibilityWrapper">
             <h2>What is the Shadow DOM?</h2>
             <ul class="checkboxes">
@@ -244,17 +205,17 @@
 				  </div>
 			  </section>
 
-				<section id="slide19">
+				<section id="slide16">
   				<div class="accessibilityWrapper">
             <h2>What is the Shadow DOM?</h2>
             <p>You've seen it already:<br>
             HTML5 video, input text, range, textarea</p>
             <img src="img/video-shadow-dom.png" alt="HTML5 Video Element" style="max-height:400px" />
-            <p><small>Visible in latest Chrome, Firefox & Opera</small></p>
+            <p><small>Visible in latest Chrome, Firefox & Opera Dev Tools</small></p>
   				</div>
 				</section>
 
-				<section id="slide20">
+				<section id="slide17">
 				  <div class="accessibilityWrapper">
             <h2>Understanding Shadow DOM</h2>
             <p class="bigItalic"><a href="http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees"  target="_blank" title="Link opens in a new window">Some important terms</a></p>
@@ -272,7 +233,7 @@
 				  </div>
 				</section>
 
-        <section id="slide21">
+        <section id="slide18">
           <div class="accessibilityWrapper">
             <h2>Trees resemble nature</h2>
             <img src="img/tree.png" alt="Tree object representation compared to tree in nature">
@@ -280,10 +241,45 @@
           </div>
         </section>
 
-        <section id="slide22">
+        <section id="slide19">
           <div class="accessibilityWrapper">
             <h2>Shadow DOM in Action</h2>
             <p><a href="demos/demo1.html" target="_blank" title="Link opens in a new window">Let's look at a demo</a></p>
+          </div>
+        </section>
+
+        <section id="slide20">
+          <div class="accessibilityWrapper">
+            <h2>I can haz Shadow DOM?</h2>
+            <pre><code class="javascript">
+  var template = document.querySelector('template'),
+      elGoatStuff = Object.create(HTMLElement.prototype);
+
+  elGoatStuff.createdCallback = function() {
+    var root = this.createShadowRoot();
+    var clone = template.content.cloneNode(true);
+    root.appendChild(clone);
+    template.remove();
+  };
+
+  document.registerElement("goat-stuff", {
+    prototype: elGoatStuff
+  });
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="slide21">
+          <div class="accessibilityWrapper">
+            <h2>About that boundary...</h2>
+            <pre><code class="javascript">
+              
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="slide22">
+          <div class="accessibilityWrapper">
           </div>
         </section>
 
@@ -308,7 +304,7 @@
         <section id="slide25">
   				<div class="accessibilityWrapper">
             <h2>It worked!</h2>
-            <img src="img/carlton-dancing.gif" alt="Carlton from Fresh Prince dancing" style="width: 450px;">
+            <img src="img/sliding-goat.gif" alt="This long-horned goat who really wants this ice to understand that he is a goat and therefore can do whatever the hell he pleases." style="width: 450px;">
             <h3>why?</h3>
             <!-- Computer taco neck lady, slam dunk, truffle shuffle, Carlton dance -->
   				</div>
@@ -343,10 +339,8 @@
         <section id="slide28">
           <div class="accessibilityWrapper">
             <h2>So, how do I make accessible Web Components?</h2>
-            <p class="bigItalic">Write accessible code.</p>
-            <!-- GIF IDEAS -->
-            <!-- D'oh! or Aaron wheelz backflip -->
-            <img src="http://a.gifb.in/052010/1274879002_wheelchair-back-flip-jump.gif" alt="Aaron Wheelz Fotheringham wheelchair backflip" style="width: 400px">
+            <p class="fragment bigItalic">Write accessible code.</p>
+            <img class="fragment" src="img/goat-slam.gif" alt="This goat who desperately wants this reporter to understand how good he has it." style="margin-top: 1.5em; width: 400px;" >
           </div>
         </section>
 
