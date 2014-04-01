@@ -38,6 +38,14 @@ body {
   letter-spacing: -0.02em;
   color: #eeeeee; }
 
+.reveal pre {
+}
+.reveal pre code {
+  background-color: black;
+  font-size: 1.15em;
+  line-height: 1.45em;
+  max-height: 500px;
+}
 ::selection {
   color: white;
   background: #97948f;
@@ -49,7 +57,7 @@ body {
     width: 100%;
     bottom: 15px;
     left: 0;
-    font-size: 40%;
+    font-size: 45%;
     line-height: 1.25em;
     text-align: left;
 }
