@@ -42,6 +42,7 @@ body {
 }
 .reveal pre code {
   background-color: black;
+  color: #ccc;
   font-size: 1.15em;
   line-height: 1.45em;
   max-height: 500px;

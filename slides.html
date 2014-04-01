@@ -19,15 +19,12 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/solarized_dark.css">
-    <script src="lib/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
     <script src="lib/js/jquery-1.10.2.min.js"></script>
-
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -273,27 +270,24 @@
           <div class="accessibilityWrapper">
             <h2>About that boundary...</h2>
             <pre><code class="javascript">
-              
+  // get rid of anything inherited
+  shadowRoot.resetStyleInheritance = true;
+
+  // let CSS cascade into boundary
+  shadowRoot.applyAuthorStyles = true;
             </code></pre>
           </div>
         </section>
 
         <section id="slide22">
           <div class="accessibilityWrapper">
-          </div>
-        </section>
-
-        <section id="slide23">
-          <div class="accessibilityWrapper">
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
             <p><small>Source: <a href="http://www.w3.org/TR/shadow-dom/" target="_blank" title="Link opens in a new window">W3C Shadow DOM Specification</a></small></p>
           </div>
         </section>
-
-        <!-- RESEARCH: DOM tree in a browser with native support try Firefox in NVDA -->
         
-        <section id="slide24">
+        <section id="slide23">
           <div class="accessibilityWrapper">
             <h2>Shadow DOM, keyboards and <br>screen readers<br>
             <small style="font-size: 0.3em; margin-top: 0.5em;">(and other Assistive Technology)</small></h2>
@@ -301,7 +295,7 @@
           </div>
         </section>
 
-        <section id="slide25">
+        <section id="slide24">
   				<div class="accessibilityWrapper">
             <h2>It worked!</h2>
             <img src="img/sliding-goat.gif" alt="This long-horned goat who really wants this ice to understand that he is a goat and therefore can do whatever the hell he pleases." style="width: 450px;">
@@ -310,33 +304,34 @@
   				</div>
         </section>
 
-				<section id="slide26">
+				<section id="slide25">
   				<div class="accessibilityWrapper">
             <h2>Trees &ldquo;as rendered&rdquo;</h2>
             <ul class="spaced-list" style="float: left; width: 60%">
               <li>Web browser parses HTML and creates objects from markup</li>
               <li class="fragment">DOM altered by CSS, JS and ARIA (Accessibility API)</li>
               <li class="fragment">Web Components create a container and child elements as a subtree</li>
-              <li class="fragment">Assistive Technology makes use of objects in rendered DOM</li>
-              <li class="fragment">"Acccessibility Tree" presented to user</li>
+              <li class="fragment">Screen reader makes use of objects in rendered DOM</li>
+              <li class="fragment">"Acccessibility Tree" presented to screen reader user</li>
             </ul>
             <img src="img/happy-little-tree.jpg" alt="Bob Ross Happy Little Tree meme" style="float: right; margin-top: 0.75em; width: 35%" />
           </div>
 				</section>
 
-        <section id="slide27">
+        <section id="slide26">
           <div class="accessibilityWrapper">
-            <h2>Current Support</h2>
-            <ul class="smallest">
-              <li>Native implementation: Chrome, Firefox, Safari 6+, Mobile Safari</li>
-              <li>Polyfill: Chrome, Firefox, IE10+, Safari 6+, Mobile Safari</li>
-            </ul>
-            <img src="img/polymer-screenshot.png" alt="Polymer support matrix" style="max-width: 600px">
-            <p><small>Read more: <a href="http://www.polymer-project.org/resources/compatibility.html" target="_blank" title="Link opens in a new window">polymer-project.com</a></small></p>
+            <h2>The Accessibility Tree</h2>
+            <!-- 
+            Ideas: 
+              Show DOM Inspector 
+              Additional Screen Reader Testing
+              ARIA Demo
+              Tab Index Demo
+            -->
           </div>
         </section>
 
-        <section id="slide28">
+        <section id="slide27">
           <div class="accessibilityWrapper">
             <h2>So, how do I make accessible Web Components?</h2>
             <p class="fragment bigItalic">Write accessible code.</p>
@@ -344,7 +339,7 @@
           </div>
         </section>
 
-        <section id="slide29">
+        <section id="slide28">
           <div class="accessibilityWrapper">
             <h2>Recap</h2>
             <ul>
@@ -353,12 +348,11 @@
               <li>Shadow DOM is accessible</li>
               <li>Screen readers utilize DOM as rendered</li>
               <li>Pick the right technology for your audience</li>
-              <li>Stevie Wonder will appreciate it</li>
             </ul>
           </div>
         </section>
 
-        <section id="slide30">
+        <section id="slide29">
           <div class="accessibilityWrapper">
             <div class="image-headline" id="the-presentation">
               <h2>Nailed it.</h2>
@@ -367,18 +361,23 @@
           </div>
         </section>
 
-        <section id="slide31">
+        <section id="slide30">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-shadowdom/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-shadowdom/</a></p>
           </div>
         </section>
 
+
         <section id="slide32">
           <div class="accessibilityWrapper">
-            <h2>Questions?</h2>
-            <img src="img/dog_helps-blind.jpg" alt="Seeing-eye dogs">
-            <p><small>Source: <a href="http://www.thesun.co.uk/sol/homepage/news/3459149/Blind-guide-dog-gets-helping-paw.html" target="_blank" title="Link opens in a new window">The Sun</a></small></p>
+            <h2>Current Support</h2>
+            <ul class="smallest">
+              <li>Native implementation: Chrome, Firefox, Safari 6+, Mobile Safari</li>
+              <li>Polyfill: Chrome, Firefox, IE10+, Safari 6+, Mobile Safari</li>
+            </ul>
+            <img src="img/polymer-screenshot.png" alt="Polymer support matrix" style="max-width: 600px">
+            <p><small>Read more: <a href="http://www.polymer-project.org/resources/compatibility.html" target="_blank" title="Link opens in a new window">polymer-project.com</a></small></p>
           </div>
         </section>
 			</div>
@@ -419,6 +418,8 @@
 			});
 
 		</script>
+    <script src="lib/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
