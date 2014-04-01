@@ -9,8 +9,14 @@
 		<h1>Shadow DOM Demo</h1>
 	</header>
 	<main>
-		<h2>Goat Stuff</h2>
+		<h2>Main document</h2>
 		<template>
+			<style>
+				:host { font-family: Menlo, Courier, monospace; }
+				a:link, a:visited { color: blue; }
+				a:focus, a:hover { color: green; }
+			</style>
+			<h2>Goat Stuff</h2>
 			<p>
 				I am a
 		  	<content>meat popsicle</content>
@@ -22,15 +28,14 @@
 	</main>
 	<script>
     var template = document.querySelector('template');
-    var dropdownPrototype = Object.create(HTMLElement.prototype);
-    dropdownPrototype.createdCallback = function() {
+    var elGoatStuff = Object.create(HTMLElement.prototype);
+    elGoatStuff.createdCallback = function() {
       var root = this.createShadowRoot();
-	    root.applyAuthorStyles = true;
       var clone = template.content.cloneNode(true);
 			root.appendChild(clone);
     };
     document.registerElement("goat-stuff", {
-      prototype: dropdownPrototype
+      prototype: elGoatStuff
     });
 	</script>
 </body>
