@@ -30,11 +30,16 @@
   <script src="platform/platform.js"></script>
 	<script>
     var template = document.querySelector('template');
-    var elGoatStuff = Object.create(HTMLButtonElement.prototype);
+    HTMLButtonElement.prototype.hide = function(){
+      this.style.display = 'none';
+    }
+    var elGoatStuff = Object.create(HTMLElement.prototype);
     elGoatStuff.createdCallback = function() {
       var root = this.createShadowRoot();
       var clone = template.content.cloneNode(true);
 			root.appendChild(clone);
+
+      //this.hide();
     };
     document.registerElement("goat-stuff", {
       prototype: elGoatStuff
