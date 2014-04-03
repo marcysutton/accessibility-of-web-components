@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shadow DOM Accessibility: Demo 2</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Shadow DOM Demo</h1>
+	</header>
+	<main>
+		<h2>Main document</h2>
+    <button>Click Me</button>
+		<template>
+			<style>
+				:host { font-family: Menlo, Courier, monospace; }
+				a:link, a:visited { color: blue; }
+				a:focus, a:hover { color: green; }
+			</style>
+			<h2>Goat Stuff</h2>
+			<p>
+				I am a
+		  	<content>meat popsicle</content>
+	  	</p>
+	  	<img src="goatlife.gif" alt="Fancy goat" style="max-width: 400px; margin-bottom: 20px;">
+	  	<p><a href="http://www.slashgear.com/goat-simulator-gameplay-hands-on-no-joke-all-goat-19321345/">Goat Simulator gameplay hands-on: no joke, all goat</a></p>
+	  </template>
+		<goat-stuff>goat</goat-stuff>
+	</main>
+  <script src="platform/platform.js"></script>
+	<script>
+    var template = document.querySelector('template');
+    var elGoatStuff = Object.create(HTMLButtonElement.prototype);
+    elGoatStuff.createdCallback = function() {
+      var root = this.createShadowRoot();
+      var clone = template.content.cloneNode(true);
+			root.appendChild(clone);
+    };
+    document.registerElement("goat-stuff", {
+      prototype: elGoatStuff
+    });
+	</script>
+</body>
+</html>
