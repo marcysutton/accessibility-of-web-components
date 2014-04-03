@@ -70,8 +70,8 @@
             <h2>Agenda</h2>
             <ul>
               <li>Accessibility Background</li>
-              <li>What's the big deal with Web Components?</li>
-              <li>Digging In to the Shadow DOM</li>
+              <li>The Deal with Web Components</li>
+              <li>Stepping In to the Shadow DOM</li>
               <li>The Accessibility Situation</li>
               <li>Recap</li>
             </ul>
@@ -101,7 +101,8 @@
 
         <section id="slide7">
           <div class="accessibilityWrapper">
-            <h2>Hello, Stevie Wonder</h2>
+            <h2>Stevie Wonder</h2>
+            <small class="fragment">The blind goat</small><br>
             <img src="img/stevie-wonder.jpg" alt="Stevie Wonder the Blind Goat" style="max-height: 500px;">
           </div>
         </section>
@@ -153,7 +154,7 @@
               <li>Good visual contrast ratios</li>
               <li>Make experiences interactive</li>
               <li>SEO &amp; accessibility as BFFs</li>
-              <li>Content-rich on mobile</li>
+              <li>Mobile accessibility (that's a thing!)</li>
               <li>Integrated with software testing</li>
             </ul>
 				  </div>
@@ -184,9 +185,10 @@
 				  <div class="accessibilityWrapper">
             <h2>Why are we excited about <br>Web Components?</h2>
             <ul>
-              <li>ENCAPSULATION</li>
-              <li>Minimization of style &amp; script conflicts</li>
               <li>A new way to build the Web</li>
+              <li>Not waiting for browser implementers</li>
+              <li>Minimization of style &amp; script conflicts</li>
+              <li>ENCAPSULATION</li>
             </ul>
 				  </div>
 			  </section>
@@ -286,7 +288,7 @@
             <p><small>Source: <a href="http://www.w3.org/TR/shadow-dom/" target="_blank" title="Link opens in a new window">W3C Shadow DOM Specification</a></small></p>
           </div>
         </section>
-        
+
         <section id="slide23">
           <div class="accessibilityWrapper">
             <h2>Shadow DOM, keyboards and <br>screen readers<br>
@@ -321,9 +323,9 @@
         <section id="slide26">
           <div class="accessibilityWrapper">
             <h2>The Accessibility Tree</h2>
-            <!-- 
-            Ideas: 
-              Show DOM Inspector 
+            <!--
+            Ideas:
+              Show DOM Inspector
               Additional Screen Reader Testing
               ARIA Demo
               Tab Index Demo
@@ -409,7 +411,7 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/highlight/highlight.pack.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 
@@ -418,8 +420,6 @@
 			});
 
 		</script>
-    <script src="lib/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
