@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Shadow DOM Accessibility: Demo 2</title>
-	<link href="style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
 <body id="demo2">
 	<header>
@@ -77,7 +77,6 @@
 				.trigger-button.hidden {
 					opacity: 0;
 				}
-
 			</style>
 			<div class="component-wrapper">
 				<div class="well">
@@ -91,13 +90,13 @@
 	  </template>
 		<slider-control id="slider-control"></slider-control>
 	</main>
-  <script src="platform/platform.js"></script>
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
-	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js'></script>
-  <script src="slider.js"></script>
+  <script src="js/platform/platform.js"></script>
+	<script src='js/jquery-1.10.2.js'></script>
+	<script src='js/jquery-ui-1.10.4.custom.min.js'></script>
+  <script src="js/slider.js"></script>
 	<script>
 		var image = new Image();
-		image.setAttribute('src','goats-on-metal.gif');
+		image.setAttribute('src','images/goats-on-metal.gif');
 		image.setAttribute('alt','goats on metal gif');
 
     var template = document.querySelector('template');
