@@ -6,43 +6,58 @@
 </head>
 <body>
 	<header>
-		<h1>Shadow DOM Demo</h1>
+		<h1>ARIA Demo</h1>
 	</header>
 	<main>
-		<h2>Main document</h2>
-    <button>Click Me</button>
+		<p><label id="slider-label" for="slider-control">Image Slider</label></p>
+		<div style="height: 255px; width: 360px">
+	    <img src="goatlife.gif" alt="Fancy goat" style="max-width: 50%;" id="goat-image">
+    </div>
 		<template>
 			<style>
-				:host { font-family: Menlo, Courier, monospace; }
-				a:link, a:visited { color: blue; }
-				a:focus, a:hover { color: green; }
+			.slider-container { margin: 40px 0; position: relative; width: 360px; }
+				p.min { float: left; }
+				p.max { float:right;}
+				button { background: transparent url(button.png); background-size: 100% auto; border: none; clear: both; cursor: pointer; display: block; height: 50px; left: 50%; margin-left: -25px; margin-top: -25px; position: absolute; text-indent: -5000px; top: 50%; width: 50px; }
+				button:hover, button:focus {  }
+				.track { background-color: gray; border-radius: 8px; height: 12px; width: 100%; }
 			</style>
-			<h2>Goat Stuff</h2>
-			<p>
-				I am a
-		  	<content>meat popsicle</content>
-	  	</p>
-	  	<img src="goatlife.gif" alt="Fancy goat" style="max-width: 400px; margin-bottom: 20px;">
-	  	<p><a href="http://www.slashgear.com/goat-simulator-gameplay-hands-on-no-joke-all-goat-19321345/">Goat Simulator gameplay hands-on: no joke, all goat</a></p>
+			<div class="slider-container">
+				<p class="min">0%</p>
+				<p class="max">100%</p>
+				<button role="slider" aria-labeledby="slider-label" aria-valuenow="50" aria-min="0" aria-max="100">
+					Slide
+				</button>
+				<div class="track"></div>
+			</div>
+			<p aria-valuetext=""></p>
 	  </template>
-		<goat-stuff>goat</goat-stuff>
+		<slider-control id="slider-control"></slider-control>
 	</main>
   <script src="platform/platform.js"></script>
 	<script>
     var template = document.querySelector('template');
-    HTMLButtonElement.prototype.hide = function(){
-      this.style.display = 'none';
-    }
-    var elGoatStuff = Object.create(HTMLElement.prototype);
-    elGoatStuff.createdCallback = function() {
+    var elSliderComponent = Object.create(HTMLElement.prototype);
+    elSliderComponent.createdCallback = function() {
       var root = this.createShadowRoot();
       var clone = template.content.cloneNode(true);
+      initEvents(clone);
 			root.appendChild(clone);
-
-      //this.hide();
     };
-    document.registerElement("goat-stuff", {
-      prototype: elGoatStuff
+    var initEvents = function(el) {
+    	var button = el.querySelector('button');
+    	button.addEventListener('mousedown', mouseDownHandler);
+    	button.addEventListener('mouseup', mouseUpHandler);
+    };
+    function mouseDownHandler (event){
+    	console.log(event);
+    };
+		function mouseUpHandler(event){
+
+		};
+
+    document.registerElement("slider-control", {
+      prototype: elSliderComponent
     });
 	</script>
 </body>
