@@ -39,6 +39,8 @@ var Slider = function(target){
 	});
 	this.numKeypresses = 0;
 	this.elSlider.addEventListener('keydown', this.keydownHandler.bind(this), false);
+	this.elSlider.addEventListener('touchmove', this.touchMoveHandler.bind(this), false);
+	this.elSlider.addEventListener('touchend', this.touchEndHandler.bind(this), false);
 }
 Slider.prototype = {
 	keydownHandler: function(event){
@@ -52,5 +54,21 @@ Slider.prototype = {
 	    }
 	   	target.style.webkitTransform = 'translateX(' + curX + 'px)'; 
 		}
+	},
+	touchMoveHandler: function(event){
+    event.preventDefault();
+    var target = event.target;
+    var touch = event.touches[0];
+    curX = touch.pageX - this.offsetLeft - 73;
+    if(curX <= 0) return;
+    if(curX > 550){
+    	this.elTrack.fadeOut();
+    }
+   	target.style.webkitTransform = 'translateX(' + curX + 'px)'; 
+	},
+	touchEndHandler: function(event) {	
+    this.style.webkitTransition = '-webkit-transform 0.3s ease-in';
+    this.addEventListener( 'webkitTransitionEnd', function( event ) { this.style.webkitTransition = 'none'; }, false );
+    this.style.webkitTransform = 'translateX(0px)';
 	}
 }
