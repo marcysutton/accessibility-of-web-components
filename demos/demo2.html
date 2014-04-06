@@ -3,61 +3,55 @@
 <head>
 	<title>Shadow DOM Accessibility: Demo 2</title>
 	<link href="style.css" rel="stylesheet">
+	<link href="slider.css" rel="stylesheet">
 </head>
-<body>
+<body id="demo2">
 	<header>
-		<h1>ARIA Demo</h1>
+		<h1>Are you sure?</h1>
 	</header>
 	<main>
-		<p><label id="slider-label" for="slider-control">Image Slider</label></p>
-		<div style="height: 255px; width: 360px">
-	    <img src="goatlife.gif" alt="Fancy goat" style="max-width: 50%;" id="goat-image">
-    </div>
 		<template>
-			<style>
-			.slider-container { margin: 40px 0; position: relative; width: 360px; }
-				p.min { float: left; }
-				p.max { float:right;}
-				button { background: transparent url(button.png); background-size: 100% auto; border: none; clear: both; cursor: pointer; display: block; height: 50px; left: 50%; margin-left: -25px; margin-top: -25px; position: absolute; text-indent: -5000px; top: 50%; width: 50px; }
-				button:hover, button:focus {  }
-				.track { background-color: gray; border-radius: 8px; height: 12px; width: 100%; }
-			</style>
-			<div class="slider-container">
-				<p class="min">0%</p>
-				<p class="max">100%</p>
-				<button role="slider" aria-labeledby="slider-label" aria-valuenow="50" aria-min="0" aria-max="100">
-					Slide
-				</button>
-				<div class="track"></div>
+			<div class="component-wrapper">
+				<div class="well">
+					<h2>
+						<span>slide to unlock</span>
+						<button id="slider" role="slider" aria-disabled="false" aria-hidden="false" aria-min="0" aria-max="100">Drag</button> 
+					</h2>
+				</div>
+				<button class="trigger-button" id="play-button" disabled aria-disabled="true" aria-hidden="true">PLAY</button>
 			</div>
-			<p aria-valuetext=""></p>
 	  </template>
 		<slider-control id="slider-control"></slider-control>
 	</main>
   <script src="platform/platform.js"></script>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js'></script>
+  <script src="slider.js"></script>
 	<script>
+		var image = new Image();
+		image.setAttribute('src','goats-on-metal.gif');
+		image.setAttribute('alt','goats on metal gif');
+
     var template = document.querySelector('template');
-    var elSliderComponent = Object.create(HTMLElement.prototype);
-    elSliderComponent.createdCallback = function() {
+    var elComponent = Object.create(HTMLElement.prototype);
+    elComponent.createdCallback = function() {
       var root = this.createShadowRoot();
       var clone = template.content.cloneNode(true);
-      initEvents(clone);
+      
+      new Slider(clone);
+
+      var button = clone.querySelector('#play-button');
+      button.addEventListener('click', function(event){
+      	button.className += 'hidden';
+      	button.setAttribute('aria-hidden', 'true');
+      	button.setAttribute('aria-disabled','true');
+      	document.querySelector('main').appendChild(image);
+      });
+
 			root.appendChild(clone);
     };
-    var initEvents = function(el) {
-    	var button = el.querySelector('button');
-    	button.addEventListener('mousedown', mouseDownHandler);
-    	button.addEventListener('mouseup', mouseUpHandler);
-    };
-    function mouseDownHandler (event){
-    	console.log(event);
-    };
-		function mouseUpHandler(event){
-
-		};
-
     document.registerElement("slider-control", {
-      prototype: elSliderComponent
+      prototype: elComponent
     });
 	</script>
 </body>

@@ -154,7 +154,9 @@ button:hover, button:focus,
   padding: 8px;
   text-decoration: none;
 }
-
+#demo2 img {
+  margin-top: 100px;
+}
 .dropdown {
   min-width: 280px;
   position: relative;
