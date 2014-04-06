@@ -154,6 +154,11 @@ button:hover, button:focus,
   padding: 8px;
   text-decoration: none;
 }
+#slider-control {
+  position: relative;
+  margin: 0 auto 100px; 
+  padding-top: 100px; 
+}
 #demo2 img {
   margin-top: 100px;
 }

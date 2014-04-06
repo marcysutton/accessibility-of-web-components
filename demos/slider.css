@@ -1,20 +1,10 @@
-#slider-control {
-	position: relative;
-	margin: 0 auto 100px; 
-	padding-top: 100px; 
-}
-#slider-control ^ .component-wrapper {
-}
+
 #slider-control ^ .well {
 	display: inline-block;
 	padding: 0 20px;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	border-radius: 30px;
-	
-	background: -moz-linear-gradient(top, #010101, #181818);
-	background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #010101),color-stop(1, #181818));
-	
 	border: 2px solid #454545; 
 	overflow: hidden; 
 	
@@ -30,8 +20,6 @@
   padding: 0;
   width: 356px;
   z-index: 1;
-  
-  -webkit-text-size-adjust: none;
 }
 #slider-control ^ #slider {
 	background: url(../demos/images/arrow.png) no-repeat;
