@@ -18,6 +18,7 @@
 					display: inline-block;
 					overflow: hidden;
 					padding: 0 20px;
+				  text-align: left;
 					width: 360px;
 					-webkit-user-select: none;
 				}
@@ -60,7 +61,9 @@
 					display: block;
 					height: 90px;
 					opacity: 0;
+					left: 50%;
 					font-size: 200%;
+					margin-left: -200px;
 					padding: 8px 10px;
 					position: absolute;
 					top: 0;
@@ -113,6 +116,7 @@
       	button.setAttribute('aria-hidden', 'true');
       	button.setAttribute('aria-disabled','true');
       	document.querySelector('main').appendChild(image);
+      	document.body.className += 'exploded';
       });
 
 			root.appendChild(clone);

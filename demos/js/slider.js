@@ -61,7 +61,7 @@ Slider.prototype = {
     var touch = event.touches[0];
     curX = touch.pageX - this.offsetLeft - 73;
     if(curX <= 0) return;
-    if(curX > 550){
+    if(curX > this.wellWidth){
     	this.elTrack.fadeOut();
     }
    	target.style.webkitTransform = 'translateX(' + curX + 'px)'; 
