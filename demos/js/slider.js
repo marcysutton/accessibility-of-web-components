@@ -17,24 +17,7 @@ var Slider = function(target){
 			console.log(ui.position.left);
 		},
 		drag: function(event, ui) {
-			self.valueNow = Math.floor(ui.position.left / self.wellWidth * 100);
-			$(this).attr({
-				'aria-valuenow': self.valueNow
-			});
-			if (ui.position.left >= self.wellWidth) {
-				$(self.elTrack).fadeOut();
-				$(this).attr({
-					'aria-hidden': 'true',
-					'aria-disabled': 'true'
-				});
-				$(self.elButton)
-					.addClass('visible')
-					.removeAttr('disabled')
-					.attr({
-						'aria-hidden':'false',
-						'aria-disabled':'false'
-					});
-			}
+			self.updateSlider(event, ui);
 		},
 		stop: function(event, ui) {
 			if (ui.position.left < self.wellWidth) {
@@ -53,14 +36,39 @@ var Slider = function(target){
 	this.elSlider.addEventListener('touchend', this.touchEndHandler.bind(this), false);
 }
 Slider.prototype = {
+	updateSlider: function(event, ui) {
+		var self = this;
+		this.valueNow = Math.floor(ui.position.left / self.wellWidth * 100);
+		$(event.target).attr({
+			'aria-valuenow': self.valueNow
+		});
+		if (ui.position.left >= self.wellWidth) {
+			self.transitionElements();
+		}
+	},
+	transitionElements: function(){
+		$(this.elTrack).fadeOut();
+		$(this.elSlider).attr({
+			'aria-hidden': 'true',
+			'aria-disabled': 'true'
+		});
+		$(this.elButton)
+			.addClass('visible')
+			.removeAttr('disabled')
+			.attr({
+				'aria-hidden':'false',
+				'aria-disabled':'false'
+			});
+	},
 	keydownHandler: function(event){
 		if(event.which === 38 || event.which === 39){
 			var target = event.target;
 	    this.numKeypresses++;
 	    curX = this.numKeypresses * 100;
 	    if(curX <= 0) return;
-	    if(curX > this.wellWidth){
-	    	$(this.el).fadeOut();
+	    if(curX >= this.wellWidth){
+	    	this.transitionElements();
+	    	this.elButton.focus();
 	    }
 	   	target.style.webkitTransform = 'translateX(' + curX + 'px)'; 
 		}
@@ -71,8 +79,8 @@ Slider.prototype = {
     var touch = event.touches[0];
     curX = touch.pageX - this.offsetLeft - 73;
     if(curX <= 0) return;
-    if(curX > this.wellWidth){
-    	this.elTrack.fadeOut();
+    if(curX >= this.wellWidth){
+    	$(this.elTrack).fadeOut();
     }
    	target.style.webkitTransform = 'translateX(' + curX + 'px)'; 
 	},
