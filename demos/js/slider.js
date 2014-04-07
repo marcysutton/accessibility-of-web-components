@@ -6,20 +6,27 @@ var Slider = function(target){
 	this.elSlider = this.el.querySelector('#slider');
 	this.elButton = this.el.querySelector('.trigger-button')
 
-	this.wellWidth = 250;
+	this.wellWidth = 256;
+	self.valueNow = 0;
 
 	$(this.elSlider).draggable({
 		axis: 'x',
 		containment: 'parent',
 		cancel: false,
+		start: function(event, ui) {
+			console.log(ui.position.left);
+		},
 		drag: function(event, ui) {
-			if (ui.position.left > self.wellWidth) {
+			self.valueNow = Math.floor(ui.position.left / self.wellWidth * 100);
+			$(this).attr({
+				'aria-valuenow': self.valueNow
+			});
+			if (ui.position.left >= self.wellWidth) {
 				$(self.elTrack).fadeOut();
-				$(self.elSlider)
-					.attr({
-						'aria-hidden':'true',
-						'aria-disabled':'true'
-					});
+				$(this).attr({
+					'aria-hidden': 'true',
+					'aria-disabled': 'true'
+				});
 				$(self.elButton)
 					.addClass('visible')
 					.removeAttr('disabled')
@@ -30,10 +37,13 @@ var Slider = function(target){
 			}
 		},
 		stop: function(event, ui) {
-			if (ui.position.left < (self.wellWidth + 1)) {
+			if (ui.position.left < self.wellWidth) {
+				self.valueNow = 0;
 				$(this).animate({
 					left: 0
-				})
+				}).attr({
+					'aria-valuenow': self.valueNow
+				});
 			}
 		}
 	});
