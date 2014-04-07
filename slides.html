@@ -101,8 +101,7 @@
 
         <section id="slide7">
           <div class="accessibilityWrapper">
-            <h2>Stevie Wonder</h2>
-            <small class="fragment">The blind goat</small><br>
+            <h2>Our User</h2>
             <img src="img/stevie-wonder.jpg" alt="Stevie Wonder the Blind Goat" style="max-height: 500px;">
           </div>
         </section>
@@ -185,8 +184,8 @@
 				  <div class="accessibilityWrapper">
             <h2>Why are we excited about <br>Web Components?</h2>
             <ul>
-              <li>A new way to build the Web</li>
-              <li>Not waiting for browser implementers</li>
+              <li>A new approach to HTML</li>
+              <li>Less waiting for browsers</li>
               <li>Minimization of style &amp; script conflicts</li>
               <li>ENCAPSULATION</li>
             </ul>
@@ -219,13 +218,13 @@
             <h2>Understanding Shadow DOM</h2>
             <p class="bigItalic"><a href="http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees"  target="_blank" title="Link opens in a new window">Some important terms</a></p>
             <ul class="smaller">
-              <li><em>Document Object Model (DOM)</em> - an object-oriented tree representation of an HTML document.</li>
+              <li><em>DOM</em> - an object-oriented tree representation of an HTML document.</li>
 
               <li><em>Node</em> - a component of a tree. Nested node groups are called <em>node trees</em> or <em>subtrees</em>.</li>
 
-              <li class="fragment"><em>Shadow host</em> - an element that hosts one or more Shadow DOM node trees.</li>
+              <li class="fragment"><em>Shadow host</em> - an element hosting one or more Shadow DOM node trees.</li>
 
-              <li class="fragment"><em>Shadow tree</em> - a node tree (like a branch) hosted by a shadow host.</li>
+              <li class="fragment"><em>Shadow tree</em> - a node tree hosted by a shadow host.</li>
 
               <li class="fragment"><em>Shadow root</em> - the root node of a shadow tree.</li>
             </ul>
@@ -249,20 +248,21 @@
 
         <section id="slide20">
           <div class="accessibilityWrapper">
-            <h2>I can haz Shadow DOM?</h2>
+            <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
   var template = document.querySelector('template'),
-      elGoatStuff = Object.create(HTMLElement.prototype);
+      goatComponent = Object.create(HTMLElement.prototype);
 
-  elGoatStuff.createdCallback = function() {
-    var root = this.createShadowRoot();
-    var clone = template.content.cloneNode(true);
-    root.appendChild(clone);
+  goatComponent.createdCallback = function() {
+    var shadowRoot = this.createShadowRoot(),
+        clone = template.content.cloneNode(true);
+
+    shadowRoot.appendChild(clone);
     template.remove();
   };
 
   document.registerElement("goat-stuff", {
-    prototype: elGoatStuff
+    prototype: goatComponent
   });
             </code></pre>
           </div>
@@ -310,8 +310,8 @@
   				<div class="accessibilityWrapper">
             <h2>Trees &ldquo;as rendered&rdquo;</h2>
             <ul class="spaced-list">
-              <li>Web browser parses HTML and creates objects from markup</li>
-              <li class="fragment">DOM altered by CSS, JS and ARIA (Accessibility API)</li>
+              <li>Web browser parses HTML, creates objects from markup</li>
+              <li class="fragment">DOM altered by CSS, JS and ARIA</li>
               <li class="fragment">Web Components create a container and child elements as a subtree</li>
               <li class="fragment">Screen reader makes use of objects in rendered DOM</li>
               <li class="fragment">"Acccessibility Tree" presented to screen reader user</li>
@@ -329,6 +329,19 @@
 
         <section id="slide27">
           <div class="accessibilityWrapper">
+            <h2>Accessible code</h2>
+            <ul>
+              <li>Native, semantic HTML</li>
+              <li class="fragment">Readable text content</li>
+              <li class="fragment">Provide all the feedback</li>
+              <li class="fragment">Focus management</li>
+              <li class="fragment">Use ARIA to fill in gaps</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="slide28">
+          <div class="accessibilityWrapper">
             <h2>Web Component DEMO!</h2>
             <p><a href="demos/demo2.html" target="_blank" title="Link opens in a new window">Let's take one last look</a></p>
             <!--
@@ -341,7 +354,7 @@
           </div>
         </section>
 
-        <section id="slide28">
+        <section id="slide29">
           <div class="accessibilityWrapper">
             <h2>Recap</h2>
             <ul>
@@ -354,7 +367,7 @@
           </div>
         </section>
 
-        <section id="slide29">
+        <section id="slide30">
           <div class="accessibilityWrapper">
             <div class="image-headline" id="the-presentation">
               <h2>Nailed it.</h2>
@@ -363,7 +376,7 @@
           </div>
         </section>
 
-        <section id="slide30">
+        <section id="slide31">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-shadowdom/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-shadowdom/</a></p>
