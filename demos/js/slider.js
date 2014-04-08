@@ -25,7 +25,7 @@ var Slider = function(target){
 				$(this).animate({
 					left: 0
 				}).attr({
-					'aria-valuenow': self.valueNow
+					'aria-valuenow': self.valueNow + '%'
 				});
 			}
 		}
@@ -40,7 +40,7 @@ Slider.prototype = {
 		var self = this;
 		this.valueNow = Math.floor(ui.position.left / self.wellWidth * 100);
 		$(event.target).attr({
-			'aria-valuenow': self.valueNow
+			'aria-valuenow': self.valueNow + '%'
 		});
 		if (ui.position.left >= self.wellWidth) {
 			self.transitionElements();
