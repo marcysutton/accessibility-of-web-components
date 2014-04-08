@@ -95,6 +95,7 @@ var SkipLinks = (function(){
 	 * Hide skip links on blur
 	 */
 	function skipLinkBlur(event) {
+		dom.skipLinks.setAttribute('aria-hidden', true);
 		// dom.skipToNavLink.focus();
 		event.currentTarget.style.left = '-50000px';
 	}
