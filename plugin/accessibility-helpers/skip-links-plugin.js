@@ -12,6 +12,7 @@ var SkipLinks = (function(){
 	var SKIP_TO_NAV_LINK_SELECTOR = '#skip-to-toc',
 		  SLIDE_SKIP_LINKS_SELECTOR = 'table-of-contents',
 		  SLIDE_SELECTOR = '.slides section[id^="slide"]',
+		  ACCESSIBILITY_WRAPPER_SELECTOR = '.accessibilityWrapper',
 		  CONTROLS_SELECTOR = '.controls',
 		  NUM_SLIDES = 1,
 		  
@@ -57,6 +58,11 @@ var SkipLinks = (function(){
 	function initSkipLinks() {
     dom.skipToNavLink = document.querySelector( SKIP_TO_NAV_LINK_SELECTOR );
     
+    var wrapperEls = document.querySelectorAll( ACCESSIBILITY_WRAPPER_SELECTOR );
+    for(var g=wrapperEls.length; g--;){
+    	wrapperEls[g].setAttribute('tabIndex', '-1');
+    }
+
     dom.slideSkipLinks = dom.skipLinks.querySelectorAll('a');
 		
     dom.skipToNavLink.addEventListener('focus', skipLinkFocus);
@@ -67,6 +73,7 @@ var SkipLinks = (function(){
     for(var i=numSkipLinks; i--;){
       dom.slideSkipLinks[i].addEventListener('focus', skipLinksFocus);
       dom.slideSkipLinks[i].addEventListener('blur', skipLinkBlur);
+      dom.slideSkipLinks[i].addEventListener('click', skipLinkClick);
     }
 	  document.addEventListener('keydown', blurSkipLink);
 	}
@@ -99,6 +106,16 @@ var SkipLinks = (function(){
 		// dom.skipToNavLink.focus();
 		event.currentTarget.style.left = '-50000px';
 	}
+	/**
+	 * Send focus to selected slide
+	 */
+	function skipLinkClick(event) {
+		skipLinkBlur(event);
+		var href = event.currentTarget.getAttribute('href');
+		var section = document.querySelector('#'+href.split('#/')[1]);
+		section.querySelector( ACCESSIBILITY_WRAPPER_SELECTOR ).focus();
+	}
+	
 	
 	/**
 	 * Extend object a with the properties of object b.
