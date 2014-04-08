@@ -47,7 +47,7 @@ var SkipLinks = (function(){
     }
     skipLinkHTML += '</ul>';
 
-		dom.skipLinks = createNodeAfterSibling( dom.wrapper, 'ul', SLIDE_SKIP_LINKS_SELECTOR, 'skip-links', skipLinkHTML, dom.controls );
+		dom.skipLinks = createNodeAfterSibling( dom.wrapper, 'ul', SLIDE_SKIP_LINKS_SELECTOR, 'skip-links', skipLinkHTML, dom.controls, {'aria-hidden': true} );
     
 		initSkipLinks();
   }
@@ -55,17 +55,17 @@ var SkipLinks = (function(){
 	 * Enable skip links.
 	 */
 	function initSkipLinks() {
-    var skipToNavLink = document.querySelector( SKIP_TO_NAV_LINK_SELECTOR );
+    dom.skipToNavLink = document.querySelector( SKIP_TO_NAV_LINK_SELECTOR );
     
     dom.slideSkipLinks = dom.skipLinks.querySelectorAll('a');
 		
-    skipToNavLink.addEventListener('focus', skipLinkFocus);
-    skipToNavLink.addEventListener('blur', skipLinkBlur);
-    skipToNavLink.addEventListener('click', skipToNavLinkClick);
+    dom.skipToNavLink.addEventListener('focus', skipLinkFocus);
+    dom.skipToNavLink.addEventListener('blur', skipLinkBlur);
+    dom.skipToNavLink.addEventListener('click', skipToNavLinkClick);
     
     var numSkipLinks = dom.slideSkipLinks.length;
     for(var i=numSkipLinks; i--;){
-      dom.slideSkipLinks[i].addEventListener('focus', skipLinkFocus);
+      dom.slideSkipLinks[i].addEventListener('focus', skipLinksFocus);
       dom.slideSkipLinks[i].addEventListener('blur', skipLinkBlur);
     }
 	  document.addEventListener('keydown', blurSkipLink);
@@ -78,7 +78,7 @@ var SkipLinks = (function(){
 	}
   function skipToNavLinkClick(event) {
     event.preventDefault();
-    
+		dom.skipLinks.setAttribute('aria-hidden', false);
     dom.slideSkipLinks[0].focus();
   }
 	/**
@@ -87,10 +87,15 @@ var SkipLinks = (function(){
 	function skipLinkFocus(event) {
 		event.currentTarget.style.left = '0px';
 	}
+  function skipLinksFocus(event){
+  	skipLinkFocus(event);
+		dom.skipLinks.setAttribute('aria-hidden', false);
+  }
 	/**
 	 * Hide skip links on blur
 	 */
 	function skipLinkBlur(event) {
+		// dom.skipToNavLink.focus();
 		event.currentTarget.style.left = '-50000px';
 	}
 	
@@ -110,13 +115,18 @@ var SkipLinks = (function(){
 	 * If a sibling element is passed through, element is 
 	 * inserted after.
 	 */
-	function createNodeAfterSibling( container, tagname, id, classname, innerHTML, sibling ) {
+	function createNodeAfterSibling( container, tagname, id, classname, innerHTML, sibling, options ) {
 
 		var node = document.createElement( tagname );
 		node.setAttribute('id', id);
 		node.classList.add( classname );
 		if( innerHTML !== null ) {
 			node.innerHTML = innerHTML;
+		}
+		if(options){
+			for(var option in options){
+				node.setAttribute(option, options[option]);
+			}
 		}
 		if(sibling) {
   		container.insertBefore( node, sibling.nextSibling );
