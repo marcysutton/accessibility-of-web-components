@@ -3,6 +3,7 @@
 <head>
 	<title>Shadow DOM Accessibility: Demo 2</title>
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/slider.css" rel="stylesheet">
 </head>
 <body id="demo2">
 	<header>
@@ -11,76 +12,6 @@
 	</header>
 	<main>
 		<template>
-			<style>
-				.well {
-					border-radius: 30px;
-					background-color: black;
-					display: inline-block;
-					overflow: hidden;
-					padding: 0 20px;
-				  text-align: left;
-					width: 360px;
-					-webkit-user-select: none;
-				}
-
-				h2 {
-				  font-size: 35px;
-				  height: 71px;
-				  margin: 10px 0 8px;
-				  font-weight: 300;
-				  position: relative;
-				  padding: 0;
-				  width: 356px;
-				  z-index: 1;
-				}
-				#slider {
-					background: url(../demos/images/arrow.png) no-repeat;
-					background-size: 100% auto;
-					border: none;
-					cursor: pointer;
-					display: inline-block;
-					padding-top: 15%;
-					text-indent: -50000px;
-					vertical-align: middle;
-					line-height: 1;
-					width: 100px;
-				}
-				.well span {
-					color: #ccc;
-					display: inline-block;
-					right: 0px;
-					position: absolute;
-					top: 22px;
-				}
-				.trigger-button {
-					background-color: #000;
-					border-radius: 30px;
-					border: none;
-					color: #fff;
-					cursor: pointer;
-					display: block;
-					height: 90px;
-					opacity: 0;
-					left: 50%;
-					font-size: 200%;
-					margin-left: -200px;
-					padding: 8px 10px;
-					position: absolute;
-					top: 0;
-					width: 400px;
-					transition: all 0.5s;
-				}
-				.trigger-button:hover,
-				.trigger-button:focus {
-					background-color: red;
-				}
-				.trigger-button.visible {
-					opacity: 1;
-				}
-				.trigger-button.hidden {
-					opacity: 0;
-				}
-			</style>
 			<div class="component-wrapper">
 				<div class="well">
 					<h2>

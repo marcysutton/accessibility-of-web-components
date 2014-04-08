@@ -2,17 +2,18 @@
   text-align: left;
 }
 #slider-control ^ .well {
-	display: inline-block;
-	padding: 0 20px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
+	background-color: black;
 	border-radius: 30px;
 	border: 2px solid #454545; 
+	display: inline-block;
+	padding: 0 20px;
 	overflow: hidden; 
+	text-align: left;
+	width: 360px;
 	-webkit-user-select: none;
 }
 
-#slider-control ^ h2 {
+#slider-control ^ div[role="application"] {
   font-size: 35px;
   height: 71px;
   margin: 10px 0 8px;
@@ -23,7 +24,7 @@
   z-index: 1;
 }
 #slider-control ^ #slider {
-	background: url(../demos/images/arrow.png) no-repeat;
+	background: url(../images/arrow.png) no-repeat;
 	background-size: 100% auto;
 	border: none;
 	cursor: pointer;
@@ -48,9 +49,11 @@
 	color: #fff;
 	cursor: pointer;
 	display: block;
-	height: 90px;
-	opacity: 0;
 	font-size: 200%;
+	height: 90px;
+	left: 50%;
+	margin-left: -200px;
+	opacity: 0;
 	padding: 8px 10px;
 	position: absolute;
 	top: 0;
