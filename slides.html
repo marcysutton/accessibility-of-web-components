@@ -101,8 +101,8 @@
 
         <section id="slide7">
           <div class="accessibilityWrapper">
-            <h2>Our User</h2>
-            <img src="img/stevie-wonder.jpg" alt="Stevie Wonder the Blind Goat" style="max-height: 500px;">
+            <h2 class="offscreen">Compassion</h2>
+            <img src="img/stevie-wonder.jpg" alt="Stevie Wonder the Blind Goat" style="max-height: 600px;">
           </div>
         </section>
 
@@ -127,7 +127,7 @@
             <ul>
               <li>Good visual feedback</li>
               <li>Logical tab order</li>
-              <li>Keyboard navigation everywhere</li>
+              <li>Keyboard navigation</li>
             </ul>
   				</div>
 				</section>
@@ -150,11 +150,11 @@
             <h2 class="h3-style muted">In an Ideal World</h2>
             <h3 class="h2-style">General Accessibility</h3>
             <ul>
-              <li>Good visual contrast ratios</li>
-              <li>Make experiences interactive</li>
+              <li>Color contrast ratios</li>
+              <li>Interactive experiences</li>
               <li>SEO &amp; accessibility as BFFs</li>
-              <li>Mobile accessibility (that's a thing!)</li>
-              <li>Integrated with software testing</li>
+              <li>Mobile accessibility</li>
+              <li>Software testing</li>
             </ul>
 				  </div>
 			  </section>
@@ -169,7 +169,7 @@
 			  <section id="slide13">
 				  <div class="accessibilityWrapper">
             <h2>What are Web Components?</h2>
-            <p><a href="http://www.w3.org/TR/components-intro/" target="_blank" title="Link opens in a new window">New standards</a> moving through the W3C</p>
+            <p class="highlight">New standards moving through the W3C</p>
             <ul>
               <li>HTML Imports</li>
               <li>Templates</li>
@@ -182,11 +182,11 @@
 
 			  <section id="slide14">
 				  <div class="accessibilityWrapper">
-            <h2>Why are we excited about <br>Web Components?</h2>
+            <h2>Why are we excited?</h2>
             <ul>
               <li>A new approach to HTML</li>
               <li>Less waiting for browsers</li>
-              <li>Minimization of style &amp; script conflicts</li>
+              <li>Minimization of conflicts</li>
               <li>ENCAPSULATION</li>
             </ul>
 				  </div>
@@ -198,7 +198,7 @@
             <ul class="checkboxes">
               <li class="checked">Encapsulates a DOM subtree</li>
               <li class="checked">Implementation vs. interface</li>
-              <li>Shadowy organization<br >hell-bent on world domination</li>
+              <li>Shadowy underworld organization</li>
             </ul>
 				  </div>
 			  </section>
@@ -206,29 +206,35 @@
 				<section id="slide16">
   				<div class="accessibilityWrapper">
             <h2>What is the Shadow DOM?</h2>
-            <p>You've seen it already:<br>
-            HTML5 video, input text, range, textarea</p>
-            <img src="img/video-shadow-dom.png" alt="HTML5 Video Element" style="max-height:400px" />
-            <p><small>Visible in latest Chrome, Firefox & Opera Dev Tools</small></p>
+            <img src="img/video-goat-shadow-dom.png" alt="HTML5 Video Element" style="max-height:550px" />
   				</div>
 				</section>
 
 				<section id="slide17">
 				  <div class="accessibilityWrapper">
-            <h2>Understanding Shadow DOM</h2>
-            <p class="bigItalic"><a href="http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees"  target="_blank" title="Link opens in a new window">Some important terms</a></p>
+            <h2>Important terms</h2>
+            <!-- http://w3c.github.io/webcomponents/spec/shadow/#h3_shadow-trees -->
             <ul class="smaller">
-              <li><em>DOM</em> - an object-oriented tree representation of an HTML document.</li>
+              <li class="fragment"><em>Document Object Model</em></li>
 
-              <li><em>Node</em> - a component of a tree. Nested node groups are called <em>node trees</em> or <em>subtrees</em>.</li>
+              <li class="fragment"><em>Node tree / subtree</em></li>
 
-              <li class="fragment"><em>Shadow host</em> - an element hosting one or more Shadow DOM node trees.</li>
+              <li class="fragment"><em>Shadow host</em></li>
 
-              <li class="fragment"><em>Shadow tree</em> - a node tree hosted by a shadow host.</li>
+              <li class="fragment"><em>Shadow tree</em></li>
 
-              <li class="fragment"><em>Shadow root</em> - the root node of a shadow tree.</li>
+              <li class="fragment"><em>Shadow root</em></li>
             </ul>
 				  </div>
+          <aside class="notes">
+            <ul>
+              <li>DOM: An object-orientated tree representation of an HTML document</li>
+              <li>Node: a single component of a DOM tree. Nested node groups are node trees or subtrees</li>
+              <li>Shadow host: an element that hosts one or more shadow trees. a context object</li>
+              <li>Shadow tree: an encapsulated node tree</li>
+              <li>Shadow root: the root node of a shadow tree</li>
+            </ul>
+          </aside>
 				</section>
 
         <section id="slide18">
@@ -291,8 +297,8 @@
 
         <section id="slide23">
           <div class="accessibilityWrapper">
-            <h2>Shadow DOM, keyboards and <br>screen readers<br>
-            <small style="font-size: 0.3em; margin-top: 0.5em;">(and other Assistive Technology)</small></h2>
+            <h2>Shadow DOM, keyboards and <br>screen readers</h2>
+            <p><small>(and other Assistive Technology)</small></p>
             <p><a href="demos/demo1.html" target="_blank" title="Link opens in a new window">Let's revisit our Shadow DOM demo</a></p>
           </div>
         </section>
@@ -310,11 +316,11 @@
   				<div class="accessibilityWrapper">
             <h2>Trees &ldquo;as rendered&rdquo;</h2>
             <ul class="spaced-list">
-              <li>Web browser parses HTML, creates objects from markup</li>
+              <li>Parse HTML, create objects from markup</li>
               <li class="fragment">DOM altered by CSS, JS and ARIA</li>
-              <li class="fragment">Web Components create a container and child elements as a subtree</li>
-              <li class="fragment">Screen reader makes use of objects in rendered DOM</li>
-              <li class="fragment">"Acccessibility Tree" presented to screen reader user</li>
+              <li class="fragment">Web Components create a subtree</li>
+              <li class="fragment">Screen reader uses objects in rendered DOM</li>
+              <li class="fragment">"Acccessibility Tree" presented to user</li>
             </ul>
           </div>
 				</section>
@@ -359,10 +365,10 @@
             <h2>Recap</h2>
             <ul>
               <li>Develop for the ideal</li>
-              <li>Web Components are for encapsulation</li>
-              <li>Shadow DOM is accessible</li>
-              <li>Screen readers utilize DOM as rendered</li>
-              <li>Pick the right technology for your audience</li>
+              <li class="fragment">Web Components are for encapsulation</li>
+              <li class="fragment">Shadow DOM is accessible</li>
+              <li class="fragment">Screen readers utilize DOM as rendered</li>
+              <li class="fragment">Pick the right technology for your audience</li>
             </ul>
           </div>
         </section>
