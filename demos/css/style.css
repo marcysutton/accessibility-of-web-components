@@ -154,7 +154,10 @@ button:hover, button:focus,
   padding: 8px;
   text-decoration: none;
 }
-
+body#demo1 img {
+  max-width: 400px; 
+  margin-bottom: 20px;
+}
 body#demo2 {
   text-align: center;
 }
