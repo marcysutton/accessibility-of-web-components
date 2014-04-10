@@ -6,7 +6,7 @@ var Slider = function(target){
 	this.elSlider = this.el.querySelector('#slider');
 	this.elButton = this.el.querySelector('.trigger-button')
 
-	this.wellWidth = 256;
+	this.wellWidth = 216;
 	self.valueNow = 0;
 
 	$(this.elSlider).draggable({
@@ -47,7 +47,7 @@ Slider.prototype = {
 		}
 	},
 	transitionElements: function(){
-		$(this.elTrack).fadeOut();
+		$(this.elTrack).animate({'opacity':0}).hide();
 		$(this.elSlider).attr({
 			'aria-hidden': 'true',
 			'aria-disabled': 'true'

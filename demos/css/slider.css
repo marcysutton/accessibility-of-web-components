@@ -1,13 +1,16 @@
 #slider-control ^ {
-  text-align: left;
+  /*text-align: left;*/
+}
+#slider-control ^ .component-wrapper {
+	font-size: 16px;
+	position: relative;
 }
 #slider-control ^ .well {
 	background-color: black;
-	border-radius: 30px;
 	border: 2px solid #454545; 
 	display: inline-block;
 	padding: 0 20px;
-	overflow: hidden; 
+	overflow: hidden;
 	text-align: left;
 	width: 360px;
 	-webkit-user-select: none;
@@ -20,35 +23,45 @@
   font-weight: 300;
   position: relative;
   padding: 0;
-  width: 356px;
+  width: 100%;
   z-index: 1;
 }
 #slider-control ^ #slider {
-	background: url(../images/arrow.png) no-repeat;
-	background-size: 100% auto;
+	background: url(../images/arrow-invert.png) no-repeat center center;
+	background-size: auto 100%;
+	border-radius: 0;
 	border: none;
 	cursor: pointer;
 	display: inline-block;
+	height: 100%;
 	padding-top: 15%;
-	text-indent: -50000px;
+	text-indent: -50000px; 
 	vertical-align: middle;
 	line-height: 1;
 	width: 100px;
 }
+#slider-control ^ #slider:focus,
+#slider-control ^ #slider:hover {
+	background-color: red;
+}
+
 #slider-control ^ .well span {
 	color: #ccc;
 	display: inline-block;
+	font-family: Arial, sans-serif;
+	font-size: 30px;
 	right: 0px;
 	position: absolute;
+	text-align: right;
 	top: 22px;
 }
 #slider-control ^ .trigger-button {
 	background-color: #000;
-	border-radius: 30px;
 	border: none;
+	border-radius: 0;
 	color: #fff;
 	cursor: pointer;
-	display: block;
+	display: none;
 	font-size: 200%;
 	height: 90px;
 	left: 50%;
@@ -56,17 +69,19 @@
 	opacity: 0;
 	padding: 8px 10px;
 	position: absolute;
+	text-align: center;
 	top: 0;
 	width: 400px;
-	transition: all 0.5s;
 }
 #slider-control ^ .trigger-button:hover,
 #slider-control ^ .trigger-button:focus {
 	background-color: red;
 }
 #slider-control ^ .trigger-button.visible {
+	display: block;
 	opacity: 1;
 }
 #slider-control ^ .trigger-button.hidden {
+	display: none;
 	opacity: 0;
 }
