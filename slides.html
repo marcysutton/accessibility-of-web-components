@@ -73,7 +73,7 @@
               <li>The Deal with Web Components</li>
               <li>Stepping In to the Shadow DOM</li>
               <li>The Accessibility Situation</li>
-              <li>Recap</li>
+              <li>Answer Time</li>
             </ul>
   				</div>
 				</section>
@@ -86,7 +86,7 @@
 
         <section id="slide6">
           <div class="accessibilityWrapper">
-            <h2 class="h3-style muted">Traditional Accessibility</h2>
+            <h2 class="h3-style highlight">Accessibility</h2>
             <h3 class="h2-style">Who are we talking about?</h3>
             <ul>
               <li>Blind & Low-Vision</li>
@@ -122,39 +122,39 @@
 
 				<section id="slide9">
   				<div class="accessibilityWrapper">
-            <h2 class="h3-style muted">In an Ideal World</h2>
+            <h2 class="h3-style highlight">In an Ideal World</h2>
             <h3 class="h2-style">Keyboard Access</h3>
             <ul>
-              <li>Good visual feedback</li>
-              <li>Logical tab order</li>
-              <li>Keyboard navigation</li>
+              <li class="fragment">Good visual feedback</li>
+              <li class="fragment">Logical tab order</li>
+              <li class="fragment">Keyboard navigation</li>
             </ul>
   				</div>
 				</section>
 
 			  <section id="slide10">
 				  <div class="accessibilityWrapper">
-            <h2 class="h3-style muted">In an Ideal World</h2>
+            <h2 class="h3-style highlight">In an Ideal World</h2>
             <h3 class="h2-style">Screen Reader Access</h3>
             <ul>
-              <li>Meaningful page structure</li>
-              <li>Attention to semantics</li>
-              <li>Relevant non-visual content</li>
-              <li>Usable without seeing</li>
+              <li class="fragment">Meaningful page structure</li>
+              <li class="fragment">Attention to semantics</li>
+              <li class="fragment">Relevant non-visual content</li>
+              <li class="fragment">Usable without seeing</li>
             </ul>
 				  </div>
 			  </section>
 
 			  <section id="slide11">
 				  <div class="accessibilityWrapper">
-            <h2 class="h3-style muted">In an Ideal World</h2>
+            <h2 class="h3-style highlight">In an Ideal World</h2>
             <h3 class="h2-style">General Accessibility</h3>
             <ul>
-              <li>Color contrast ratios</li>
-              <li>Interactive experiences</li>
-              <li>SEO &amp; accessibility as BFFs</li>
-              <li>Mobile accessibility</li>
-              <li>Software testing</li>
+              <li class="fragment">Color contrast ratios</li>
+              <li class="fragment">Interactive experiences</li>
+              <li class="fragment">SEO &amp; accessibility as BFFs</li>
+              <li class="fragment">Mobile accessibility</li>
+              <li class="fragment">Software testing</li>
             </ul>
 				  </div>
 			  </section>
@@ -221,6 +221,8 @@
 
               <li class="fragment"><em>Shadow host</em></li>
 
+              <li class="fragment"><em>Shadow boundary</em></li>
+
               <li class="fragment"><em>Shadow tree</em></li>
 
               <li class="fragment"><em>Shadow root</em></li>
@@ -231,6 +233,7 @@
               <li>DOM: An object-orientated tree representation of an HTML document</li>
               <li>Node: a single component of a DOM tree. Nested node groups are node trees or subtrees</li>
               <li>Shadow host: an element that hosts one or more shadow trees. a context object</li>
+              <li>Shadow boundary: the separation between the regular DOM and the shadow DOM, specified by a set of rules (encapsulation)</li> 
               <li>Shadow tree: an encapsulated node tree</li>
               <li>Shadow root: the root node of a shadow tree</li>
             </ul>
@@ -360,37 +363,8 @@
           </div>
         </section>
 
+
         <section id="slide29">
-          <div class="accessibilityWrapper">
-            <h2>Recap</h2>
-            <ul>
-              <li>Develop for the ideal</li>
-              <li class="fragment">Web Components are for encapsulation</li>
-              <li class="fragment">Shadow DOM is accessible</li>
-              <li class="fragment">Screen readers utilize DOM as rendered</li>
-              <li class="fragment">Pick the right technology for your audience</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="slide30">
-          <div class="accessibilityWrapper">
-            <div class="image-headline" id="the-presentation">
-              <h2>Nailed it.</h2>
-            </div>
-            <p><small>Source: <a href="https://www.flickr.com/photos/neutronboy/5004992633/" target="_blank" title="Link opens in a new window">neutronboy / Flickr</a></small></p>
-          </div>
-        </section>
-
-        <section id="slide31">
-          <div class="accessibilityWrapper">
-            <h2>Resources</h2>
-            <p><a href="http://tiny.cc/a11y-shadowdom/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-shadowdom/</a></p>
-          </div>
-        </section>
-
-
-        <section id="slide32">
           <div class="accessibilityWrapper">
             <h2>Current Support</h2>
             <ul class="smallest">
@@ -399,6 +373,35 @@
             </ul>
             <img src="img/polymer-screenshot.png" alt="Polymer support matrix" style="max-width: 600px">
             <p><small>Read more: <a href="http://www.polymer-project.org/resources/compatibility.html" target="_blank" title="Link opens in a new window">polymer-project.com</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide30">
+          <div class="accessibilityWrapper">
+            <h2>Recap</h2>
+            <ul>
+              <li>Develop for the ideal / develop for people</li>
+              <li class="fragment">Web Components provide encapsulation</li>
+              <li class="fragment">Shadow DOM is accessible</li>
+              <li class="fragment">Screen readers utilize DOM as rendered</li>
+              <li class="fragment">Pick the right technology for your audience</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="slide31">
+          <div class="accessibilityWrapper">
+            <div class="image-headline" id="the-presentation">
+              <h2>Nailed it.</h2>
+            </div>
+            <p><small>Source: <a href="https://www.flickr.com/photos/neutronboy/5004992633/" target="_blank" title="Link opens in a new window">neutronboy / Flickr</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide32">
+          <div class="accessibilityWrapper">
+            <h2>Resources</h2>
+            <p><a href="http://tiny.cc/a11y-shadowdom/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-shadowdom/</a></p>
           </div>
         </section>
 			</div>
