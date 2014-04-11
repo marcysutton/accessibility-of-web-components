@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Demo: Shadow DOM Accessibility</title>
+	<!-- <link href="css/style.css" rel="stylesheet"> -->
+	<style>
+		table {
+			border-collapse: separate; 
+			display: block;
+		}
+		table, th, td {
+			border: 1px solid black;
+		}
+		form {
+			margin: 1em 0;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>HTML Rendering Demo</h1>
+	</header>
+	<main>
+		<table id="demoTable">
+			<thead>
+				<tr>
+					<th>Table Header</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Table Cell</td>
+				</tr>
+				<tr>
+					<td>Don't judge me</td>
+				</tr>
+			</tbody>
+		</table>
+		<form>
+			<label for="input">Label</label>
+			<input type="text" id="input">
+		</form>
+	</main>
+</body>
+</html>
