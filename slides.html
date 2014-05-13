@@ -163,7 +163,16 @@
           <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Extend a native element</h2>
-            <!-- add semantics to x-marklar -->
+            <pre style="width: auto;"><code class="javascript">
+  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
+  var TacoButton = document.registerElement('taco-button', {
+    prototype: TacoButtonPrototype,
+    extends: 'button'
+  });
+  var tacoButton = new TacoButton();
+  document.appendChild(tacoButton).textContent = 'tacos!';
+  tacoButton = document.querySelector('button[is=taco-button]');
+            </code></pre>
           </div>
         </section>
 
@@ -171,8 +180,11 @@
   				<div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Use native child elements</h2>
-            
-            <!-- add semantics to x-marklar -->
+            <pre><code class="html">
+        &lt;taco-surprise&gt;
+          &lt;button&gt;tacos!&lt;/button&gt;
+        &lt;/taco-surprise&gt;
+            </code></pre>
   				</div>
 				</section>
 
@@ -180,8 +192,11 @@
 				  <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Use ARIA</h2>
-
-            <!-- add semantics to x-marklar -->
+            <pre><code class="html">
+        &lt;taco-surprise&gt;
+          &lt;div role="button"&gt;tacos!&lt;/div&gt;
+        &lt;/taco-surprise&gt;
+            </code></pre>
 				  </div>
 				</section>
 
@@ -236,9 +251,9 @@
             <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
   var template = document.querySelector('template'),
-      goatComponent = Object.create(HTMLElement.prototype);
+      tacoSurprise = Object.create(HTMLElement.prototype);
 
-  goatComponent.createdCallback = function() {
+  tacoSurprise.createdCallback = function() {
     var shadowRoot = this.createShadowRoot(),
         clone = template.content.cloneNode(true);
 
@@ -246,8 +261,8 @@
     template.remove();
   };
 
-  document.registerElement("goat-stuff", {
-    prototype: goatComponent
+  document.registerElement("taco-surprise", {
+    prototype: tacoSurprise
   });
             </code></pre>
   				</div>
