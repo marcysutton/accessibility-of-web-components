@@ -61,28 +61,25 @@
 				  <div class="accessibilityWrapper">
             <p>This has been an exercise in...</p>
             <h2 class="h1-style">Semantics</h2>
+            <aside class="notes">
+            What the Marklar? If we only use one word for everything, it has no meaning. Today we're going to talk about a new technology, Web Components, which runs the risk of polluting the internet with a bunch of Marklar: soulless div tags, essentially, that don't communicate role or purpose to non-visual users. 
+
+            I'm Marcy Sutton, not a freelance Marklar but rather a full-time developer at Substantial, a 60-person product studio in Seattle. I've spent the past few months expanding my own skillset while improving the accessibility of web applications such as a a fitness app and a whiskey recommendations app. Because why shouldn't those appliations be accessible to all people?! I grew to love accessibility at my previous job because it added a valuable dimension to my work. 
+            </aside>
 				  </div>
 				</section>
 
 				<section id="slide4">
   				<div class="accessibilityWrapper">
-            <h2 class="offscreen">The worst HTML markup where every tag and attribute is "marklar"</h2>
+            <h2>No, thanks</h2>
+            <h3 class="offscreen">The worst HTML markup where every tag and attribute is "marklar"</h3>
             <pre style="width:95%;"><code class="html" style="padding-top:0;max-height:550px;">
-&lt;!DOCTYPE marklar&gt;
-&lt;marklar&gt;
-  &lt;marklar&gt;&lt;marklar&gt;Marklar&lt;/marklar&gt;&lt;/marklar&gt;
-  &lt;marklar id="marklar"&gt;
-    &lt;marklar&gt;
-      &lt;marklar&gt;Welcome to Marklar&lt;/marklar&gt;
-      &lt;marklar class="inner-marklar"&gt;
+      &lt;marklar style="background-image: url(marklar.gif);"&gt;
         &lt;marklar&gt;Marklar was a secret Apple development program 
         to put Mac OS X on the Intel x86 microprocessor. Ten years 
         ago, the first rumors of Marklar emerged.&lt;/marklar&gt;
         &lt;marklar href="#" onclick="doMarklar()"&gt;More&lt;/marklar&gt;
       &lt;/marklar&gt;
-    &lt;/marklar&gt;
-  &lt;/marklar&gt;
-&lt;/marklar&gt;
             </code></pre>
   				</div>
 				</section>
@@ -100,56 +97,65 @@
 
         <section id="slide6">
           <div class="accessibilityWrapper">
-            <h2 class="h3-style highlight">Accessibility</h2>
-            <h3 class="h2-style">Who are we talking about?</h3>
+            <h2>Web Components</h2>
+            <p class="highlight">New standards moving through the W3C</p>
             <ul>
-              <li>Blind &amp; Low-Vision</li>
-              <li>Deaf, Hard of Hearing</li>
-              <li>Physically Challenged</li>
-              <li>Color-Blind</li>
-              <li>Cognitively Impaired</li>
+              <li>Custom Elements</li>
+              <li>Shadow DOM</li>
+              <li>Templates</li>
+              <li>HTML Imports</li>
+              <li>Decorators</li>
             </ul>
-            <p class="bigItalic" style="margin-top: 8%;">Everyone.</p>
           </div>
         </section>
 
         <section id="slide7">
           <div class="accessibilityWrapper">
-            <h2>Web Components</h2>
-            <p class="highlight">New standards moving through the W3C</p>
-            <ul>
-              <li>HTML Imports</li>
-              <li>Decorators</li>
-              <li>Templates</li>
-              <li>Custom Elements</li>
-              <li>Shadow DOM</li>
-            </ul>
-          </div>
-        </section>
-
-			  <section id="slide8">
-				  <div class="accessibilityWrapper">
             <h2>Why are we excited?</h2>
             <ul>
               <li>Extend the DOM</li>
               <li>Less waiting for browsers</li>
               <li>Minimize conflicts</li>
             </ul>
+          </div>
+        </section>
+
+			  <section id="slide8">
+				  <div class="accessibilityWrapper">
+            <div style="position: relative; z-index: 2;">
+              <h2>Custom Elements <span class="offscreen">good example: "x-tacobutton"</span></h2>
+              <div class="large-tag">
+                &lt;x-tacobutton&gt;
+              </div>
+              <button>Give me tacos</button>
+            </div>
+            <div id="tacodiv" style="height: 100%; position: absolute; left: 0; top: 0; width: 100%;"></div>
+            <script>
+$(document).ready(function(){
+  // showTacos();
+});
+var imgArray = ["img1.gif", "img2.gif", "img3.gif", "img4.gif", "img5.gif"];
+function generateRandom(min, max) {
+  var num = Math.random() * (max - min) + min;
+  return Math.floor(num);
+}
+function showTacos() {
+  var tacoDiv = $('#tacodiv');
+  for(var i=0; i<imgArray.length; i++){
+    var left = generateRandom(-600, 800);
+    var top = generateRandom(-400, 800);
+    var img = $("<img src='img/tacos/"+imgArray[i]+"'>")
+                .css({"position":"absolute", "top": top + "px", "left": left + "px"});
+    tacoDiv.delay(i*1000).append(img);
+  };
+};
+</script>
 				  </div>
 			  </section>
 
 			  <section id="slide9">
 				  <div class="accessibilityWrapper">
-            <h2>Custom Elements</h2>
-            <div class="large-tag">
-              &lt;x-datepicker&gt;
-            </div>
-				  </div>
-			  </section>
-
-			  <section id="slide10">
-				  <div class="accessibilityWrapper">
-            <h2 class="offscreen">Custom Element named "marklar"</h2>
+            <h2 class="offscreen">Custom Elements bad example: "x-marklar"</h2>
             <div class="large-tag">
               &lt;x-marklar&gt;
             </div>
@@ -159,7 +165,7 @@
 				  </div>
 			  </section>
 
-        <section id="slide11">
+        <section id="slide10">
           <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Extend a native element</h2>
@@ -176,7 +182,61 @@
           </div>
         </section>
 
-				<section id="slide12">
+        <section id="slide11">
+          <div class="accessibilityWrapper">
+            <h2>Custom Elements</h2>
+            <h3>Native Support</h3>
+            <ul>
+              <li>Chrome</li>
+              <li>Opera</li>
+              <li>Firefox</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="slide12">
+        <!-- TODO: look up event delegation, decide what to keep -->
+          <div class="accessibilityWrapper">
+            <h2>Extending with xtag</h2>
+            <pre style="width: auto;"><code class="javascript">
+  xtag.register('x-tacobutton', {
+    extends: 'button',
+    lifecycle: {
+      created: function(){},
+      inserted: function(){},
+      removed: function(){},
+      attributeChanged: function(){}
+    },
+    events: {
+      'click': function(){}
+    },
+    accessors: {},
+    methods: {}
+  });
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="slide13">
+        <!-- TODO: look up event delegation, decide what to keep -->
+          <div class="accessibilityWrapper">
+            <h2>Extending with Polymer</h2>
+            <pre style="width: auto;"><code class="javascript">
+  &lt;polymer-element name="polymer-tacobutton" extends="button"&gt;
+    &lt;template&gt;
+      {{text}}
+    &lt;/template&gt;
+    &lt;script&gt;
+      Polymer('polymer-tacobutton', {
+        text: 'Give me tacos'
+      });
+    &lt;/script&gt;
+  &lt;/polymer-element&gt;
+            </code></pre>
+          </div>
+        </section>
+
+				<section id="slide14">
   				<div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Use native child elements</h2>
@@ -187,8 +247,8 @@
             </code></pre>
   				</div>
 				</section>
-
-				<section id="slide13">
+<!--
+				<section id="slide14">
 				  <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Use ARIA</h2>
@@ -196,17 +256,23 @@
         &lt;taco-surprise&gt;
           &lt;div role="button"&gt;tacos!&lt;/div&gt;
         &lt;/taco-surprise&gt;
+
+        <taco-surprise>
+          <div role="button">tacos!</div>
+          <img src="{{imgSrc}}" alt="">
+        </taco-surprise>
+
             </code></pre>
 				  </div>
 				</section>
-
-        <section id="slide14">
+-->
+        <section id="slide15">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Wait a minute...</h2>
           </div>
         </section>
 
-        <section id="slide15">
+        <section id="slide16">
           <div class="accessibilityWrapper">
             <h2>Trees</h2>
             <img src="img/tree.png" alt="Tree object representation compared to tree in nature">
@@ -214,7 +280,7 @@
           </div>
         </section>
 
-        <section id="slide16">
+        <section id="slide17">
           <div class="accessibilityWrapper">
             <h2>Rendering Engine Basic Flow</h2>
             <p><em>(Webkit)</em></p>
@@ -223,7 +289,7 @@
           </div>
         </section>
 
-        <section id="slide17">
+        <section id="slide18">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Shadow DOM</h2>
             <p class="bigItalic" style="padding: 0 1em;">Encapsulation by hiding DOM subtrees under shadow roots</p>
@@ -238,7 +304,7 @@
           </div>
         </section>
 
-        <section id="slide18">
+        <section id="slide19">
           <div class="accessibilityWrapper">
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
@@ -246,7 +312,7 @@
           </div>
         </section>
 
-        <section id="slide19">
+        <section id="slide20">
   				<div class="accessibilityWrapper">
             <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
@@ -268,7 +334,7 @@
   				</div>
         </section>
 
-				<section id="slide20">
+				<section id="slide21">
   				<div class="accessibilityWrapper">
             <h2>About that boundary...</h2>
             <pre><code class="javascript">
@@ -281,7 +347,7 @@
           </div>
 				</section>
 
-        <section id="slide21">
+        <section id="slide22">
           <div class="accessibilityWrapper">
             <h2>Demo</h2>
 
@@ -357,6 +423,10 @@
 			});
 
 		</script>
+    <!-- controldeck.js -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/controldeck-slides.js"></script>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

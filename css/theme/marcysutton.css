@@ -269,6 +269,22 @@ body {
 /*********************************************
  * Slide Styles
  *********************************************/
+.reveal button {
+  border-radius: 10px;
+  border-width: 0;
+  font-size: 1em;
+  margin: 2em;
+  padding: 0.25em 0.5em;
+}
+.reveal button:hover, .reveal button:focus {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+}
+.reveal button:active {
+  background-color: #cff110;
+  color: black;
+}
 .reveal #slide1 p {
   font-size: 0.75em;
   margin-bottom: 3%; }
