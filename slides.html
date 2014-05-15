@@ -133,19 +133,7 @@
 				  </div>
 			  </section>
 
-			  <section id="slide9">
-				  <div class="accessibilityWrapper">
-            <h2 class="offscreen">Custom Elements bad example: "x-marklar"</h2>
-            <div class="large-tag">
-              &lt;x-marklar&gt;
-            </div>
-            <aside class="notes">
-            Without semantics, our custom tag might as well be "Marklar"
-            </aside>
-				  </div>
-			  </section>
-
-        <section id="slide10">
+        <section id="slide9">
           <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Extend a native element</h2>
@@ -162,68 +150,7 @@
           </div>
         </section>
 
-        <section id="slide11">
-          <div class="accessibilityWrapper">
-            <h2>Custom Elements</h2>
-            <h3>Native Support</h3>
-            <ul>
-              <li>Chrome</li>
-              <li>Opera</li>
-              <li>Firefox (Nightly?)</li>
-            </ul>
-            <p style="margin-top: 1em;font-size: 0.75em">Source: <a href="http://jonrimmer.github.io/are-we-componentized-yet/" target="_blank" title="Link opens in a new window">are we componentized yet?</a><br>
-            Note: this stuff moves <em>fast</em>!</p>
-          </div>
-        </section>
-
-        <section id="slide12">
-        <!-- TODO: look up event delegation, decide what to keep -->
-          <div class="accessibilityWrapper">
-            <h2>Extending with xtag</h2>
-            <pre style="width: auto;"><code class="javascript" style="max-height: none;">
-  xtag.register('x-tacobutton', {
-    prototype: Object.create(HTMLDivElement.prototype),
-    extends: 'button',
-    lifecycle: {
-      created: function(){},
-      inserted: function(){},
-      removed: function(){},
-      attributeChanged: function(){}
-    },
-    events: {
-      'click': function(){}
-    },
-    accessors: {},
-    methods: {}
-  });
-            </code></pre>
-          </div>
-        </section>
-
-        <section id="slide13">
-        <!-- TODO: look up event delegation, decide what to keep -->
-          <div class="accessibilityWrapper">
-            <h2>Extending with Polymer</h2>
-            <pre style="width: auto;"><code class="javascript">
-  &lt;polymer-element name="polymer-tacobutton" extends="button"&gt;
-    &lt;template&gt;
-      {{text}}
-    &lt;/template&gt;
-    &lt;script&gt;
-      Polymer('polymer-tacobutton', {
-        text: 'Give me tacos',
-        ready: function(){},
-        attached: function(){},
-        detached: function(){},
-        attributeChanged: function(attr, oldVal, newVal){}
-      });
-    &lt;/script&gt;
-  &lt;/polymer-element&gt;
-            </code></pre>
-          </div>
-        </section>
-
-				<section id="slide14">
+				<section id="slide10">
   				<div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Use native child elements</h2>
@@ -241,7 +168,7 @@
   				</div>
 				</section>
 
-				<section id="slide15">
+				<section id="slide11">
 				  <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Attributes</h2>
@@ -259,13 +186,27 @@
 				  </div>
 				</section>
 
-        <section id="slide16">
+        <section id="slide12">
+          <div class="accessibilityWrapper">
+            <h2>Custom Elements</h2>
+            <h3>Native Support</h3>
+            <ul>
+              <li>Chrome</li>
+              <li>Opera</li>
+              <li>Firefox (Nightly?)</li>
+            </ul>
+            <p style="margin-top: 1em;font-size: 0.75em">Source: <a href="http://jonrimmer.github.io/are-we-componentized-yet/" target="_blank" title="Link opens in a new window">are we componentized yet?</a><br>
+            Note: this stuff moves <em>fast</em>!</p>
+          </div>
+        </section>
+
+        <section id="slide13">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Wait a minute...</h2>
           </div>
         </section>
 
-        <section id="slide17">
+        <section id="slide14">
           <div class="accessibilityWrapper">
             <h2>Trees</h2>
             <img src="img/tree.png" alt="Tree object representation compared to tree in nature">
@@ -273,7 +214,7 @@
           </div>
         </section>
 
-        <section id="slide18">
+        <section id="slide15">
           <div class="accessibilityWrapper">
             <h2>Rendering Engine Basic Flow</h2>
             <p><em>(Webkit)</em></p>
@@ -282,14 +223,14 @@
           </div>
         </section>
 
-        <section id="slide19">
+        <section id="slide16">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Shadow DOM</h2>
             <p class="bigItalic" style="padding: 0 1em;">Encapsulation by hiding DOM subtrees under shadow roots</p>
             <aside class="notes">
 
             Shadow DOM is designed to provide encapsulation by hiding DOM subtrees under shadow roots. It provides a method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM.
-            
+
             Shadow host - an element hosting one or more Shadow DOM node trees.
             Shadow tree - a node tree hosted by a shadow host.
             Shadow root - the root node of a shadow tree.
@@ -297,7 +238,7 @@
           </div>
         </section>
 
-        <section id="slide20">
+        <section id="slide17">
           <div class="accessibilityWrapper">
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
@@ -305,7 +246,7 @@
           </div>
         </section>
 
-        <section id="slide21">
+        <section id="slide18">
   				<div class="accessibilityWrapper">
             <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
@@ -327,15 +268,15 @@
   				</div>
         </section>
 
-        <section id="slide22">
+        <section id="slide19">
           <div class="accessibilityWrapper">
             <h2><a href="demos/demo2.html" target="_blank" title="Link opens in a new window">Demo <span class="offscreen">opens in a new window</span></a></h2>
           </div>
         </section>
 
-        <section id="slide23">
+        <section id="slide20">
           <div class="accessibilityWrapper">
-            <h2>Current Support</h2>
+            <h2>Current Native Support</h2>
             <h3>Shadow DOM</h3>
             <ul class="normal-list">
               <li>Chrome 25+</li>
@@ -350,33 +291,7 @@
           </div>
         </section>
 
-        <section id="slide24">
-          <div class="accessibilityWrapper">
-            <h2>XTag / Mozilla</h2>
-            <ul class="normal-list">
-              <li>Firefox 5+</li>
-              <li>Chrome 4+</li>
-              <li>Android 2.1+</li>
-              <li>Safari 4+</li>
-              <li>Internet Explorer 9+</li>
-              <li>Opera 11+ </li>
-            </ul>
-            <p style="margin-top: 1em;"><small><a href="http://x-tags.org/" target="_blank" title="Link opens in a new window">X-tags.org</a></small></p>
-          </div>
-        </section>
-
-        <section id="slide25">
-          <div class="accessibilityWrapper">
-            <h2>Polymer</h2>
-            <ul class="smallest">
-              <li>Chrome, Firefox, IE10+, Safari 6+, Mobile Safari</li>
-            </ul>
-            <img src="img/polymer-screenshot.png" alt="Polymer support matrix" style="max-width: 600px">
-            <p><small>Read more: <a href="http://www.polymer-project.org/resources/compatibility.html" target="_blank" title="Link opens in a new window">polymer-project.com</a></small></p>
-          </div>
-        </section>
-
-        <section id="slide26">
+        <section id="slide21">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-web-components/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-web-components/</a></p>
