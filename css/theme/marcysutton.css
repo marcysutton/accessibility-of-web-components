@@ -284,13 +284,13 @@ body {
 }
 .reveal button:hover, .reveal button:focus,
 x-tacobutton:hover, x-tacobutton:focus {
-  background-color: white;
+  background-color: #cff110;
   color: black;
   cursor: pointer;
 }
 .reveal button:active,
 x-tacobutton:active {
-  background-color: #cff110;
+  background-color: white;
   color: black;
 }
 .reveal #contentdiv {
