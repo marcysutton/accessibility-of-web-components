@@ -71,7 +71,6 @@ body {
     text-align: left;
 }
 .reveal footer .copyright {
-    background-color: #000;
     display: inline-block;
     color: #999;
     margin: 0px 15px;
@@ -143,6 +142,10 @@ body {
 .reveal ul.spaced-list li {
   margin-bottom: 0.5em;
   margin-top: 0.75em;
+}
+.reveal ul.normal-list li {
+  letter-spacing: 0;
+  margin-bottom: 0.25em;
 }
 .reveal ul.smaller li {
   font-size: 0.95em;
@@ -269,19 +272,24 @@ body {
 /*********************************************
  * Slide Styles
  *********************************************/
-.reveal button {
+.reveal button, x-tacobutton {
+  background-color: white;
   border-radius: 10px;
   border-width: 0;
+  color: black;
+  display: inline-block;
   font-size: 1em;
   margin: 2em;
   padding: 0.25em 0.5em;
 }
-.reveal button:hover, .reveal button:focus {
+.reveal button:hover, .reveal button:focus,
+x-tacobutton:hover, x-tacobutton:focus {
   background-color: black;
   cursor: pointer;
   color: white;
 }
-.reveal button:active {
+.reveal button:active,
+x-tacobutton:active {
   background-color: #cff110;
   color: black;
 }

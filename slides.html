@@ -127,29 +127,9 @@
               <div class="large-tag">
                 &lt;x-tacobutton&gt;
               </div>
-              <button>Give me tacos</button>
+              <x-tacobutton id="tacobutton">Give me tacos</x-tacobutton>
             </div>
             <div id="tacodiv" style="height: 100%; position: absolute; left: 0; top: 0; width: 100%;"></div>
-            <script>
-$(document).ready(function(){
-  // showTacos();
-});
-var imgArray = ["img1.gif", "img2.gif", "img3.gif", "img4.gif", "img5.gif"];
-function generateRandom(min, max) {
-  var num = Math.random() * (max - min) + min;
-  return Math.floor(num);
-}
-function showTacos() {
-  var tacoDiv = $('#tacodiv');
-  for(var i=0; i<imgArray.length; i++){
-    var left = generateRandom(-600, 800);
-    var top = generateRandom(-400, 800);
-    var img = $("<img src='img/tacos/"+imgArray[i]+"'>")
-                .css({"position":"absolute", "top": top + "px", "left": left + "px"});
-    tacoDiv.delay(i*1000).append(img);
-  };
-};
-</script>
 				  </div>
 			  </section>
 
@@ -176,7 +156,7 @@ function showTacos() {
     extends: 'button'
   });
   var tacoButton = new TacoButton();
-  document.appendChild(tacoButton).textContent = 'tacos!';
+  document.appendChild(tacoButton).textContent = 'Give me tacos';
   tacoButton = document.querySelector('button[is=taco-button]');
             </code></pre>
           </div>
@@ -189,7 +169,7 @@ function showTacos() {
             <ul>
               <li>Chrome</li>
               <li>Opera</li>
-              <li>Firefox</li>
+              <li>Firefox*</li>
             </ul>
           </div>
         </section>
@@ -198,8 +178,9 @@ function showTacos() {
         <!-- TODO: look up event delegation, decide what to keep -->
           <div class="accessibilityWrapper">
             <h2>Extending with xtag</h2>
-            <pre style="width: auto;"><code class="javascript">
+            <pre style="width: auto;"><code class="javascript" style="max-height: none;">
   xtag.register('x-tacobutton', {
+    prototype: Object.create(HTMLDivElement.prototype),
     extends: 'button',
     lifecycle: {
       created: function(){},
@@ -228,7 +209,11 @@ function showTacos() {
     &lt;/template&gt;
     &lt;script&gt;
       Polymer('polymer-tacobutton', {
-        text: 'Give me tacos'
+        text: 'Give me tacos',
+        ready: function(){},
+        attached: function(){},
+        detached: function(){},
+        attributeChanged: function(attr, oldVal, newVal){}
       });
     &lt;/script&gt;
   &lt;/polymer-element&gt;
@@ -242,7 +227,13 @@ function showTacos() {
             <h2>Use native child elements</h2>
             <pre><code class="html">
         &lt;taco-surprise&gt;
-          &lt;button&gt;tacos!&lt;/button&gt;
+          &lt;h2&gt;Taco Surprise!&lt;/h2&gt;
+          &lt;button&gt;Give me tacos&lt;/button&gt;
+          &lt;p class="error invisible"&gt;Or give me death&lt;/p&gt;
+
+          &lt;output&gt;
+            &lt;img src="" alt="" aria-hidden="true"&gt;
+          &lt;/output&gt;
         &lt;/taco-surprise&gt;
             </code></pre>
   				</div>
@@ -334,56 +325,56 @@ function showTacos() {
   				</div>
         </section>
 
-				<section id="slide21">
-  				<div class="accessibilityWrapper">
-            <h2>About that boundary...</h2>
-            <pre><code class="javascript">
-  // get rid of anything inherited
-  shadowRoot.resetStyleInheritance = true;
-
-  // let CSS cascade into boundary
-  shadowRoot.applyAuthorStyles = true;
-            </code></pre>
+        <section id="slide21">
+          <div class="accessibilityWrapper">
+            <h2>Demo</h2>
+            
           </div>
-				</section>
+        </section>
 
         <section id="slide22">
           <div class="accessibilityWrapper">
-            <h2>Demo</h2>
-
-          </div>
-        </section>
-
-        <section id="slide28">
-          <div class="accessibilityWrapper">
             <h2>Current Support</h2>
-            <div style="float:left; width:45%;">
-              <h3>Native*</h3>
-              <ul>
-                <li>Chrome 25+</li>
-                <li>Opera 15+</li>
-                <li>Firefox 30+</li>
-                <li>Chrome for Android</li>
-              </ul>
-              <p style="font-size:0.75em;padding-top:0.5em"><em>*Shadow DOM</em></p>
-            </div>
-            <div style="float:right; width:49%;">
-              <h3>XTag / Mozilla</h3>
-              <ul>
-                <li>Firefox 5+ desktop &amp; mobile</li>
-                <li>Chrome 4+, Android 2.1+</li>
-                <li>Safari 4+ desktop &amp; mobile</li>
-                <li>Internet Explorer 9+</li>
-                <li>Opera 11+ desktop &amp; mobile</li>
-              </ul>
-            </div>
+            <h3>Shadow DOM</h3>
+            <ul class="normal-list">
+              <li>Chrome 25+</li>
+              <li>Opera 15+</li>
+              <li>Firefox 30+</li>
+              <li>Chrome for Android</li>
+            </ul>
             <div style="clear:both; margin-top: 1em;">
               <img src="img/browser-icons.png" alt="Browser Icons" style="max-width: 500px; width: 100%;">
             </div>
+            <p><small>Source: <a href="http://caniuse.com/shadowdom" target="_blank" title="Link opens in a new window">Caniuse.com</a></small></p>
           </div>
         </section>
 
-        <section id="slide29">
+        <section id="slide23">
+          <div class="accessibilityWrapper">
+            <h2>XTag / Mozilla</h2>
+            <ul class="normal-list">
+              <li>Firefox 5+ desktop &amp; mobile</li>
+              <li>Chrome 4+, Android 2.1+</li>
+              <li>Safari 4+ desktop &amp; mobile</li>
+              <li>Internet Explorer 9+</li>
+              <li>Opera 11+ desktop &amp; mobile</li>
+            </ul>
+            <p style="margin-top: 1em;"><small><a href="http://x-tags.org/" target="_blank" title="Link opens in a new window">X-tags.org</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide24">
+          <div class="accessibilityWrapper">
+            <h2>Polymer</h2>
+            <ul class="smallest">
+              <li>Chrome, Firefox, IE10+, Safari 6+, Mobile Safari</li>
+            </ul>
+            <img src="img/polymer-screenshot.png" alt="Polymer support matrix" style="max-width: 600px">
+            <p><small>Read more: <a href="http://www.polymer-project.org/resources/compatibility.html" target="_blank" title="Link opens in a new window">polymer-project.com</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide25">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-shadowdom/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-shadowdom/</a></p>
@@ -393,6 +384,8 @@ function showTacos() {
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
+    <script src="lib/js/x-tag-components.min.js"></script>
+    <script src="demos/js/x-tacobutton.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
@@ -423,9 +416,9 @@ function showTacos() {
 			});
 
 		</script>
-    <!-- controldeck.js -->
+    <!-- controldeck.js 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/controldeck-slides.js"></script>
+    <script src="/controldeck-slides.js"></script>-->
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
