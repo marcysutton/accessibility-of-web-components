@@ -16,7 +16,6 @@
     randomImg.showTacos(document);
   })
   tacoButton.addEventListener('keydown', function(event){
-    console.log(event);
     if(event.which){
       console.log(event.which);
     }

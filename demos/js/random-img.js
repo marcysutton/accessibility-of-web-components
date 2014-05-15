@@ -10,12 +10,16 @@ RandomImg.prototype = {
   },
   showTacos: function(document) {
     var self = this;
+    var path = '';
+    if(window.imgPath){
+      path = window.imgPath;
+    }
     this.contentDiv.setAttribute('class','initialized');
     for(var i=0; i<this.imgArray.length; i++){
         var left = self.generateRandom(-600, 800);
         var top = self.generateRandom(-400, 800);
         var img = document.createElement("img");
-        img.setAttribute('src', "/img/tacos/"+self.imgArray[i]);
+        img.setAttribute('src', path+"img/tacos/"+self.imgArray[i]);
         img.setAttribute('style', "position:absolute; top:"+ top +"px; left:"+ left +"px;");
         self.tacoDiv.appendChild(img);
     }
