@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo 5</title>
+  <link rel="import" href="bower_components/polymer/polymer.html">
+	<style>
+	polymer-tacobutton {
+		background-color: black;
+		border-radius: 5px;
+		color: white;
+		padding: 0.5em 1em;
+		position: relative;
+		z-index: 1;
+	}
+	polymer-tacobutton:hover, polymer-tacobutton:focus {
+		background-color: #cff110;
+		color: black;
+	}
+	#tacodiv {
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	</style>
+</head>
+<body>
+	<h1>Polymer Taco Button Demo</h1>
+	<polymer-element name="taco-button">
+    <template>
+      {{text}}
+    </template>
+    <script>
+      Polymer('taco-button', {
+        text: 'Give me tacos',
+        ready: function(){
+        	console.log(this);
+        },
+        attached: function(){
+        	console.log('something');
+        },
+        detached: function(){},
+        attributeChanged: function(attr, oldVal, newVal){}
+      });
+    </script>
+  </polymer-element>
+	<div id="tacodiv"></div>
+	<script src="js/random-img.js"></script>
+</body>
+</html>

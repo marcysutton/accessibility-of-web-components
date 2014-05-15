@@ -122,8 +122,8 @@
 
 			  <section id="slide8">
 				  <div class="accessibilityWrapper">
-            <div style="position: relative; z-index: 2;">
-              <h2>Custom Elements <span class="offscreen">good example: "x-tacobutton"</span></h2>
+            <div id="contentdiv" style="transition: all 0.5s; position: relative; padding-top:1em; z-index: 2;">
+              <h2 style="margin-top:0;">Custom Elements <span class="offscreen">good example: "x-tacobutton"</span></h2>
               <div class="large-tag">
                 &lt;x-tacobutton&gt;
               </div>
@@ -168,8 +168,10 @@
             <ul>
               <li>Chrome</li>
               <li>Opera</li>
-              <li>Firefox*</li>
+              <li>Firefox (Nightly?)</li>
             </ul>
+            <p style="margin-top: 1em;font-size: 0.75em">Source: <a href="http://jonrimmer.github.io/are-we-componentized-yet/" target="_blank" title="Link opens in a new window">are we componentized yet?</a><br>
+            Note: this stuff moves <em>fast</em>!</p>
           </div>
         </section>
 
@@ -351,11 +353,12 @@
           <div class="accessibilityWrapper">
             <h2>XTag / Mozilla</h2>
             <ul class="normal-list">
-              <li>Firefox 5+ desktop &amp; mobile</li>
-              <li>Chrome 4+, Android 2.1+</li>
-              <li>Safari 4+ desktop &amp; mobile</li>
+              <li>Firefox 5+</li>
+              <li>Chrome 4+</li>
+              <li>Android 2.1+</li>
+              <li>Safari 4+</li>
               <li>Internet Explorer 9+</li>
-              <li>Opera 11+ desktop &amp; mobile</li>
+              <li>Opera 11+ </li>
             </ul>
             <p style="margin-top: 1em;"><small><a href="http://x-tags.org/" target="_blank" title="Link opens in a new window">X-tags.org</a></small></p>
           </div>
@@ -379,10 +382,15 @@
           </div>
         </section>
 			</div>
+      <footer>
+        <div class="copyright">Accessibility of Web Components<br />
+          <a href="http://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@MarcySutton</a> / <a href="http://substantial.com" target="_blank" title="Link opens in a new window">Substantial</a></div>
+      </footer>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
     <script src="lib/js/x-tag-components.min.js"></script>
+    <script src="demos/js/random-img.js"></script>
     <script src="demos/js/x-tacobutton.js"></script>
 		<script src="js/reveal.min.js"></script>
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo 5</title>
+	<style>
+	taco-button {
+		background-color: black;
+		border-radius: 5px;
+		color: white;
+		padding: 0.5em 1em;
+		position: relative;
+		z-index: 1;
+	}
+	taco-button:hover, taco-button:focus {
+		background-color: #cff110;
+		color: black;
+	}
+	#tacodiv {
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	</style>
+</head>
+<body>
+	<h1>Native Taco Button Demo</h1>
+	<taco-button>Give me tacos</taco-button>
+	<div id="tacodiv"></div>
+	<script src="js/random-img.js"></script>
+  <script src="js/taco-button.js"></script>
+</body>
+</html>

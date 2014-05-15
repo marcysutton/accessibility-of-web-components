@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo 4</title>
+	<style>
+	x-tacobutton {
+		background-color: black;
+		border-radius: 5px;
+		color: white;
+		padding: 0.5em 1em;
+		position: relative;
+		z-index: 1;
+	}
+	x-tacobutton:hover, x-tacobutton:focus {
+		background-color: #cff110;
+		color: black;
+	}
+	#tacodiv {
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	</style>
+</head>
+<body>
+	<h1>X-tag Taco Button Demo</h1>
+	<x-tacobutton>Give me tacos</x-tacobutton>
+	<div id="tacodiv"></div>
+  <script src="../lib/js/x-tag-components.min.js"></script>
+	<script src="js/random-img.js"></script>
+  <script src="js/x-tacobutton.js"></script>
+</body>
+</html>
