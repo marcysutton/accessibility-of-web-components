@@ -240,32 +240,32 @@
             </code></pre>
   				</div>
 				</section>
-<!--
-				<section id="slide14">
+
+				<section id="slide15">
 				  <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
-            <h2>Use ARIA</h2>
-            <pre><code class="html">
-        &lt;taco-surprise&gt;
-          &lt;div role="button"&gt;tacos!&lt;/div&gt;
-        &lt;/taco-surprise&gt;
-
-        <taco-surprise>
-          <div role="button">tacos!</div>
-          <img src="{{imgSrc}}" alt="">
-        </taco-surprise>
-
+            <h2>Attributes</h2>
+            <pre style="width: 100%"><code class="html">
+  &lt;taco-button role="button" tabIndex="0"&gt;tacos!&lt;/taco-button&gt;
+            </code></pre>
+            <pre style="width: 100%"><code class="javascript">
+  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
+  var TacoButton = document.registerElement('taco-button', {
+    prototype: TacoButtonPrototype,
+    extends: 'button'
+  });
+  var tacoButton = new TacoButton();
             </code></pre>
 				  </div>
 				</section>
--->
-        <section id="slide15">
+
+        <section id="slide16">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Wait a minute...</h2>
           </div>
         </section>
 
-        <section id="slide16">
+        <section id="slide17">
           <div class="accessibilityWrapper">
             <h2>Trees</h2>
             <img src="img/tree.png" alt="Tree object representation compared to tree in nature">
@@ -273,7 +273,7 @@
           </div>
         </section>
 
-        <section id="slide17">
+        <section id="slide18">
           <div class="accessibilityWrapper">
             <h2>Rendering Engine Basic Flow</h2>
             <p><em>(Webkit)</em></p>
@@ -282,7 +282,7 @@
           </div>
         </section>
 
-        <section id="slide18">
+        <section id="slide19">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Shadow DOM</h2>
             <p class="bigItalic" style="padding: 0 1em;">Encapsulation by hiding DOM subtrees under shadow roots</p>
@@ -297,7 +297,7 @@
           </div>
         </section>
 
-        <section id="slide19">
+        <section id="slide20">
           <div class="accessibilityWrapper">
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
@@ -305,7 +305,7 @@
           </div>
         </section>
 
-        <section id="slide20">
+        <section id="slide21">
   				<div class="accessibilityWrapper">
             <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
@@ -327,13 +327,13 @@
   				</div>
         </section>
 
-        <section id="slide21">
+        <section id="slide22">
           <div class="accessibilityWrapper">
             <h2><a href="demos/demo2.html" target="_blank" title="Link opens in a new window">Demo <span class="offscreen">opens in a new window</span></a></h2>
           </div>
         </section>
 
-        <section id="slide22">
+        <section id="slide23">
           <div class="accessibilityWrapper">
             <h2>Current Support</h2>
             <h3>Shadow DOM</h3>
@@ -350,7 +350,7 @@
           </div>
         </section>
 
-        <section id="slide23">
+        <section id="slide24">
           <div class="accessibilityWrapper">
             <h2>XTag / Mozilla</h2>
             <ul class="normal-list">
@@ -365,7 +365,7 @@
           </div>
         </section>
 
-        <section id="slide24">
+        <section id="slide25">
           <div class="accessibilityWrapper">
             <h2>Polymer</h2>
             <ul class="smallest">
@@ -376,7 +376,7 @@
           </div>
         </section>
 
-        <section id="slide25">
+        <section id="slide26">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-web-components/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-web-components/</a></p>
