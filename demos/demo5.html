@@ -3,14 +3,17 @@
 <head>
 	<title>Demo 5</title>
 	<style>
-	taco-button {
+	taco-button,
+	button[is=taco-button] {
 		background-color: black;
 		border-radius: 5px;
+		border-width: 0;
 		color: white;
 		padding: 0.5em 1em;
 		position: relative;
 		z-index: 1;
 	}
+	button[is=taco-button]:hover, button[is=taco-button]:focus,
 	taco-button:hover, taco-button:focus {
 		background-color: #cff110;
 		color: black;
@@ -26,8 +29,9 @@
 </head>
 <body>
 	<h1>Native Taco Button Demo</h1>
-	<taco-button>Give me tacos</taco-button>
+	<div id="buttondiv"></div>
 	<div id="tacodiv"></div>
+	<div id="contentdiv"></div>
 	<script src="js/random-img.js"></script>
   <script src="js/taco-button.js"></script>
 </body>

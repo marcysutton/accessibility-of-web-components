@@ -156,7 +156,8 @@
     extends: 'button'
   });
   var tacoButton = new TacoButton();
-  document.appendChild(tacoButton).textContent = 'Give me tacos';
+  document.body.appendChild(tacoButton).textContent = 'Give me tacos';
+  tacoButton = document.querySelector('button[is=taco-button]');
             </code></pre>
           </div>
         </section>

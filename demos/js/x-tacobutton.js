@@ -11,7 +11,14 @@
     },
     events: {
       'click': function(){
-        randomImg.showTacos();
+        randomImg.showTacos(document);
+      },
+      'keydown': function(event){
+        if(event.which === 13 || event.which === 32) {
+          // not preventing slide change in Reveal
+          event.preventDefault();
+          randomImg.showTacos(document);
+        }
       }
     }
   });            
