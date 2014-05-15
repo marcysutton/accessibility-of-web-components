@@ -9,7 +9,7 @@ RandomImg.prototype = {
     return Math.floor(num);
   },
   showTacos: function() {
-    this.contentDiv.css('background-color','rgba(0,0,0,0.8)');
+    this.contentDiv.addClass('initialized');
     var self = this;
     var k = 0;
     for(var i=0; i<this.imgArray.length; i++){

@@ -273,26 +273,42 @@ body {
  * Slide Styles
  *********************************************/
 .reveal button, x-tacobutton {
-  background-color: white;
+  background-color: black;
   border-radius: 10px;
   border-width: 0;
-  color: black;
+  color: white;
   display: inline-block;
   font-size: 1em;
-  margin: 2em;
+  margin: 1.5em;
   padding: 0.25em 0.5em;
 }
 .reveal button:hover, .reveal button:focus,
 x-tacobutton:hover, x-tacobutton:focus {
-  background-color: black;
+  background-color: white;
+  color: black;
   cursor: pointer;
-  color: white;
 }
 .reveal button:active,
 x-tacobutton:active {
   background-color: #cff110;
   color: black;
 }
+.reveal #contentdiv {
+  position: relative; 
+  padding-top: 1em; 
+  z-index: 2;
+}
+  .reveal #contentdiv h2,
+  .reveal #contentdiv div {
+    display: inline-block;
+    margin: 0;
+    padding: 0.25em;
+    transition: all 0.5s; 
+  }
+  .reveal #contentdiv.initialized h2,
+  .reveal #contentdiv.initialized div {
+    background-color: rgba(0,0,0,0.9);
+  }
 .reveal #slide1 p {
   font-size: 0.75em;
   margin-bottom: 3%; }
