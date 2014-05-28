@@ -37,30 +37,15 @@ body {
   font-weight: 200;
   letter-spacing: -0.02em;
   color: #eeeeee; }
-
-.reveal .byline {
-  font-style: italic;
-  font-size: 1.5em;
-  margin: 10px 0 20px;
-}
-.reveal pre {
-}
-.reveal pre code {
-  background-color: black;
-  color: #ccc;
-  font-size: 1.15em;
-  line-height: 1.45em;
-  max-height: 500px;
-}
-::selection {
-  color: white;
-  background: #97948f;
-  text-shadow: none; }
-
-.reveal .slides>section.present>.accessibilityWrapper {
-  outline: none;
-}
-.reveal footer {
+  .reveal pre code {
+    background-color: black;
+    color: #cccccc;
+    font-size: 1.15em;
+    line-height: 1.45em;
+    max-height: 500px; }
+  .reveal .slides > section.present > .accessibilityWrapper {
+    outline: none; }
+  .reveal footer {
     position: fixed;
     height: 40px;
     width: 100%;
@@ -68,94 +53,74 @@ body {
     left: 0;
     font-size: 45%;
     line-height: 1.25em;
-    text-align: left;
-}
-.reveal footer .copyright {
-    display: inline-block;
-    color: #999;
-    margin: 0px 15px;
-    letter-spacing: -0.01em;
-    font-style: italic;
-}
+    text-align: left; }
+    .reveal footer .copyright {
+      display: inline-block;
+      color: #999999;
+      margin: 0px 15px;
+      letter-spacing: -0.01em;
+      font-style: italic; }
+
+::selection {
+  color: white;
+  background: #97948f;
+  text-shadow: none; }
+
 /*********************************************
  * HEADERS
  *********************************************/
-.reveal h1,
-.reveal h2,
-.reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 {
-  margin: 0 0 20px 0;
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   color: #eeeeee;
   font-family: "League Gothic", Impact, sans-serif;
   line-height: 1em;
   letter-spacing: 0.02em;
+  margin: 0 0 20px 0;
   text-transform: uppercase;
-  text-shadow: 2px 2px 6px #000;
-}
+  text-shadow: 2px 2px 6px black; }
 .reveal p, .reveal small, .reveal ul, .reveal ol, .reveal div.large-tag {
-  text-shadow: 2px 2px 2px #000;
-}
-
+  text-shadow: 2px 2px 2px black; }
 .reveal h2.h1-style {
-  font-size: 3.77em;
-}
+  font-size: 3.77em; }
 .reveal h1.h2-style,
 .reveal h3.h2-style {
-  font-size: 2.11em;
-}
+  font-size: 2.11em; }
 .reveal h2.h3-style {
-  font-size: 1.55em;
-}
-.reveal p.bigItalic {
-  font-size: 1.5em;
-  font-style: italic;
-}
+  font-size: 1.55em; }
 .reveal small {
-  font-size: 0.5em; 
+  font-size: 0.5em;
   letter-spacing: 0;
-  text-transform: none;
-}
+  text-transform: none; }
 .reveal .large-tag {
   font-family: Menlo, monospace;
   font-size: 2.5em;
-  margin-top: 0.5em;
-}
+  margin-top: 0.5em; }
 .reveal .muted {
-  color: #666;
-}
+  color: #666666; }
 .reveal ul.checkboxes li {
   list-style: none;
   line-height: 1.25em;
   margin-bottom: 0.5em;
-  text-indent: -1.5em;
-}
+  text-indent: -1.5em; }
   .reveal ul.checkboxes li:before {
     content: '\2610';
     font-size: 1.5em;
-    margin-right: 0.25em;
-  }
+    margin-right: 0.25em; }
   .reveal ul.checkboxes li.checked:before {
-    content: '\2611';
-  }
+    content: '\2611'; }
 .reveal ul.spaced-list li {
   margin-bottom: 0.5em;
-  margin-top: 0.75em;
-}
+  margin-top: 0.75em; }
 .reveal ul.normal-list li {
   letter-spacing: 0;
-  margin-bottom: 0.25em;
-}
+  margin-bottom: 0.25em; }
 .reveal ul.smaller li {
   font-size: 0.95em;
   letter-spacing: 0;
-  margin: 0.5em 0;
-}
+  margin: 0.5em 0; }
 .reveal ul.smallest li {
   font-size: 0.75em;
-  letter-spacing: 0;
-}
+  letter-spacing: 0; }
+
 /*********************************************
  * LINKS
  *********************************************/
@@ -167,14 +132,12 @@ body {
   -ms-transition: color .15s ease;
   -o-transition: color .15s ease;
   transition: color .15s ease; }
-
 .reveal a:not(.image):hover {
   color: #97948f;
   text-shadow: none;
   border: none; }
-
 .reveal .roll span:after {
-  color: #fff;
+  color: white;
   background: #92ab0a; }
 
 /*********************************************
@@ -190,7 +153,6 @@ body {
   -ms-transition: all .2s linear;
   -o-transition: all .2s linear;
   transition: all .2s linear; }
-
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
   border-color: #cff110;
@@ -272,71 +234,198 @@ body {
 /*********************************************
  * Slide Styles
  *********************************************/
-.reveal button, x-tacobutton {
+.reveal button, .reveal x-tacobutton {
   background-color: black;
   border-radius: 10px;
   border-width: 0;
   color: white;
   display: inline-block;
   font-size: 1em;
-  margin: 1.5em;
-  padding: 0.25em 0.5em;
-}
+  padding: 0.25em 0.5em; }
+.reveal button {
+  margin: 1.5em; }
+.reveal x-tacobutton {
+  margin: 0; }
 .reveal button:hover, .reveal button:focus,
-x-tacobutton:hover, x-tacobutton:focus {
+.reveal x-tacobutton:hover, .reveal x-tacobutton:focus {
   background-color: #cff110;
   color: black;
-  cursor: pointer;
-}
+  cursor: pointer; }
 .reveal button:active,
-x-tacobutton:active {
+.reveal x-tacobutton:active {
   background-color: white;
-  color: black;
-}
+  color: black; }
 .reveal #contentdiv {
-  position: relative; 
-  padding-top: 1em; 
-  z-index: 2;
-}
-  .reveal #contentdiv h2,
-  .reveal #contentdiv div {
+  position: relative;
+  padding-top: 1em;
+  z-index: 2; }
+  .reveal #contentdiv h2, .reveal #contentdiv div {
     display: inline-block;
     margin: 0;
     padding: 0.25em;
-    transition: all 0.5s; 
-  }
+    transition: all 0.5s; }
+  .reveal #contentdiv div.cleardiv {
+    display: block; }
   .reveal #contentdiv.initialized h2,
-  .reveal #contentdiv.initialized div {
-    background-color: rgba(0,0,0,0.9);
-  }
+  .reveal #contentdiv .initialized div {
+    background-color: rgba(0, 0, 0, 0.9); }
+  .reveal #contentdiv.initialized div.cleardiv {
+    background: none; }
 .reveal #slide1 p {
   font-size: 0.75em;
   margin-bottom: 3%; }
-  .reveal #slide1 p a.substantial-logo {
-    color: #fff;
-    font-family: 'substantial-ico-fonts';
-    letter-spacing: 0.3em;
-    margin-left: 2%;
-    position: relative; }
-    .reveal #slide1 p a.substantial-logo:hover, .reveal #slide1 p a.substantial-logo:focus {
-      color: #cff110;
-      text-decoration: none;
-      -webkit-transition: color 0.25s ease-out; }
-
+.reveal a.substantial-logo {
+  color: white;
+  font-family: 'substantial-ico-fonts';
+  letter-spacing: 0.3em;
+  margin-left: 2%;
+  position: relative; }
+  .reveal a.substantial-logo:hover, .reveal a.substantial-logo:focus {
+    color: #cff110;
+    text-decoration: none;
+    -webkit-transition: color 0.25s ease-out; }
 .reveal .image-headline {
   background-size: 100% auto;
   border: 4px solid #eeeeee;
   margin-bottom: 10px;
-  min-height: 635px; 
-  width: 100%;
-}
-.reveal .image-headline#the-project {
-  background: transparent url(../../img/workstation.jpg) no-repeat center center;
-}
-.reveal .image-headline#the-presentation {
-  background: transparent url(../../img/meeting-room.jpg) no-repeat center center;
-}
-.reveal .image-headline h2 {
-  font-size: 2.75em;
-  padding-top: 0.5em;
-}
+  min-height: 635px;
+  width: 100%; }
+  .reveal .image-headline#the-project {
+    background: transparent url(../../img/workstation.jpg) no-repeat center center; }
+  .reveal .image-headline#the-presentation {
+    background: transparent url(../../img/meeting-room.jpg) no-repeat center center; }
+  .reveal .image-headline h2 {
+    font-size: 2.75em;
+    padding-top: 0.5em; }
+
+/**
+* Code examples for AccesibleJS
+*
+* Copyright (C) 2013 Marcy Sutton, http://marcysutton.com
+*/
+/**
+* Extends for AccesibleJS code examples
+*
+* Copyright (C) 2013 Marcy Sutton, http://marcysutton.com
+*/
+.reveal #tiles-version1 figure.tile, .reveal #tiles-version2 figure.tile {
+  display: inline-block;
+  height: 200px;
+  margin: 0 10px 10px;
+  overflow: hidden;
+  position: relative;
+  width: 200px; }
+
+.reveal #tiles-version1 figure.tile a {
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  height: auto;
+  min-height: 98%;
+  min-width: 98%;
+  overflow: hidden;
+  position: relative;
+  width: auto; }
+
+.reveal #tiles-version1 figure.tile a:hover, .reveal #tiles-version1 figure.tile a:focus, .reveal #tiles-version2 figure.tile:focus, .reveal #tiles-version2 figure.tile:hover {
+  background-color: #fff;
+  color: #333; }
+
+.reveal #tiles-version1 figure.tile a.flipped, .reveal #tiles-version2 figure.tile.flipped {
+  background-color: #c6ff00;
+  color: #333; }
+
+.reveal #tiles-version1 figure.tile a h3, .reveal #tiles-version2 figure.tile h3 {
+  display: inline-block;
+  font-family: "Lato", sans-serif;
+  font-size: 0.75em;
+  vertical-align: middle; }
+
+a#menu_btn {
+  display: inline-block;
+  font-size: 3em;
+  margin: 0 0 2%;
+  padding: 2%; }
+  a#menu_btn:before {
+    content: 'i';
+    display: block;
+    font-family: 'entyporegular'; }
+
+.reveal #tiles-version1 figure.tile a {
+  border: 2px solid #fff; }
+  .reveal #tiles-version1 figure.tile a:hover h3, .reveal #tiles-version1 figure.tile a:focus h3, .reveal #tiles-version1 figure.tile a.flipped h3 {
+    color: #333; }
+  .reveal #tiles-version1 figure.tile a div {
+    -o-transition: top 0.5s ease-out;
+    -ms-transition: top 0.5s ease-out;
+    -moz-transition: top 0.5s ease-out;
+    -webkit-transition: top 0.5s ease-out;
+    transition: top 0.5s ease-out;
+    border: 1px solid #000;
+    display: block;
+    height: 86%;
+    left: 0;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    width: 86%; }
+  .reveal #tiles-version1 figure.tile a.flipped div.tile-back,
+  .reveal #tiles-version1 figure.tile a div.tile-front {
+    top: 0; }
+  .reveal #tiles-version1 figure.tile a div.tile-back {
+    top: 100%;
+    z-index: 1; }
+  .reveal #tiles-version1 figure.tile a.flipped div.tile-front {
+    top: -100%; }
+.reveal #tiles-version2 figure.tile {
+  border: 2px solid #fff; }
+  .reveal #tiles-version2 figure.tile:focus, .reveal #tiles-version2 figure.tile:hover {
+    cursor: pointer; }
+  .reveal #tiles-version2 figure.tile:hover h3, .reveal #tiles-version2 figure.tile:focus h3, .reveal #tiles-version2 figure.tile.flipped h3 {
+    color: #333; }
+  .reveal #tiles-version2 figure.tile .hidden {
+    display: none !important;
+    visibility: hidden; }
+  .reveal #tiles-version2 figure.tile div.mask {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%; }
+    .reveal #tiles-version2 figure.tile div.mask .tile-inner {
+      -o-transition: top 0.5s ease-out;
+      -ms-transition: top 0.5s ease-out;
+      -moz-transition: top 0.5s ease-out;
+      -webkit-transition: top 0.5s ease-out;
+      transition: top 0.5s ease-out;
+      height: 200%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%; }
+    .reveal #tiles-version2 figure.tile div.mask .tile-front {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%; }
+    .reveal #tiles-version2 figure.tile div.mask .tile-back {
+      display: block;
+      height: 100%;
+      left: 0;
+      position: relative;
+      top: 200px;
+      width: 100%;
+      z-index: 1; }
+  .reveal #tiles-version2 figure.tile h3 {
+    margin-top: 10px; }
+  .reveal #tiles-version2 figure.tile a {
+    color: #cf6600;
+    display: block;
+    font-size: 0.6em;
+    font-weight: bold;
+    line-height: 1em;
+    margin-top: 10px; }
+    .reveal #tiles-version2 figure.tile a span {
+      display: block; }
+  .reveal #tiles-version2 figure.tile.flipped div.tile-inner {
+    top: -200px; }
