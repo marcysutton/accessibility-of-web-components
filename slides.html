@@ -51,7 +51,7 @@
 				  <div class="accessibilityWrapper">
             <h2>Welcome to Marklar</h2>
             <img src="img/marklar-joke.jpg" alt="South Park scene" />
-            <p class="offscreen">A Marklar walks into a Marklar. 
+            <p class="offscreen">A Marklar walks into a Marklar.
             Marklar asks the marklar, "do you have any Marklar?"</p>
             <p class="offscreen">The Marklar shakes his Marklar and says "No, we only have Marklar"</p>
 				  </div>
@@ -62,9 +62,9 @@
             <p>This has been an exercise in...</p>
             <h2 class="h1-style">Semantics</h2>
             <aside class="notes">
-            What the Marklar? If we only use one word for everything, it has no meaning. Today we're going to talk about a new technology, Web Components, which runs the risk of polluting the internet with a bunch of Marklar: soulless div tags, essentially, that don't communicate role or purpose to non-visual users. 
+            What the Marklar? If we only use one word for everything, it has no meaning. Today we're going to talk about a new technology, Web Components, which runs the risk of polluting the internet with a bunch of Marklar: soulless div tags, essentially, that don't communicate role or purpose to non-visual users.
 
-            I'm Marcy Sutton, not a freelance Marklar but rather a full-time developer at Substantial, a 60-person product studio in Seattle. I've spent the past few months expanding my own skillset while improving the accessibility of web applications such as a a fitness app and a whiskey recommendations app. Because why shouldn't those appliations be accessible to all people?! I grew to love accessibility at my previous job because it added a valuable dimension to my work. 
+            I'm Marcy Sutton, not a freelance Marklar but rather a full-time developer at Substantial, a 60-person product studio in Seattle. I've spent the past few months expanding my own skillset while improving the accessibility of web applications such as a a fitness app and a whiskey recommendations app. Because why shouldn't those appliations be accessible to all people?! I grew to love accessibility at my previous job because it added a valuable dimension to my work.
             </aside>
 				  </div>
 				</section>
@@ -75,8 +75,8 @@
             <h3 class="offscreen">The worst HTML markup where every tag and attribute is "marklar"</h3>
             <pre style="width:95%;"><code class="html" style="padding-top:0;max-height:550px;">
       &lt;marklar style="background-image: url(marklar.gif);"&gt;
-        &lt;marklar&gt;Marklar was a secret Apple development program 
-        to put Mac OS X on the Intel x86 microprocessor. Ten years 
+        &lt;marklar&gt;Marklar was a secret Apple development program
+        to put Mac OS X on the Intel x86 microprocessor. Ten years
         ago, the first rumors of Marklar emerged.&lt;/marklar&gt;
         &lt;marklar href="#" onclick="doMarklar()"&gt;More&lt;/marklar&gt;
       &lt;/marklar&gt;
@@ -86,16 +86,28 @@
 
         <section id="slide5">
           <div class="accessibilityWrapper">
-            <h2>Today</h2>
+            <h2>Accessibility Challenges</h2>
             <ul>
-              <li>Web Components!</li>
-              <li>Custom Elements</li>
-              <li>Shadow DOM</li>
+              <li>Semantics</li>
+              <li>Keyboard access</li>
+              <li>Text alternatives</li>
+              <li>Color contrast</li>
             </ul>
           </div>
         </section>
 
         <section id="slide6">
+          <div class="accessibilityWrapper">
+            <h2>Today</h2>
+            <ul>
+              <li>Web Components!</li>
+              <li>Shadow DOM</li>
+              <li>Custom Elements</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="slide7">
           <div class="accessibilityWrapper">
             <h2>Web Components</h2>
             <p class="highlight">New standards moving through the W3C</p>
@@ -109,7 +121,7 @@
           </div>
         </section>
 
-        <section id="slide7">
+        <section id="slide8">
           <div class="accessibilityWrapper">
             <h2>Why are we excited?</h2>
             <ul>
@@ -120,121 +132,7 @@
           </div>
         </section>
 
-        <section id="slide8">
-          <div class="accessibilityWrapper">
-            <h2>Accessibility Challenges</h2>
-            <ul>
-              <li>Keyboard access</li>
-              <li>Text alternatives</li>
-              <li>Semantics</li>
-            </ul>
-          </div>
-        </section>
-
-			  <section id="slide9">
-				  <div class="accessibilityWrapper">
-            <div id="contentdiv">
-              <h2 style="margin-top:0;">Custom Elements <span class="offscreen">good example: "x-tacobutton"</span></h2>
-              <div class="large-tag">
-                &lt;x-tacobutton&gt;
-              </div>
-              <x-tacobutton id="tacobutton" role="button" tabIndex="0">Give me tacos</x-tacobutton>
-            </div>
-            <div id="tacodiv" style="height: 100%; position: absolute; left: 0; top: 0; width: 100%;"></div>
-				  </div>
-			  </section>
-
-        <section id="slide10">
-          <div class="accessibilityWrapper">
-            <p class="bigItalic highlight">How to add semantics</p>
-            <h2>Extend a native element</h2>
-            <pre style="width: auto;"><code class="javascript">
-  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
-  var TacoButton = document.registerElement('taco-button', {
-    prototype: TacoButtonPrototype,
-    extends: 'button'
-  });
-  var tacoButton = new TacoButton();
-  document.body.appendChild(tacoButton).textContent = 'Give me tacos';
-  tacoButton = document.querySelector('button[is=taco-button]');
-            </code></pre>
-          </div>
-        </section>
-
-				<section id="slide11">
-  				<div class="accessibilityWrapper">
-            <p class="bigItalic highlight">How to add semantics</p>
-            <h2>Use native child elements</h2>
-            <pre><code class="html">
-        &lt;taco-surprise&gt;
-          &lt;h2&gt;Taco Surprise!&lt;/h2&gt;
-          &lt;button&gt;Give me tacos&lt;/button&gt;
-          &lt;p class="error invisible"&gt;Or give me death&lt;/p&gt;
-
-          &lt;output&gt;
-            &lt;img src="" alt="" aria-hidden="true"&gt;
-          &lt;/output&gt;
-        &lt;/taco-surprise&gt;
-            </code></pre>
-  				</div>
-				</section>
-
-				<section id="slide12">
-				  <div class="accessibilityWrapper">
-            <p class="bigItalic highlight">How to add semantics</p>
-            <h2>Attributes</h2>
-            <pre style="width: 100%"><code class="html">
-  &lt;taco-button role="button" tabIndex="0"&gt;tacos!&lt;/taco-button&gt;
-            </code></pre>
-            <pre style="width: 100%"><code class="javascript">
-  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
-  var TacoButton = document.registerElement('taco-button', {
-    prototype: TacoButtonPrototype,
-    extends: 'button'
-  });
-  var tacoButton = new TacoButton();
-            </code></pre>
-				  </div>
-				</section>
-
-        <section id="slide13">
-          <div class="accessibilityWrapper">
-            <h2>Custom Elements</h2>
-            <h3>Native Support</h3>
-            <ul>
-              <li>Chrome</li>
-              <li>Opera</li>
-              <li>Firefox (Nightly)</li>
-            </ul>
-            <p style="margin-top: 1em;font-size: 0.75em">Source: <a href="http://jonrimmer.github.io/are-we-componentized-yet/" target="_blank" title="Link opens in a new window">are we componentized yet?</a><br>
-            Note: this stuff moves <em>fast</em>!</p>
-          </div>
-        </section>
-
-        <section id="slide14">
-          <div class="accessibilityWrapper">
-            <h2 class="h1-style">Wait a minute...</h2>
-          </div>
-        </section>
-
-        <section id="slide15">
-          <div class="accessibilityWrapper">
-            <h2>Trees</h2>
-            <img src="img/tree.png" alt="Tree object representation compared to tree in nature">
-            <p><small>Source: <a href="http://www.eecs.berkeley.edu/~bh/ssch18/trees.html" target="_blank" title="Link opens in a new window">Simply Scheme, Chapter 18: Trees</a></small></p>
-          </div>
-        </section>
-
-        <section id="slide16">
-          <div class="accessibilityWrapper">
-            <h2>Rendering Engine Basic Flow</h2>
-            <p><em>(Webkit)</em></p>
-            <img src="img/webkitflow.png" alt="Webkit rendering engine main flow" style="background-color: #fff; padding: 1em;">
-            <p><small>Source: <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank" title="Link opens in a new window">How Browsers Work, HTML5 Rocks</a></small></p>
-          </div>
-        </section>
-
-        <section id="slide17">
+        <section id="slide9">
           <div class="accessibilityWrapper">
             <h2 class="h1-style">Shadow DOM</h2>
             <p class="bigItalic" style="padding: 0 1em;">Encapsulation by hiding DOM subtrees under shadow roots</p>
@@ -249,7 +147,21 @@
           </div>
         </section>
 
-        <section id="slide18">
+       <!-- <section id="slide10">
+          <div class="accessibilityWrapper">
+            <h2 class="h1-style">Wait a minute...</h2>
+          </div>
+        </section>-->
+
+        <section id="slide10">
+          <div class="accessibilityWrapper">
+            <h2>Trees</h2>
+            <img src="img/tree.png" alt="Tree object representation compared to tree in nature">
+            <p><small>Source: <a href="http://www.eecs.berkeley.edu/~bh/ssch18/trees.html" target="_blank" title="Link opens in a new window">Simply Scheme, Chapter 18: Trees</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide11">
           <div class="accessibilityWrapper">
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
@@ -257,7 +169,16 @@
           </div>
         </section>
 
-        <section id="slide19">
+        <section id="slide12">
+          <div class="accessibilityWrapper">
+            <h2>Rendering Engine Basic Flow</h2>
+            <p><em>(Webkit)</em></p>
+            <img src="img/webkitflow.png" alt="Webkit rendering engine main flow" style="background-color: #fff; padding: 1em;">
+            <p><small>Source: <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank" title="Link opens in a new window">How Browsers Work, HTML5 Rocks</a></small></p>
+          </div>
+        </section>
+
+        <section id="slide13">
   				<div class="accessibilityWrapper">
             <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
@@ -279,13 +200,13 @@
   				</div>
         </section>
 
-        <section id="slide20">
+        <section id="slide14">
           <div class="accessibilityWrapper">
             <h2><a href="demos/demo2.html" target="_blank" title="Link opens in a new window">Demo <span class="offscreen">opens in a new window</span></a></h2>
           </div>
         </section>
 
-        <section id="slide21">
+        <section id="slide15">
           <div class="accessibilityWrapper">
             <h2>Current Native Support</h2>
             <h3>Shadow DOM</h3>
@@ -302,10 +223,112 @@
           </div>
         </section>
 
+        <section id="slide16">
+          <div class="accessibilityWrapper">
+            <h2>Polyfills</h2>
+            <ul>
+              <li>Polymer</li>
+              <li>X-Tag*</li>
+            </ul>
+            <p style="margin-top: 1em;"><small>*Shadow DOM coming soon</small></p>
+          </div>
+        </section>
+
+        <section id="slide17">
+          <div class="accessibilityWrapper">
+            <h2>Custom Elements</h2>
+            <div class="large-tag">
+              &lt;x-tacobutton&gt;
+            </div>
+          </div>
+        </section>
+
+        <section id="slide18">
+          <div class="accessibilityWrapper">
+            <p class="bigItalic highlight">How to add semantics</p>
+            <h2>Extend a native element</h2>
+            <pre style="width: auto;"><code class="javascript">
+  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
+  var TacoButton = document.registerElement('taco-button', {
+    prototype: TacoButtonPrototype,
+    extends: 'button'
+  });
+  var tacoButton = new TacoButton();
+  document.body.appendChild(tacoButton).textContent = 'Give me tacos';
+  tacoButton = document.querySelector('button[is=taco-button]');
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="slide19">
+          <div class="accessibilityWrapper">
+            <p class="bigItalic highlight">How to add semantics</p>
+            <h2>Use native child elements</h2>
+            <pre><code class="html">
+        &lt;taco-surprise&gt;
+          &lt;h2&gt;Taco Surprise!&lt;/h2&gt;
+          &lt;button&gt;Give me tacos&lt;/button&gt;
+          &lt;p class="error invisible"&gt;Or give me death&lt;/p&gt;
+
+          &lt;output&gt;
+            &lt;img src="" alt="" aria-hidden="true"&gt;
+          &lt;/output&gt;
+        &lt;/taco-surprise&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="slide20">
+          <div class="accessibilityWrapper">
+            <p class="bigItalic highlight">How to add semantics</p>
+            <h2>Attributes</h2>
+            <pre style="width: 100%"><code class="html">
+  &lt;taco-button role="button" tabIndex="0"&gt;tacos!&lt;/taco-button&gt;
+            </code></pre>
+            <pre style="width: 100%"><code class="javascript">
+  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
+  var TacoButton = document.registerElement('taco-button', {
+    prototype: TacoButtonPrototype,
+    extends: 'button'
+  });
+  var tacoButton = new TacoButton();
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="slide21">
+          <div class="accessibilityWrapper">
+            <div id="contentdiv">
+              <h2 style="margin-bottom:0;">The Ultimate<br>Web Component</h2>
+              <div aria-hidden="true" class="cleardiv"></div>
+              <x-tacobutton id="tacobutton" role="button" tabIndex="0">Give me tacos</x-tacobutton>
+            </div>
+            <div id="tacodiv" style="height: 100%; position: absolute; left: 0; top: 0; width: 100%;"></div>
+          </div>
+        </section>
+
         <section id="slide22">
+          <div class="accessibilityWrapper">
+            <h2>Custom Elements</h2>
+            <h3>Native Support</h3>
+            <ul>
+              <li>Chrome</li>
+              <li>Opera</li>
+              <li>Firefox (Nightly)</li>
+            </ul>
+            <p style="margin-top: 1em;font-size: 0.75em">Source: <a href="http://jonrimmer.github.io/are-we-componentized-yet/" target="_blank" title="Link opens in a new window">are we componentized yet?</a><br>
+            Note: this stuff moves <em>fast</em>!</p>
+          </div>
+        </section>
+        <section id="slide23">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-web-components/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-web-components/</a></p>
+            <div style="margin-top: 2em;">
+              <h3>Thank you:</h3>
+              <img src="img/mozilla_wordmark.png" alt="Mozilla" style="background-color: #fff; margin-right: 0.5em; width: 40%">
+              <img src="img/twilio_logobrand.png" alt="Twilio" style="background-color: #fff; margin-left: 0.5em; width: 40%">
+            </div>
           </div>
         </section>
 			</div>
@@ -349,7 +372,7 @@
 			});
 
 		</script>
-    <!-- controldeck.js 
+    <!-- controldeck.js
     <script src="/socket.io/socket.io.js"></script>
     <script src="/controldeck-slides.js"></script>-->
 
