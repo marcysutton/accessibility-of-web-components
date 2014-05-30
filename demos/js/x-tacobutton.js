@@ -3,24 +3,13 @@
   var randomImg = new RandomImg(document);
   var twilioApp = new TwilioApp(document);
 
-  function getMeTacos(el){
+  function getMeTacos(component){
     var self = this;
 
-    console.log(el);
     if(twilioApp.connection === undefined){
       twilioApp.makeCall();
 
-      window.setInterval(function(){
-        var status = twilioApp.checkStatus();
-        if(status !== undefined){
-          console.log(status);
-          el.setAttribute('class', status);
-          if(status === 'pending'){
-            el.setAttribute('disabled', 'disabled');
-          }
-          el.innerHTML = 'Call '+ status;
-        }
-      }, 300);
+      component.watch();
     }
     randomImg.showTacos();
   }
@@ -43,9 +32,27 @@
         }
       }
     },
+    accessors: {
+      status: {
+        attribute: { string: 'offline' }
+      }
+    },
     methods: {
-      updateText: function(text) {
-        console.log(this);
+      updateText: function(status) {
+        this.textContent = 'Call ' + status;
+      },
+      watch: function(){
+        var self = this;
+        window.setInterval(function(){
+        var status = twilioApp.checkStatus();
+        if(status !== undefined){
+          self.setAttribute('class', status);
+          if(status === 'pending'){
+            self.setAttribute('disabled', 'disabled');
+          }
+          self.updateText(status);
+        }
+      }, 300);
       }
     }
   });
