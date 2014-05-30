@@ -279,7 +279,7 @@ body {
     background-color: rgba(0, 0, 0, 0.9); }
   .reveal #contentdiv.initialized div.cleardiv {
     background: none; }
-.reveal #slide1 p {
+.reveal .name-slide p {
   font-size: 0.75em;
   margin-bottom: 3%; }
 .reveal a.substantial-logo {
