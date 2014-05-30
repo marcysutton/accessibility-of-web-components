@@ -264,21 +264,21 @@ body {
 .reveal x-tacobutton:active {
   background-color: white;
   color: black; }
-.reveal #contentdiv {
+.reveal #textcontentdiv {
   position: relative;
   padding-top: 1em;
   z-index: 2; }
-  .reveal #contentdiv h2, .reveal #contentdiv div {
+  .reveal #textcontentdiv h2, .reveal #textcontentdiv div {
     display: inline-block;
     margin: 0;
     padding: 0.25em;
     transition: all 0.5s; }
-  .reveal #contentdiv div.cleardiv {
+  .reveal #textcontentdiv div.cleardiv {
     display: block; }
-  .reveal #contentdiv.initialized h2,
-  .reveal #contentdiv .initialized div {
+  .reveal #textcontentdiv.initialized h2,
+  .reveal #textcontentdiv .initialized div {
     background-color: rgba(0, 0, 0, 0.9); }
-  .reveal #contentdiv.initialized div.cleardiv {
+  .reveal #textcontentdiv.initialized div.cleardiv {
     background: none; }
 .reveal .name-slide p {
   font-size: 0.75em;
