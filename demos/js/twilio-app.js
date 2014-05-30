@@ -6,6 +6,8 @@ var TwilioApp = function(document, options){
   this.TARGET_NUMBER = '+12068198408';
   this.TOKEN_URL = 'http://10.0.0.81:8001/';
 
+  this.callStatus = undefined;
+
   // store a reference to our ARIA Live Region
   this.ariaLiveDiv = document.querySelector('[aria-live]');
 
@@ -24,8 +26,14 @@ TwilioApp.prototype = {
     r.overrideMimeType("application/json");
     r.open("GET", this.TOKEN_URL, true);
     r.onreadystatechange = function () {
-      if (r.readyState != 4 || r.status != 200) return;
-      self.setUpDevice(JSON.parse(r.responseText));
+      if (r.readyState == 4) {
+        if(r.status == 200) {
+          self.setUpDevice(JSON.parse(r.responseText));
+        }
+        else {
+         alert('Error connecting to server.')
+        }
+      }
     };
     r.send(null);
   },
@@ -42,13 +50,35 @@ TwilioApp.prototype = {
   },
   makeCall: function() {
     console.log(this);
-    Twilio.Device.connect({
+
+    this.connection = Twilio.Device.connect({
       CallerId: this.TWILIO_NUMBER,
       PhoneNumber: this.TARGET_NUMBER
     });
+    this.connection.error(this.errorHandler);
+
+    this.checkStatus();
+  },
+  checkStatus: function(){
+    var self = this;
+    window.setInterval(function(){
+      var connectionStatus = self.connection.status();
+      if(connectionStatus !== self.callStatus) {
+        self.callStatus = connectionStatus;
+        self.updateStatus(connectionStatus);
+      }
+    }, 300);
+  },
+  errorHandler: function(error){
+    console.log(error);
+    this.updateLiveRegion(error);
   },
   hangUp: function(){
     Twilio.Device.disconnectAll();
+  },
+  updateStatus: function(connectionStatus) {
+    console.log(connectionStatus);
+    this.updateLiveRegion('Call '+connectionStatus);
   },
   updateLiveRegion: function(message) {
     var messageEl = '<p>'+message+'</p>';
