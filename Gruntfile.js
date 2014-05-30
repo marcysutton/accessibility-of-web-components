@@ -68,11 +68,12 @@ module.exports = function(grunt) {
 			files: [ 'Gruntfile.js', 'js/reveal.js' ]
 		},
 
-		connect: {
-			server: {
-				options: {
-					port: port,
-					base: '.'
+    connect: {
+      server: {
+        options: {
+          port: port,
+          base: '.',
+          hostname: null
 				}
 			}
 		},
