@@ -1,4 +1,4 @@
-var RandomImg = function(){
+var RandomImg = function(document){
   this.imgArray = ["img1.gif", "img2.gif", "img3.gif", "img4.gif", "img5.gif"];
   this.tacoDiv = document.querySelector('#tacodiv');
   this.contentDiv = document.querySelector('#contentdiv');
@@ -8,7 +8,7 @@ RandomImg.prototype = {
     var num = Math.random() * (max - min) + min;
     return Math.floor(num);
   },
-  showTacos: function(document) {
+  showTacos: function() {
     var self = this;
     var path = '';
     if(window.imgPath){

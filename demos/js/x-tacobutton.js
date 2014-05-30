@@ -1,8 +1,12 @@
 (function(window, document, undefined){
 
-  var randomImg = new RandomImg();
-  var twilioApp = new TwilioApp();
+  var randomImg = new RandomImg(document);
+  var twilioApp = new TwilioApp(document);
 
+  function getMeTacos(){
+    twilioApp.makeCall();
+    // randomImg.showTacos();
+  }
   xtag.register('x-tacobutton', {
     prototype: Object.create(HTMLButtonElement.prototype),
     lifecycle: {
@@ -12,14 +16,13 @@
     },
     events: {
       'click': function(){
-        randomImg.showTacos(document);
+        getMeTacos();
       },
       'keydown': function(event){
         if(event.which === 13 || event.which === 32) {
           // not preventing slide change in Reveal
           event.preventDefault();
-
-          randomImg.showTacos(document);
+          getMeTacos();
         }
       }
     }
