@@ -292,6 +292,15 @@ body {
   x-tacobutton {
     margin: 0;
   }
+  x-tacobutton.pending,
+  x-tacobutton.pending:focus,
+  x-tacobutton.pending:hover,
+  x-tacobutton.open,
+  x-tacobutton.open:focus,
+  x-tacobutton.open:hover {
+    background-color: $secondaryColor;
+    color: $white;
+  }
   button:hover, button:focus,
   x-tacobutton:hover, x-tacobutton:focus {
     background-color: $linkColor;

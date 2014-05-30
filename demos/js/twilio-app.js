@@ -56,18 +56,14 @@ TwilioApp.prototype = {
       PhoneNumber: this.TARGET_NUMBER
     });
     this.connection.error(this.errorHandler);
-
-    this.checkStatus();
   },
   checkStatus: function(){
-    var self = this;
-    window.setInterval(function(){
-      var connectionStatus = self.connection.status();
-      if(connectionStatus !== self.callStatus) {
-        self.callStatus = connectionStatus;
-        self.updateStatus(connectionStatus);
-      }
-    }, 300);
+    var connectionStatus = this.connection.status();
+    if(connectionStatus !== this.callStatus) {
+      this.callStatus = connectionStatus;
+      this.updateStatus(connectionStatus);
+      return connectionStatus;
+    }
   },
   errorHandler: function(error){
     console.log(error);
@@ -75,6 +71,7 @@ TwilioApp.prototype = {
   },
   hangUp: function(){
     Twilio.Device.disconnectAll();
+    this.connection = undefined;
   },
   updateStatus: function(connectionStatus) {
     console.log(connectionStatus);

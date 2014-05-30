@@ -246,6 +246,14 @@ body {
   margin: 1.5em; }
 .reveal x-tacobutton {
   margin: 0; }
+.reveal x-tacobutton.pending,
+.reveal x-tacobutton.pending:focus,
+.reveal x-tacobutton.pending:hover,
+.reveal x-tacobutton.open,
+.reveal x-tacobutton.open:focus,
+.reveal x-tacobutton.open:hover {
+  background-color: #999999;
+  color: white; }
 .reveal button:hover, .reveal button:focus,
 .reveal x-tacobutton:hover, .reveal x-tacobutton:focus {
   background-color: #cff110;
