@@ -1,19 +1,16 @@
 var TwilioApp = function(document, options){
   var self = this;
 
+  // set up defaults
   this.TWILIO_NUMBER = '+13608136586';
   this.TARGET_NUMBER = '+12068198408';
   this.TOKEN_URL = 'http://10.0.0.81:8001/';
 
+  // store a reference to our ARIA Live Region
   this.ariaLiveDiv = document.querySelector('[aria-live]');
 
+  // kick things off with some sweet access
   this.fetchAuthToken();
-
-  // Register an event handler to be called a connection is attempted:
-  Twilio.Device.incoming(function(connection) {
-    console.log(connection);
-    self.updateLiveRegion('Call in progress...');
-  });
 
   // Register an event handler for when a call ends for any reason
   Twilio.Device.disconnect(function(connection) {
