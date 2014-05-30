@@ -3,7 +3,7 @@ var TwilioApp = function(document, options){
 
   this.TWILIO_NUMBER = '+13608136586';
   this.TARGET_NUMBER = '+12068198408';
-  this.TOKEN_URL = 'http://localhost:8001/';
+  this.TOKEN_URL = 'http://10.0.0.81:8001/';
 
   this.ariaLiveDiv = document.querySelector('[aria-live]');
 
