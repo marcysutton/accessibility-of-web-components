@@ -4,8 +4,10 @@
   var twilioApp = new TwilioApp(document);
 
   function getMeTacos(){
-    twilioApp.makeCall();
-    // randomImg.showTacos();
+    if(twilioApp.connection === undefined){
+      twilioApp.makeCall();
+    }
+    randomImg.showTacos();
   }
   xtag.register('x-tacobutton', {
     prototype: Object.create(HTMLButtonElement.prototype),
