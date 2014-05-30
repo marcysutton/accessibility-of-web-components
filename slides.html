@@ -75,7 +75,7 @@
   				</div>
 				</section>
 
-        <section id="slide4">
+        <section id="slide4" class="name-slide">
           <div class="accessibilityWrapper">
             <h1>Accessiblity of Web Components</h1>
             <p class="byline"><span>Created by</span> <a href="http://marcysutton.com" target="_blank" title="Link opens in a new window">Marcy Sutton</a></p>
@@ -93,21 +93,13 @@
               <li>Text alternatives</li>
               <li>Color contrast</li>
             </ul>
+            <aside class="notes">
+Semantics: the type of element object matters to a screen reader. Keyboard access: this is actually a wider audience than just screen reader users (broken arm? dead mouse?). You should be able to tab through any webpage and use everything with only a keyboard. Super important to people with poor motor control or who are using assistive technology. Text alternatives: this includes alt text on images, form labels (or ARIA equivalents), and offscreen text (I use this a LOT to add context to elements without text alternatives in the visual design).
+            </aside>
           </div>
         </section>
 
         <section id="slide6">
-          <div class="accessibilityWrapper">
-            <h2>Today</h2>
-            <ul>
-              <li>Web Components!</li>
-              <li>Shadow DOM</li>
-              <li>Custom Elements</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="slide7">
           <div class="accessibilityWrapper">
             <h2>Web Components</h2>
             <p class="highlight">New standards moving through the W3C</p>
@@ -121,6 +113,17 @@
           </div>
         </section>
 
+        <section id="slide7">
+          <div class="accessibilityWrapper">
+            <h2>Today</h2>
+            <ul>
+              <li>Web Components!</li>
+              <li>Shadow DOM</li>
+              <li>Custom Elements</li>
+            </ul>
+          </div>
+        </section>
+
         <section id="slide8">
           <div class="accessibilityWrapper">
             <h2>Why are we excited?</h2>
@@ -129,6 +132,9 @@
               <li>Less waiting for browsers</li>
               <li>Minimize conflicts</li>
             </ul>
+            <aside class="notes">
+ Less waiting for browser standards: like fancy HTML5 inputs. But the semantics of those matter.
+            </aside>
           </div>
         </section>
 
@@ -137,21 +143,15 @@
             <h2 class="h1-style">Shadow DOM</h2>
             <p class="bigItalic" style="padding: 0 1em;">Encapsulation by hiding DOM subtrees under shadow roots</p>
             <aside class="notes">
+Speaking of conflicts:
+Shadow DOM is designed to provide encapsulation by hiding DOM subtrees under shadow roots. It provides a method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM.
 
-            Shadow DOM is designed to provide encapsulation by hiding DOM subtrees under shadow roots. It provides a method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM.
-
-            Shadow host - an element hosting one or more Shadow DOM node trees.
-            Shadow tree - a node tree hosted by a shadow host.
-            Shadow root - the root node of a shadow tree.
+Shadow host - an element hosting one or more Shadow DOM node trees.
+Shadow tree - a node tree hosted by a shadow host.
+Shadow root - the root node of a shadow tree.
             </aside>
           </div>
         </section>
-
-       <!-- <section id="slide10">
-          <div class="accessibilityWrapper">
-            <h2 class="h1-style">Wait a minute...</h2>
-          </div>
-        </section>-->
 
         <section id="slide10">
           <div class="accessibilityWrapper">
@@ -166,6 +166,9 @@
             <h2 class="h3-style">Shadow DOM and the Browser's Rendering Tree</h2>
             <img src="img/shadow-dom.png" alt="Browser rendering tree" />
             <p><small>Source: <a href="http://www.w3.org/TR/shadow-dom/" target="_blank" title="Link opens in a new window">W3C Shadow DOM Specification</a></small></p>
+            <aside class="notes">
+              This boundary illustrates my biggest question about screen readers: they provide a protected area where scripts and styles don’t cross, so how could assistive technology pass through?
+            </aside>
           </div>
         </section>
 
@@ -175,10 +178,23 @@
             <p><em>(Webkit)</em></p>
             <img src="img/webkitflow.png" alt="Webkit rendering engine main flow" style="background-color: #fff; padding: 1em;">
             <p><small>Source: <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank" title="Link opens in a new window">How Browsers Work, HTML5 Rocks</a></small></p>
+            <aside class="notes">
+Browsers are the most complex applications. They have gotten really good at fixing our broken HTML. They translate HTML tags into objects which are affected by JavaScript and CSS. For example, we extend the DOM with JavaScript. We hide inactive hover menus or hidden content with “display: none;”. These are things that change our markup from its original form in View Source to its rendered form in the Element Inspector.
+            </aside>
           </div>
         </section>
 
         <section id="slide13">
+          <div class="accessibilityWrapper">
+            <h2>Trees &ldquo;as rendered&rdquo;</h2>
+            <img src="img/happy-little-tree.jpg" alt="Bob Ross happy little tree">
+            <aside class="notes">
+The DOM "as rendered", including Shadow DOM, presents one tree to assistive technology. That is what makes it accessible.
+            </aside>
+          </div>
+        </section>
+
+        <section id="slide14">
   				<div class="accessibilityWrapper">
             <h2>How do I Shadow DOM?</h2>
             <pre><code class="javascript">
@@ -200,13 +216,16 @@
   				</div>
         </section>
 
-        <section id="slide14">
+        <section id="slide15">
           <div class="accessibilityWrapper">
             <h2><a href="demos/demo2.html" target="_blank" title="Link opens in a new window">Demo <span class="offscreen">opens in a new window</span></a></h2>
+            <aside class="notes">
+DEMO VoiceOver, call attention to trees 'as rendered'
+            </aside>
           </div>
         </section>
 
-        <section id="slide15">
+        <section id="slide16">
           <div class="accessibilityWrapper">
             <h2>Current Native Support</h2>
             <h3>Shadow DOM</h3>
@@ -223,7 +242,7 @@
           </div>
         </section>
 
-        <section id="slide16">
+        <section id="slide17">
           <div class="accessibilityWrapper">
             <h2>Polyfills</h2>
             <ul>
@@ -231,19 +250,25 @@
               <li>X-Tag*</li>
             </ul>
             <p style="margin-top: 1em;"><small>*Shadow DOM coming soon</small></p>
-          </div>
-        </section>
-
-        <section id="slide17">
-          <div class="accessibilityWrapper">
-            <h2>Custom Elements</h2>
-            <div class="large-tag">
-              &lt;x-tacobutton&gt;
-            </div>
+            <aside class="notes">
+Polymer can get you to IE10, X-Tag can get you to IE9 but it doesn’t yet support Shadow DOM. And I heard they might do away with it and work more functionality into Brick. Which would be more similar to the approach of Polymer, which has its shim, which will fill in less and less over time as browsers evolve, while also providing optional components for you to use.
+            </aside>
           </div>
         </section>
 
         <section id="slide18">
+          <div class="accessibilityWrapper">
+            <h2>Custom Elements</h2>
+            <div class="large-tag">
+              &lt;taco-button&gt;
+            </div>
+            <aside class="notes">
+The elements of your dreams need semantics.
+            </aside>
+          </div>
+        </section>
+
+        <section id="slide19">
           <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Extend a native element</h2>
@@ -260,7 +285,7 @@
           </div>
         </section>
 
-        <section id="slide19">
+        <section id="slide20">
           <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Use native child elements</h2>
@@ -268,35 +293,35 @@
         &lt;taco-surprise&gt;
           &lt;h2&gt;Taco Surprise!&lt;/h2&gt;
           &lt;button&gt;Give me tacos&lt;/button&gt;
-          &lt;p class="error invisible"&gt;Or give me death&lt;/p&gt;
 
           &lt;output&gt;
             &lt;img src="" alt="" aria-hidden="true"&gt;
+            &lt;p class="error hidden"&gt;Or give me death&lt;/p&gt;
           &lt;/output&gt;
         &lt;/taco-surprise&gt;
             </code></pre>
           </div>
         </section>
 
-        <section id="slide20">
+        <section id="slide21">
           <div class="accessibilityWrapper">
             <p class="bigItalic highlight">How to add semantics</p>
             <h2>Attributes</h2>
+            <p>ARIA and Tab Index</p>
             <pre style="width: 100%"><code class="html">
   &lt;taco-button role="button" tabIndex="0"&gt;tacos!&lt;/taco-button&gt;
             </code></pre>
-            <pre style="width: 100%"><code class="javascript">
-  var TacoButtonPrototype = Object.create(HTMLButtonElement.prototype);
-  var TacoButton = document.registerElement('taco-button', {
-    prototype: TacoButtonPrototype,
-    extends: 'button'
-  });
-  var tacoButton = new TacoButton();
+            <pre style="width: 100%"><code class="html">
+  &lt;pork-slider role="slider" aria-valuemin="0" aria-valuemax="5"
+  aria-valuenow="0"&gt;&lt;/pork-slider&gt;
             </code></pre>
+            <aside class="notes">
+
+            </aside>
           </div>
         </section>
 
-        <section id="slide21">
+        <section id="slide22">
           <div class="accessibilityWrapper">
             <div id="contentdiv">
               <h2 style="margin-bottom:0;">The Ultimate<br>Web Component</h2>
@@ -308,7 +333,7 @@
           </div>
         </section>
 
-        <section id="slide22">
+        <section id="slide23">
           <div class="accessibilityWrapper">
             <h2>Custom Elements</h2>
             <h3>Native Support</h3>
@@ -321,7 +346,7 @@
             Note: this stuff moves <em>fast</em>!</p>
           </div>
         </section>
-        <section id="slide23">
+        <section id="slide24">
           <div class="accessibilityWrapper">
             <h2>Resources</h2>
             <p><a href="http://tiny.cc/a11y-web-components/" target="_blank" title="Link opens in a new window">http://tiny.cc/a11y-web-components/</a></p>
