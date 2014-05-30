@@ -31,7 +31,7 @@ TwilioApp.prototype = {
           self.setUpDevice(JSON.parse(r.responseText));
         }
         else {
-         alert('Error connecting to server.')
+         console.log('Error connecting to Twilio server.');
         }
       }
     };
