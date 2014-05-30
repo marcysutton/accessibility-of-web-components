@@ -45,6 +45,10 @@ body {
     max-height: 500px; }
   .reveal .slides > section.present > .accessibilityWrapper {
     outline: none; }
+  .reveal .slides > section > .accessibilityWrapper.staticPage {
+    display: block;
+    margin-top: 2em;
+    visibility: visible; }
   .reveal footer {
     position: fixed;
     height: 40px;
@@ -65,6 +69,11 @@ body {
   color: white;
   background: #97948f;
   text-shadow: none; }
+
+.offscreen {
+  display: block;
+  left: -500000px;
+  position: absolute; }
 
 /*********************************************
  * HEADERS
@@ -264,6 +273,12 @@ body {
 .reveal x-tacobutton:active {
   background-color: white;
   color: black; }
+.reveal #imgdiv {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%; }
 .reveal #textcontentdiv {
   position: relative;
   padding-top: 1em;

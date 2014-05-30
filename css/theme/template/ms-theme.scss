@@ -25,6 +25,11 @@ body {
   .slides > section.present > .accessibilityWrapper {
     outline: none;
   }
+  .slides > section > .accessibilityWrapper.staticPage {
+    display: block;
+    margin-top: 2em;
+    visibility: visible;
+  }
   footer {
     position: fixed;
     height: 40px;
@@ -50,6 +55,11 @@ body {
 	text-shadow: none;
 }
 
+.offscreen {
+  display: block;
+  left: -500000px;
+  position: absolute;
+}
 /*********************************************
  * HEADERS
  *********************************************/
@@ -312,6 +322,13 @@ body {
   x-tacobutton:active {
     background-color: $white;
     color: $backgroundColor;
+  }
+  #imgdiv {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
   #textcontentdiv {
     position: relative;
