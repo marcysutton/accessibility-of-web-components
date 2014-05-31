@@ -2,10 +2,11 @@
 
 By [Marcy Sutton](http://twitter.com/marcysutton)
 
-JSConf US, May 30 2014
-Seattle JS, May 15 2014
-Inclusive Design 24, May 15 2014
-JSConf Australia (Accessibility of the Shadow DOM), April 10 2014
+Presented at:
+* JSConf US, May 30 2014
+* Seattle JS, May 15 2014
+* Inclusive Design 24, May 15 2014
+* JSConf Australia (Accessibility of the Shadow DOM), April 10 2014
 
 This presentation uses Reveal.js along with a custom plugin I wrote for improved accessibility.
 
