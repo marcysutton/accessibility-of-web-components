@@ -6,7 +6,7 @@
   function getMeTacos(component){
     var self = this;
 
-    if(twilioApp.connection === undefined){
+    if(twilioApp.callStatus === 'ready'){
       twilioApp.makeCall();
 
       component.watch();
