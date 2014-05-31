@@ -16,12 +16,15 @@ This presentation uses Reveal.js along with a custom plugin I wrote for improved
 * Really hidden offscreen slides (requires linear transitions)
 * Slide focus management
 
-## Installation
+##Slides
+[http://marcysutton.github.io/accessibility-of-web-components](http://marcysutton.github.io/accessibility-of-web-components)
 
+* * *
+
+## Installation
 Should you want to run this presentation from source for some reason, the **full setup** gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.
 
 ### Building from source locally
-
 Some reveal.js features require that presentations run from a local web server. The following instructions will set up such a server as well as all of the development tasks needed to make edits to the reveal.js source code.
 
 1. Install [Node.js](http://nodejs.org/)
