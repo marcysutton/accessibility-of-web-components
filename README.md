@@ -1,4 +1,5 @@
 #Accessibility of Web Components
+[http://marcysutton.github.io/accessibility-of-web-components](http://marcysutton.github.io/accessibility-of-web-components)
 
 By [Marcy Sutton](http://marcysutton.com)<br>
 Developer at [Substantial](http://substantial.com)<br>
@@ -10,16 +11,11 @@ twitter: [@marcysutton](http://twitter.com/marcysutton)
 * Inclusive Design 24, May 15 2014
 * JSConf Australia (Accessibility of the Shadow DOM), April 10 2014
 
-##Slides
-[http://marcysutton.github.io/accessibility-of-web-components](http://marcysutton.github.io/accessibility-of-web-components)
-
 ##Accessibility features
 This presentation uses Reveal.js along with a custom plugin I wrote for improved accessibility. (Separate repo coming soon)
 * Dynamic skip navigation
 * Really hidden offscreen slides (requires linear transitions)
 * Slide focus management
-
----
 
 ## Installation
 Should you want to run this presentation from source for some reason, the **full setup** gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.
