@@ -1,6 +1,6 @@
 #Accessibility of Web Components
 
-[Marcy Sutton](http://marcysutton.com), Developer at Substantial
+[Marcy Sutton](http://marcysutton.com), Developer at Substantial<br>
 twitter: [http://twitter.com/marcysutton](http://twitter.com/marcysutton)
 
 ##Presented at:
