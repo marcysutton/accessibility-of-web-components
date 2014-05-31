@@ -1,8 +1,9 @@
 #Accessibility of Web Components
 
-By [Marcy Sutton](http://twitter.com/marcysutton)
+[Marcy Sutton](http://marcysutton.com), Developer at Substantial
+twitter: [@marcysutton](http://twitter.com/marcysutton)
 
-Presented at:
+##Presented at:
 * JSConf US, May 30 2014
 * Seattle JS, May 15 2014
 * Inclusive Design 24, May 15 2014
@@ -11,9 +12,9 @@ Presented at:
 This presentation uses Reveal.js along with a custom plugin I wrote for improved accessibility.
 
 ##Plugin features
-Dynamic skip navigation
-Really hidden offscreen slides (requires linear transitions)
-Slide focus management
+* Dynamic skip navigation
+* Really hidden offscreen slides (requires linear transitions)
+* Slide focus management
 
 ## Installation
 
