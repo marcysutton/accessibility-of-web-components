@@ -1,5 +1,5 @@
 #Accessibility of Web Components
-[http://marcysutton.github.io/accessibility-of-web-components](http://marcysutton.github.io/accessibility-of-web-components)
+[http://marcysutton.github.io/accessibility-of-web-components/slides.html](http://marcysutton.github.io/accessibility-of-web-components/slides.html)
 
 By [Marcy Sutton](http://marcysutton.com)<br>
 Developer at [Substantial](http://substantial.com)<br>
