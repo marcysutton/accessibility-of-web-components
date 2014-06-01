@@ -4,7 +4,7 @@
  *
  * Copyright (C) 2013 Marcy Sutton, http://marcysutton.com
  */
- 
+
 var SkipLinks = (function(){
 
 	'use strict';
@@ -12,44 +12,44 @@ var SkipLinks = (function(){
 	var SKIP_TO_NAV_LINK_SELECTOR = '#skip-to-toc',
 		  SLIDE_SKIP_LINKS_SELECTOR = 'table-of-contents',
 		  SLIDE_SELECTOR = '.slides section[id^="slide"]',
-		  ACCESSIBILITY_WRAPPER_SELECTOR = '.accessibilityWrapper',
+		  SKIP_LINK_TARGET_SELECTOR = '.accessibilityWrapper',
 		  CONTROLS_SELECTOR = '.controls',
 		  NUM_SLIDES = 1,
-		  
+
   		// Cached references to DOM elements
   		dom = {};
-    
+
   	// Copy options over to our config object
     if( typeof options === 'object' ) extend( config, options );
-    
+
     // if controls are present, we'll insert table of contents after them
     if( document.querySelector( CONTROLS_SELECTOR )){
       dom.controls = document.querySelector( CONTROLS_SELECTOR );
     }
-    
+
     // if the skip to nav link is present, we'll make it jump to our links
     if( document.querySelector( SKIP_TO_NAV_LINK_SELECTOR ) ){
-      
+
       NUM_SLIDES = document.querySelectorAll( SLIDE_SELECTOR ).length;
-      
+
       buildSkipLinks();
   	}
-	
+
   /**
 	 * Build skip links.
 	 */
   function buildSkipLinks() {
 		dom.wrapper = document.querySelector( '.reveal' );
-		
+
     var skipLinkHTML = '';
-    
+
     for(var i = 1; i < NUM_SLIDES; i++){
       skipLinkHTML += '<li><a href="#/slide' + i + '">Slide ' + i + '</a></li>';
     }
     skipLinkHTML += '</ul>';
 
 		dom.skipLinks = createNodeAfterSibling( dom.wrapper, 'ul', SLIDE_SKIP_LINKS_SELECTOR, 'skip-links', skipLinkHTML, dom.controls, {'aria-hidden': true} );
-    
+
 		initSkipLinks();
   }
   /**
@@ -57,18 +57,18 @@ var SkipLinks = (function(){
 	 */
 	function initSkipLinks() {
     dom.skipToNavLink = document.querySelector( SKIP_TO_NAV_LINK_SELECTOR );
-    
-    var wrapperEls = document.querySelectorAll( ACCESSIBILITY_WRAPPER_SELECTOR );
+
+    var wrapperEls = document.querySelectorAll( SKIP_LINK_TARGET_SELECTOR );
     for(var g=wrapperEls.length; g--;){
     	wrapperEls[g].setAttribute('tabIndex', '-1');
     }
 
     dom.slideSkipLinks = dom.skipLinks.querySelectorAll('a');
-		
+
     dom.skipToNavLink.addEventListener('focus', skipLinkFocus);
     dom.skipToNavLink.addEventListener('blur', skipLinkBlur);
     dom.skipToNavLink.addEventListener('click', skipToNavLinkClick);
-    
+
     var numSkipLinks = dom.slideSkipLinks.length;
     for(var i=numSkipLinks; i--;){
       dom.slideSkipLinks[i].addEventListener('focus', skipLinksFocus);
@@ -113,10 +113,10 @@ var SkipLinks = (function(){
 		skipLinkBlur(event);
 		var href = event.currentTarget.getAttribute('href');
 		var section = document.querySelector('#'+href.split('#/')[1]);
-		section.querySelector( ACCESSIBILITY_WRAPPER_SELECTOR ).focus();
+		section.querySelector( SKIP_LINK_TARGET_SELECTOR ).focus();
 	}
-	
-	
+
+
 	/**
 	 * Extend object a with the properties of object b.
 	 * If there's a conflict, object b takes precedence.
@@ -130,7 +130,7 @@ var SkipLinks = (function(){
 	}
 	/**
 	 * Creates an HTML element and returns a reference to it.
-	 * If a sibling element is passed through, element is 
+	 * If a sibling element is passed through, element is
 	 * inserted after.
 	 */
 	function createNodeAfterSibling( container, tagname, id, classname, innerHTML, sibling, options ) {
