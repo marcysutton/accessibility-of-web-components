@@ -1,6 +1,21 @@
 // Base theme template for reveal.js
 
 /*********************************************
+ * AccessibilityHelper Plugin
+ *********************************************/
+  .slides > section.present > .accessibilityWrapper {
+    outline: none;
+  }
+  .slides.staticPage > section {
+    display: block !important;
+
+    &> .accessibilityWrapper {
+      display: block;
+      visibility: visible;
+    }
+  }
+
+/*********************************************
  * GLOBAL STYLES
  *********************************************/
 
@@ -21,14 +36,6 @@ body {
     font-size: 1.15em;
     line-height: 1.45em;
     max-height: 500px;
-  }
-  .slides > section.present > .accessibilityWrapper {
-    outline: none;
-  }
-  .slides > section > .accessibilityWrapper.staticPage {
-    display: block;
-    margin-top: 2em;
-    visibility: visible;
   }
   footer {
     position: fixed;
