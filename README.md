@@ -17,8 +17,14 @@ This presentation uses Reveal.js along with a custom plugin I wrote for improved
 * Really hidden offscreen slides (requires linear transitions)
 * Slide focus management
 
+## Browser requirements
+To view the demos included in the slides, you will need the latest version of Chrome (possibly without flags enabled now, it changes fast) or Firefox Nightly.
+
 ## Installation
+
 Should you want to run this presentation from source for some reason, the **full setup** gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.
+
+The full experience of the infamous taco-summoning Web Component requires a Twilio account and set-up of a [separate repository](https://github.com/marcysutton/twilio-app). The Twilio App repo will allow you to create a Node server for Twilio authentication. Otherwise, the button simply shows taco gifs. Cool, but less magical.
 
 ### Building from source locally
 Some reveal.js features require that presentations run from a local web server. The following instructions will set up such a server as well as all of the development tasks needed to make edits to the reveal.js source code.
