@@ -9,17 +9,17 @@ var SkipLinks = (function(){
 
 	'use strict';
 
-	var SKIP_TO_NAV_LINK_SELECTOR = '#skip-to-toc',
-		  SLIDE_SKIP_LINKS_SELECTOR = 'table-of-contents',
-		  SLIDE_SELECTOR = '.slides section[id^="slide"]',
-		  SKIP_LINK_TARGET_SELECTOR = '.accessibilityWrapper',
-		  CONTROLS_SELECTOR = '.controls',
-		  NUM_SLIDES = 1,
+  var SKIP_TO_NAV_LINK_SELECTOR = '#skip-to-toc',
+    SLIDE_SKIP_LINKS_SELECTOR = 'table-of-contents',
+    SLIDE_SELECTOR = '.slides section[id^="slide"]',
+    SKIP_LINK_TARGET_SELECTOR = '.accessibilityWrapper',
+    CONTROLS_SELECTOR = '.controls',
+    NUM_SLIDES = 1,
 
-  		// Cached references to DOM elements
-  		dom = {};
+		// Cached references to DOM elements
+		dom = {};
 
-  	// Copy options over to our config object
+    // Copy options over to our config object
     if( typeof options === 'object' ) extend( config, options );
 
     // if controls are present, we'll insert table of contents after them
@@ -33,7 +33,7 @@ var SkipLinks = (function(){
       NUM_SLIDES = document.querySelectorAll( SLIDE_SELECTOR ).length;
 
       buildSkipLinks();
-  	}
+    }
 
   /**
 	 * Build skip links.
