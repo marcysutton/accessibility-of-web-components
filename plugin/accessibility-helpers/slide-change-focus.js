@@ -15,7 +15,7 @@ var SlideChangeFocus = (function(){
   var slides = document.querySelectorAll( SLIDE_SELECTOR );
   for(var i=0; i<slides.length; i++){
     var contents = slides[i].innerHTML;
-    slides[i].innerHTML = '<div class="accessibilityWrapper">'+contents+'</div>';
+    slides[i].innerHTML = '<div class="accessibilityWrapper" tabIndex="-1">'+contents+'</div>';
   }
 
   Reveal.addEventListener('slidechanged', sendFocusToCurrentSlide.bind(this));
