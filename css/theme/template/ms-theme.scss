@@ -14,6 +14,42 @@
       visibility: visible;
     }
   }
+.reveal {
+  #global-skip-link {
+    display: block;
+    font-size: 0.6em;
+    left: -50000px;
+    padding: 5px 10px;
+    position: fixed;
+    white-space: nowrap;
+  }
+  ul#table-of-contents {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: block;
+        font-size: 0.6em;
+        left: -50000px;
+        padding: 5px 10px;
+        position: absolute;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+.offscreen {
+  display: block;
+  left: -50000px;
+  position: absolute;
+}
 
 /*********************************************
  * GLOBAL STYLES
