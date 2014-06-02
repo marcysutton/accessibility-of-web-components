@@ -18,7 +18,7 @@ This presentation uses Reveal.js along with a custom plugin I wrote for improved
 * Slide focus management
 
 ## Browser requirements
-To view the demos included in the slides, you will need the latest version of Chrome (possibly without flags enabled now, it changes fast) or Firefox Nightly.
+To view the demos included in the slides, you will need the latest version of Chrome with the `Enable Experimental JavaScript` flag turned on or Firefox 29 with the `dom.webcomponents.enabled` flag set to `true`.
 
 ## Installation
 
@@ -56,9 +56,3 @@ $ grunt serve
 8. Open <http://localhost:8000> to view your presentation
 
 You can change the port by using `grunt serve --port 8001`.
-
-## License
-
-MIT licensed
-
-Copyright (C) 2013 Hakim El Hattab, http://hakim.se
