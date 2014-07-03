@@ -1,7 +1,7 @@
 #Accessibility of Web Components
 [http://marcysutton.github.io/accessibility-of-web-components/slides.html](http://marcysutton.github.io/accessibility-of-web-components/slides.html)
 
-<a href="https://www.youtube.com/watch?v=BgvDZZ8Ms8c&feature=youtu.be" target="_blank" title="Link opens in a new window">Video</a>
+<a href="https://www.youtube.com/watch?v=BgvDZZ8Ms8c&feature=youtu.be" target="_blank" title="Link opens in a new window">JSConf Video</a>
 
 By [Marcy Sutton](http://marcysutton.com)<br>
 Developer at [Substantial](http://substantial.com)<br>
