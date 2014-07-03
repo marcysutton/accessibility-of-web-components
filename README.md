@@ -1,6 +1,8 @@
 #Accessibility of Web Components
 [http://marcysutton.github.io/accessibility-of-web-components/slides.html](http://marcysutton.github.io/accessibility-of-web-components/slides.html)
 
+Video: [https://www.youtube.com/watch?v=BgvDZZ8Ms8c&feature=youtu.be](https://www.youtube.com/watch?v=BgvDZZ8Ms8c&feature=youtu.be)
+
 By [Marcy Sutton](http://marcysutton.com)<br>
 Developer at [Substantial](http://substantial.com)<br>
 twitter: [@marcysutton](http://twitter.com/marcysutton)
